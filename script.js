@@ -1,0 +1,138 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Initialize Scroll Reveal
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // 4. Mobile Menu Toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            });
+        });
+    }
+
+    // 2. Custom Cursor Movement
+    const cursor = document.getElementById('cursor');
+    const cursorBlur = document.createElement('div');
+    cursorBlur.id = 'cursor-blur';
+    document.body.appendChild(cursorBlur);
+
+    document.addEventListener('mousemove', (e) => {
+        const { clientX, clientY } = e;
+        
+        // Main cursor
+        cursor.style.left = `${clientX}px`;
+        cursor.style.top = `${clientY}px`;
+        
+        // Large blur effect (slow follow)
+        cursorBlur.style.left = `${clientX}px`;
+        cursorBlur.style.top = `${clientY}px`;
+        cursorBlur.style.transform = `translate(-50%, -50%)`;
+    });
+
+    // 3. Navbar Scrolled State
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+
+    // CSS for background dots and interactive cursor effects
+    const style = document.createElement('style');
+    style.innerHTML = `
+        #cursor-blur {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--primary-dim) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            transition: all 0.3s ease-out;
+            opacity: 0.2;
+        }
+
+        /* Cursor Scaling on Hovers */
+        .btn:hover ~ #cursor, .nav-link:hover ~ #cursor, .logo-link:hover ~ #cursor, .service-card:hover ~ #cursor, .problem-card:hover ~ #cursor {
+            transform: translate(-50%, -50%) scale(2.5);
+            background-color: #fff;
+            mix-blend-mode: normal;
+        }
+
+    `;
+    document.head.appendChild(style);
+
+    // 4. Smooth Scrolling for all links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (href === '#') return;
+            
+            e.preventDefault();
+            const target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // 5. Automatic Hero Slider
+    const heroSlides = document.querySelectorAll('.hero-slide');
+    let currentSlide = 0;
+
+    function rotateHeroSlides() {
+        if (!heroSlides.length) return;
+        
+        const prevSlide = heroSlides[currentSlide];
+        prevSlide.classList.remove('active');
+        prevSlide.classList.add('exit');
+        
+        // Prepare next slide
+        currentSlide = (currentSlide + 1) % heroSlides.length;
+        heroSlides[currentSlide].classList.remove('exit');
+        heroSlides[currentSlide].classList.add('active');
+        
+        // Cleanup exit class after animation
+        setTimeout(() => {
+            prevSlide.classList.remove('exit');
+        }, 1200);
+    }
+
+    if (heroSlides.length > 1) {
+        setInterval(rotateHeroSlides, 5000); // 5 seconds rotation
+    }
+
+    // 6. Hero Subtle Movement (Parallax)
+    window.addEventListener('mousemove', (e) => {
+        const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
+        const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
+        const slider = document.querySelector('.hero-slider');
+        if (slider) {
+            slider.style.transform = `scale(1.05) translate(${moveX}px, ${moveY}px)`;
+        }
+    });
+});
