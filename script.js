@@ -135,4 +135,54 @@ document.addEventListener('DOMContentLoaded', () => {
             slider.style.transform = `scale(1.05) translate(${moveX}px, ${moveY}px)`;
         }
     });
+
+    // 7. Video Modal Logic
+    const videoModal = document.getElementById('videoModal');
+    const modalVideo = document.getElementById('modalVideo');
+    const modalSource = document.getElementById('modalSource');
+    const closeModalBtn = document.getElementById('closeModal');
+    const videoCards = document.querySelectorAll('.video-card');
+
+    function openModal(videoSrc) {
+        modalSource.src = videoSrc;
+        modalVideo.load();
+        videoModal.classList.add('active');
+        modalVideo.play();
+    }
+
+    function closeModal() {
+        videoModal.classList.remove('active');
+        modalVideo.pause();
+        modalVideo.currentTime = 0;
+        modalSource.src = "";
+    }
+
+    videoCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const videoElem = card.querySelector('video');
+            const sourceElem = videoElem.querySelector('source');
+            if (sourceElem) {
+                openModal(sourceElem.src);
+            }
+        });
+    });
+
+    closeModalBtn.addEventListener('click', closeModal);
+    
+    // Auto-close when finished
+    modalVideo.onended = () => {
+        closeModal();
+    };
+
+    // Close on background click
+    videoModal.addEventListener('click', (e) => {
+        if (e.target === videoModal) {
+            closeModal();
+        }
+    });
+
+    // Handle Escape key for modal
+    window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeModal();
+    });
 });
