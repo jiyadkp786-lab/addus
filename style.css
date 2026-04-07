@@ -199,8 +199,12 @@ img {
 .navbar.scrolled {
     background-color: var(--bg-navbar);
     backdrop-filter: blur(20px);
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--border-dim);
+    padding: 0.8rem 0;
+    margin: 0.5rem;
+    border-radius: 20px;
+    width: calc(100% - 1rem);
+    left: 0.5rem;
+    border: 1px solid var(--border-dim);
 }
 
 .nav-container {
@@ -264,10 +268,14 @@ img {
 
 /* Hero Section - Full Width Overlay */
 .hero.full-width {
-    height: 100vh;
+    height: 94vh;
+    margin: 1rem 1rem 4rem;
     padding: 0;
     position: relative;
     overflow: hidden;
+    border-radius: 40px 40px 180px 180px;
+    background-color: var(--bg-dark);
+    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
 }
 
 .hero-image-wrap {
@@ -405,7 +413,7 @@ img {
 
 .hero-scroll-indicator {
     position: absolute;
-    bottom: 2rem;
+    bottom: 3rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
@@ -928,12 +936,19 @@ img {
     
     .hero.full-width {
         height: auto;
-        min-height: 100vh;
-        padding: 8rem 0 4rem; /* Better breathing room */
+        min-height: 90vh;
+        padding: 6rem 0 4rem;
+        border-radius: 2rem 2rem 5rem 5rem;
+        margin: 0.5rem 0.5rem 2.5rem;
     }
 
-    .hero-overlay {
-        background: rgba(0, 0, 0, 0.85); /* Slightly darker for mobile readability */
+    .hero-container {
+        justify-content: center;
+        padding-top: 4rem;
+    }
+
+    .hero-content {
+        text-align: center;
     }
 
     .hero-btns { 
