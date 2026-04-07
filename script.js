@@ -49,15 +49,33 @@ document.addEventListener('DOMContentLoaded', () => {
         cursorBlur.style.transform = `translate(-50%, -50%)`;
     });
 
-    // 3. Navbar Scrolled State
+    // 3. Navbar Theme & Scroll State
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
+    const hero = document.getElementById('hero');
+    
+    function updateNavbar() {
+        const scrollY = window.scrollY;
+        
+        // Check if hero is white-theme to adjust navbar colors initially
+        if (hero && hero.classList.contains('white-theme')) {
+            if (scrollY < 100) {
+                navbar.classList.add('on-white');
+                navbar.classList.remove('scrolled');
+            } else {
+                navbar.classList.remove('on-white');
+                navbar.classList.add('scrolled');
+            }
         } else {
-            navbar.classList.remove('scrolled');
+            if (scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         }
-    });
+    }
+    
+    window.addEventListener('scroll', updateNavbar);
+    updateNavbar(); // Initial check
 
     // CSS for background dots and interactive cursor effects
     const style = document.createElement('style');
@@ -80,7 +98,6 @@ document.addEventListener('DOMContentLoaded', () => {
             background-color: #fff;
             mix-blend-mode: normal;
         }
-
     `;
     document.head.appendChild(style);
 
@@ -100,39 +117,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. Automatic Hero Slider
-    const heroSlides = document.querySelectorAll('.hero-slide');
+    // 5. Automatic Character Slider
+    const characterSlides = document.querySelectorAll('.character-slide');
+    const roleElement = document.querySelector('.character-role');
     let currentSlide = 0;
 
-    function rotateHeroSlides() {
-        if (!heroSlides.length) return;
+    function rotateCharacters() {
+        if (!characterSlides.length) return;
         
-        const prevSlide = heroSlides[currentSlide];
-        prevSlide.classList.remove('active');
-        prevSlide.classList.add('exit');
+        // Remove active from current
+        characterSlides[currentSlide].classList.remove('active');
         
         // Prepare next slide
-        currentSlide = (currentSlide + 1) % heroSlides.length;
-        heroSlides[currentSlide].classList.remove('exit');
-        heroSlides[currentSlide].classList.add('active');
+        currentSlide = (currentSlide + 1) % characterSlides.length;
+        const nextSlide = characterSlides[currentSlide];
         
-        // Cleanup exit class after animation
-        setTimeout(() => {
-            prevSlide.classList.remove('exit');
-        }, 1200);
+        // Update character info
+        if (roleElement) {
+            roleElement.classList.remove('active');
+            setTimeout(() => {
+                roleElement.textContent = nextSlide.getAttribute('data-title');
+                roleElement.classList.add('active');
+            }, 500);
+        }
+        
+        // Activate next slide
+        nextSlide.classList.add('active');
     }
 
-    if (heroSlides.length > 1) {
-        setInterval(rotateHeroSlides, 5000); // 5 seconds rotation
+    if (characterSlides.length > 1) {
+        // Initial setup for the first title
+        if (roleElement && characterSlides[0]) {
+            roleElement.textContent = characterSlides[0].getAttribute('data-title');
+            roleElement.classList.add('active');
+        }
+        
+        setInterval(rotateCharacters, 4000); // 4 seconds rotation
     }
 
-    // 6. Hero Subtle Movement (Parallax)
+    // 6. Character Subtle Movement (Parallax)
     window.addEventListener('mousemove', (e) => {
-        const moveX = (e.clientX - window.innerWidth / 2) * 0.01;
-        const moveY = (e.clientY - window.innerHeight / 2) * 0.01;
-        const slider = document.querySelector('.hero-slider');
-        if (slider) {
-            slider.style.transform = `scale(1.05) translate(${moveX}px, ${moveY}px)`;
+        const moveX = (e.clientX - window.innerWidth / 2) * 0.02;
+        const moveY = (e.clientY - window.innerHeight / 2) * 0.02;
+        const activeImg = document.querySelector('.character-slide.active img');
+        if (activeImg) {
+            activeImg.style.transform = `translate(${moveX}px, ${moveY}px)`;
         }
     });
 

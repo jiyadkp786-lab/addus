@@ -266,172 +266,177 @@ img {
     margin: 5px 0;
 }
 
-/* Hero Section - Full Width Overlay */
-.hero.full-width {
-    height: 94vh;
-    margin: 1rem 1rem 4rem;
-    padding: 0;
+/* Hero Section - White Theme Character Slider */
+.hero.white-theme {
+    height: 100vh;
+    background-color: #FFFFFF;
     position: relative;
     overflow: hidden;
-    border-radius: 40px 40px 180px 180px;
-    background-color: var(--bg-dark);
-    box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    color: #07090D;
+    margin: 0;
+    border-radius: 0;
+    box-shadow: none;
 }
 
-.hero-image-wrap {
-    position: absolute;
-    top: 0;
-    left: 0;
+.hero.white-theme .hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
-    height: 100%;
-    z-index: 1;
+    z-index: 10;
 }
 
-.hero-slider {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    overflow: hidden;
-    transition: transform 0.1s ease-out; /* Smooth transition for parallax */
-}
-
-/* Video Modal */
-.video-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(10px);
-    z-index: 9000;
+.hero-character-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    align-items: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.video-modal.active {
-    display: flex;
-    opacity: 1;
-}
-
-.modal-content {
     position: relative;
-    max-width: 90%;
-    max-height: 80vh;
-    box-shadow: 0 0 50px rgba(204, 255, 10, 0.2);
 }
 
-#modalVideo {
-    width: 100%;
-    height: auto;
-    max-height: 80vh;
-    border-radius: var(--radius-lg);
-}
-
-.close-modal {
-    position: absolute;
-    top: -40px;
-    right: 0;
-    font-size: 2.5rem;
-    color: #a0aec0;
-    cursor: pointer;
-    transition: var(--transition);
-}
-
-.close-modal:hover {
-    color: var(--primary);
-}
-
-.hero-slide {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    transform: translateX(100%);
-    transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-    z-index: 1;
-}
-
-.hero-slide.active {
-    transform: translateX(0);
-    z-index: 2;
-}
-
-.hero-slide.exit {
-    transform: translateX(-100%);
-    z-index: 1;
-}
-
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(270deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 40%, transparent 100%);
-    z-index: 2;
-}
-
-.hero-container {
+.character-slider {
     position: relative;
-    z-index: 3;
-    height: 100%;
+    width: 100%;
+    height: 600px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
 }
 
-.hero-content {
-    max-width: 800px;
-    text-align: right;
-}
-
-.hero-title {
-    font-size: clamp(3rem, 7vw, 4.8rem);
-    line-height: 1.1;
-    margin-bottom: 2rem;
-}
-
-.hero-subtitle {
-    font-size: 1.4rem;
-    color: var(--text-muted);
-    margin-bottom: 3.5rem;
-    max-width: 650px;
-}
-
-.hero-btns {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: flex-end;
-}
-
-.hero-scroll-indicator {
+.character-slide {
     position: absolute;
-    bottom: 3rem;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
+    transform: translate(-50%, -45%) scale(0.9);
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+    pointer-events: none;
 }
 
-.mouse {
-    width: 2px;
-    height: 40px;
-    background: linear-gradient(transparent, var(--primary), transparent);
-    margin: 0 auto;
-    animation: scrollMouse 2s infinite;
+.character-slide img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 50px rgba(0,0,0,0.1));
 }
 
-@keyframes scrollMouse {
-    0% { transform: scaleY(0); transform-origin: top; }
-    50% { transform: scaleY(1); transform-origin: top; }
-    51% { transform: scaleY(1); transform-origin: bottom; }
-    100% { transform: scaleY(0); transform-origin: bottom; }
+.character-slide.active {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    z-index: 5;
+}
+
+.character-info {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.character-role {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #07090D;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease 0.3s;
+}
+
+.character-slide.active + .character-info .character-role,
+.character-role.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.hero.white-theme .hero-content {
+    flex: 1;
+    text-align: left;
+    max-width: 600px;
+}
+
+.hero.white-theme .hero-title {
+    color: #07090D;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 1.5rem;
+}
+
+.hero.white-theme .hero-subtitle {
+    color: rgba(7, 9, 13, 0.7);
+    margin-bottom: 2.5rem;
+}
+
+.text-accent-dark {
+    color: #88B900; /* A slightly darker/more readable primary for white bg */
+}
+
+.hero.white-theme .hero-btns {
+    justify-content: flex-start;
+}
+
+.hero.white-theme .btn-primary {
+    background-color: #07090D;
+    color: #FFFFFF;
+}
+
+.hero.white-theme .btn-primary:hover {
+    background-color: #CCFF0A;
+    color: #000;
+    box-shadow: 0 10px 20px rgba(204, 255, 10, 0.2);
+}
+
+.hero.white-theme .mouse {
+    background: linear-gradient(transparent, #07090D, transparent);
+}
+
+/* Adjusting navbar for white theme hero */
+.navbar.on-white {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar.on-white .logo-text, 
+.navbar.on-white .nav-link {
+    color: #07090D;
+}
+
+.navbar.on-white .bar {
+    background-color: #07090D;
+}
+
+.navbar.on-white .btn-primary {
+    background-color: #07090D;
+    color: #FFFFFF;
+}
+
+.navbar.on-white .btn-primary:hover {
+    background-color: #CCFF0A;
+    color: #000;
+}
+
+@media (max-width: 991px) {
+    .hero.white-theme .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 8rem;
+    }
+    
+    .hero.white-theme .hero-content {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+    
+    .hero.white-theme .hero-btns {
+        justify-content: center;
+    }
+    
+    .character-slider {
+        height: 450px;
+    }
 }
 
 /* Problem Section */
