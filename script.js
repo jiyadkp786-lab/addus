@@ -56,21 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateNavbar() {
         const scrollY = window.scrollY;
         
-        // Check if hero is white-theme to adjust navbar colors initially
-        if (hero && hero.classList.contains('white-theme')) {
-            if (scrollY < 100) {
-                navbar.classList.add('on-white');
-                navbar.classList.remove('scrolled');
-            } else {
-                navbar.classList.remove('on-white');
-                navbar.classList.add('scrolled');
-            }
+        if (scrollY > 50) {
+            navbar.classList.add('scrolled');
         } else {
-            if (scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            navbar.classList.remove('scrolled');
         }
     }
     
@@ -117,53 +106,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. Automatic Character Slider
-    const characterSlides = document.querySelectorAll('.character-slide');
-    const roleElement = document.querySelector('.character-role');
-    let currentSlide = 0;
+    // 5. Automatic Hero Background Slideshow (Horizontal Slide)
+    const heroTrack = document.querySelector('.hero-bg-track');
+    const heroSlides = document.querySelectorAll('.hero-bg-slide');
+    let currentHeroSlide = 0;
 
-    function rotateCharacters() {
-        if (!characterSlides.length) return;
+    function rotateHeroSlides() {
+        if (!heroTrack || heroSlides.length <= 1) return;
         
-        // Remove active from current
-        characterSlides[currentSlide].classList.remove('active');
-        
-        // Prepare next slide
-        currentSlide = (currentSlide + 1) % characterSlides.length;
-        const nextSlide = characterSlides[currentSlide];
-        
-        // Update character info
-        if (roleElement) {
-            roleElement.classList.remove('active');
-            setTimeout(() => {
-                roleElement.textContent = nextSlide.getAttribute('data-title');
-                roleElement.classList.add('active');
-            }, 500);
-        }
-        
-        // Activate next slide
-        nextSlide.classList.add('active');
+        currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
+        const offset = currentHeroSlide * (100 / heroSlides.length);
+        heroTrack.style.transform = `translateX(-${offset}%)`;
     }
 
-    if (characterSlides.length > 1) {
-        // Initial setup for the first title
-        if (roleElement && characterSlides[0]) {
-            roleElement.textContent = characterSlides[0].getAttribute('data-title');
-            roleElement.classList.add('active');
-        }
-        
-        setInterval(rotateCharacters, 4000); // 4 seconds rotation
+    if (heroSlides.length > 1) {
+        setInterval(rotateHeroSlides, 5000); // 5 seconds rotation
     }
-
-    // 6. Character Subtle Movement (Parallax)
-    window.addEventListener('mousemove', (e) => {
-        const moveX = (e.clientX - window.innerWidth / 2) * 0.02;
-        const moveY = (e.clientY - window.innerHeight / 2) * 0.02;
-        const activeImg = document.querySelector('.character-slide.active img');
-        if (activeImg) {
-            activeImg.style.transform = `translate(${moveX}px, ${moveY}px)`;
-        }
-    });
 
     // 7. Video Modal Logic
     const videoModal = document.getElementById('videoModal');
