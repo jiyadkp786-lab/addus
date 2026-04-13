@@ -106,23 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 5. Automatic Hero Background Slideshow (Horizontal Slide)
-    const heroTrack = document.querySelector('.hero-bg-track');
-    const heroSlides = document.querySelectorAll('.hero-bg-slide');
-    let currentHeroSlide = 0;
-
-    function rotateHeroSlides() {
-        if (!heroTrack || heroSlides.length <= 1) return;
-        
-        currentHeroSlide = (currentHeroSlide + 1) % heroSlides.length;
-        const offset = currentHeroSlide * (100 / heroSlides.length);
-        heroTrack.style.transform = `translateX(-${offset}%)`;
-    }
-
-    if (heroSlides.length > 1) {
-        setInterval(rotateHeroSlides, 5000); // 5 seconds rotation
-    }
-
     // 7. Video Modal Logic
     const videoModal = document.getElementById('videoModal');
     const modalVideo = document.getElementById('modalVideo');
