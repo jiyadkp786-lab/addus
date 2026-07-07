@@ -1,450 +1,1175 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Addus | Premium Resort Marketing & Hospitality Growth Agency</title>
-    <meta name="description"
-        content="Addus is a growth-focused marketing agency helping luxury resorts and hospitality brands drive real bookings through influencer marketing, cinematic content creation, and high-performance campaigns.">
-    <meta name="keywords"
-        content="resort marketing, hospitality marketing, luxury resort growth, influencer marketing for resorts, social media for hotels, booking conversion agency, Addus marketing">
-    <meta name="author" content="Addus">
-    <meta name="google-site-verification" content="7sZXV2Go0XrWwMYpQ360PElI_-2iIGLqMkc8R66qM2Q" />
+    <title>ADDUS | The AI Operating System for Business Creativity</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="ADDUS is building the AI Operating System for Business Creativity, an intelligent platform that transforms business goals into creative outcomes by combining AI, verified creative professionals, and workflow automation.">
+    <meta name="keywords" content="AI Creative Platform, AI Operating System for Business Creativity, Creative Operating System, AI Workflow Automation, Business Creativity Platform, AI branding platform, Creative project management, AI marketing workflow, Creator economy platform, Business creative solutions">
+    <meta name="author" content="ADDUS">
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://addus.agency/">
-    <meta property="og:title" content="Addus | Growth That Converts — Scale Your Resort Bookings">
-    <meta property="og:description"
-        content="We help resorts turn attention into revenue through influencers, cinematic content, and data-driven performance.">
+    <meta property="og:title" content="ADDUS | The AI Operating System for Business Creativity">
+    <meta property="og:description" content="Transform business objectives into structured creative execution through one intelligent platform. Combining AI orchestration and verified creative talent.">
     <meta property="og:image" content="Gemini_Generated_Image_aq87omaq87omaq87.webp">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://addus.agency/">
-    <meta property="twitter:title" content="Addus | Premium Resort Marketing & Hospitality Growth">
-    <meta property="twitter:description"
-        content="Scale your luxury resort bookings with influencer marketing and performance campaigns by Addus.">
+    <meta property="twitter:title" content="ADDUS | The AI Operating System for Business Creativity">
+    <meta property="twitter:description" content="Transform business objectives into structured creative execution through one intelligent platform.">
     <meta property="twitter:image" content="Gemini_Generated_Image_aq87omaq87omaq87.webp">
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="addus.svg">
-
-    <!-- Typography: Poppins for headlines, Inter for body -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;600;700;800&display=swap"
-        rel="stylesheet">
-
+    
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
-
-    <!-- Lottie Player -->
-    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-
+    
+    <!-- Styling -->
     <link rel="stylesheet" href="style.css">
-
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+    
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-14MQGJEFS4"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-14MQGJEFS4');
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-14MQGJEFS4');
     </script>
 </head>
+<body>
 
-<body class="dark-theme">
     <!-- Custom Cursor -->
-    <div id="cursor"></div>
-    <div id="cursor-blur"></div>
+    <div id="cursor" style="position: fixed; width: 10px; height: 10px; background: #fff; border-radius: 50%; pointer-events: none; z-index: 10000; mix-blend-mode: difference; transform: translate(-50%, -50%); transition: width 0.2s, height 0.2s;"></div>
 
-    <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/918943573519?text=Hi,%20I'm%20looking%20to%20increase%20bookings%20for%20my%20resort.%20Can%20you%20share%20how%20Addus%20can%20help%20with%20influencer%20marketing%20and%20campaigns?"
-        class="whatsapp-float" target="_blank">
-        <img src="whatsapp-svgrepo-com.svg" alt="Contact us on WhatsApp" class="whatsapp-img">
-    </a>
+    <!-- Particle Canvas for AI Orchestration representation -->
+    <canvas id="particle-canvas"></canvas>
 
-    <!-- Navigation -->
+    <!-- Background Decoration Globs -->
+    <div class="bg-decorations">
+        <div class="grid-overlay"></div>
+        <div class="ambient-glow glow-purple"></div>
+        <div class="ambient-glow glow-blue"></div>
+        <div class="ambient-glow glow-purple-2"></div>
+    </div>
+
+    <!-- Navigation Header -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo-link">
-                <img src="addus.svg" alt="Addus Logo - Premium Resort Marketing & Hospitality Growth Agency"
-                    class="logo-img">
-                <span class="logo-text">ADDUS<span class="text-accent">.</span></span>
+            <a href="#" class="logo-link" id="nav-logo">
+                <img src="addus.svg" alt="ADDUS Logo" class="logo-img">
+                <span class="logo-text">ADDUS<span>.</span></span>
             </a>
-            <div class="nav-links">
-                <a href="#problem" class="nav-link">Challenges</a>
-                <a href="#services" class="nav-link">Services</a>
-                <a href="#works" class="nav-link">Process</a>
-                <a href="https://wa.me/918943573519?text=Hi,%20I'm%20looking%20to%20increase%20bookings%20for%20my%20resort.%20Can%20you%20share%20how%20Addus%20can%20help%20with%20influencer%20marketing%20and%20campaigns?"
-                    class="btn btn-primary" target="_blank">
-                    <img src="whatsapp-svgrepo-com.svg" alt="" class="btn-icon">
-                    Book a Consultation
-                </a>
+            <div class="nav-links" id="nav-menu">
+                <a href="#why-needs" class="nav-link">Why ADDUS</a>
+                <a href="#capabilities" class="nav-link">Capabilities</a>
+                <a href="#workflow" class="nav-link">Workflow</a>
+                <a href="#roadmap" class="nav-link">Roadmap</a>
+                <button class="btn btn-secondary trigger-waitlist-modal">Join Waitlist</button>
             </div>
-            <button class="menu-toggle" id="menuToggle">
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero" id="hero">
-        <div class="hero-bg-slider">
-            <div class="hero-bg-slide" style="background-image: url('gnee.jpg');"></div>
-        </div>
-
-        <!-- Lottie Steam Animation -->
-        <div class="steam-animation-container">
-            <lottie-player src="Fumaa.lottie" background="transparent" speed="0.5" style="width: 200px; height: 200px;"
-                loop autoplay></lottie-player>
-        </div>
-
-        <div class="hero-scroll-indicator">
-            <div class="mouse"></div>
-        </div>
-    </section>
-
-    <!-- Problem Section -->
-    <section class="problem section-padding" id="problem">
+    <!-- SECTION 1: HERO -->
+    <header class="hero" id="hero-section">
         <div class="container">
-            <div class="section-header scroll-reveal text-center">
-                <h2 class="section-title">Struggling to Fill Your Rooms?</h2>
-            </div>
-            <div class="problem-grid">
-                <div class="problem-card scroll-reveal">
-                    <i data-lucide="eye-off"></i>
-                    <h3>Low visibility online</h3>
-                    <p>Your resort stays hidden from the global travel ready audience.</p>
+            <div class="hero-grid">
+                <div class="hero-content scroll-reveal active">
+                    <div class="hero-badge">
+                        <span></span> Category Creator
+                    </div>
+                    <h1 class="hero-title">
+                        Business Goals In.<br>
+                        <span class="hero-title-rotate" id="typing-text">Creative Reality Out.</span>
+                    </h1>
+                    <p class="hero-desc">
+                        ADDUS transforms business objectives into measurable creative outcomes by combining AI intelligence, verified creative talent, and workflow automation into one integrated platform.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#vision" class="btn btn-primary">Explore the Vision <i data-lucide="arrow-right"></i></a>
+                        <a href="#workflow" class="btn btn-secondary">See How ADDUS Works</a>
+                    </div>
                 </div>
-                <div class="problem-card scroll-reveal">
-                    <i data-lucide="user-x"></i>
-                    <h3>Poor influencer results</h3>
-                    <p>Expensive collaborations that don't translate into actual bookings.</p>
+                
+                <div class="hero-visual scroll-reveal active">
+                    <div class="orch-wrapper">
+                        <!-- Pure SVG Orchestration Diagram -->
+                        <svg id="orch-svg" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg" aria-label="ADDUS OS Orchestration Flow">
+                            <defs>
+                                <filter id="glow-primary">
+                                    <feGaussianBlur stdDeviation="4" result="blur"/>
+                                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                </filter>
+                                <filter id="glow-purple">
+                                    <feGaussianBlur stdDeviation="3" result="blur"/>
+                                    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+                                </filter>
+                                <radialGradient id="center-grad" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#D6FF01" stop-opacity="0.18"/>
+                                    <stop offset="100%" stop-color="#020408" stop-opacity="0.95"/>
+                                </radialGradient>
+                                <radialGradient id="node-grad" cx="50%" cy="50%" r="50%">
+                                    <stop offset="0%" stop-color="#0a0f1e" stop-opacity="0.95"/>
+                                    <stop offset="100%" stop-color="#020408" stop-opacity="0.98"/>
+                                </radialGradient>
+                                <marker id="arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+                                    <path d="M0,0 L0,6 L6,3 z" fill="rgba(168,85,247,0.5)"/>
+                                </marker>
+                            </defs>
+
+                            <!-- ── Connection lines (drawn first so nodes sit on top) ── -->
+                            <!-- Center: 210,210  Top: 210,60  Right: 360,135  BR: 315,345  BL: 105,345  Left: 60,135 -->
+                            <g class="orch-connections">
+                                <line id="fl-goal-os"     class="orch-line" x1="210" y1="105" x2="210" y2="165"/>
+                                <line id="fl-os-ai"       class="orch-line" x1="255" y1="195" x2="315" y2="150"/>
+                                <line id="fl-ai-exec"     class="orch-line" x1="318" y1="183" x2="285" y2="303"/>
+                                <line id="fl-exec-cre"    class="orch-line" x1="252" y1="345" x2="168" y2="345"/>
+                                <line id="fl-cre-growth"  class="orch-line" x1="102" y1="315" x2="108" y2="183"/>
+                                <line id="fl-growth-goal" class="orch-line" x1="120" y1="150" x2="168" y2="105"/>
+                            </g>
+
+                            <!-- ── Outer nodes ── -->
+                            <!-- TOP — Business Goal (210, 60) -->
+                            <g class="orch-node" id="node-goal" data-step-node="goal" style="cursor:pointer;">
+                                <circle cx="210" cy="60" r="42" fill="url(#node-grad)" stroke="rgba(255,255,255,0.12)" stroke-width="1.5"/>
+                                <text x="210" y="52" text-anchor="middle" font-size="18" fill="#fff">🎯</text>
+                                <text x="210" y="65" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em" text-transform="uppercase">BUSINESS</text>
+                                <text x="210" y="75" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">GOAL</text>
+                            </g>
+
+                            <!-- RIGHT — AI Intelligence (360, 135) -->
+                            <g class="orch-node" id="node-ai" data-step-node="ai" style="cursor:pointer;">
+                                <circle cx="360" cy="135" r="42" fill="url(#node-grad)" stroke="rgba(168,85,247,0.2)" stroke-width="1.5"/>
+                                <text x="360" y="127" text-anchor="middle" font-size="18" fill="#a855f7">🧠</text>
+                                <text x="360" y="142" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">AI</text>
+                                <text x="360" y="152" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">INTELLIGENCE</text>
+                            </g>
+
+                            <!-- BOTTOM RIGHT — Creative Execution (315, 345) -->
+                            <g class="orch-node" id="node-execution" data-step-node="execution" style="cursor:pointer;">
+                                <circle cx="315" cy="345" r="42" fill="url(#node-grad)" stroke="rgba(6,182,212,0.2)" stroke-width="1.5"/>
+                                <text x="315" y="337" text-anchor="middle" font-size="18" fill="#06b6d4">⚙️</text>
+                                <text x="315" y="352" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">CREATIVE</text>
+                                <text x="315" y="362" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">EXECUTION</text>
+                            </g>
+
+                            <!-- BOTTOM LEFT — Verified Creators (105, 345) -->
+                            <g class="orch-node" id="node-creators" data-step-node="creators" style="cursor:pointer;">
+                                <circle cx="105" cy="345" r="42" fill="url(#node-grad)" stroke="rgba(6,182,212,0.2)" stroke-width="1.5"/>
+                                <text x="105" y="337" text-anchor="middle" font-size="18" fill="#06b6d4">👥</text>
+                                <text x="105" y="352" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">VERIFIED</text>
+                                <text x="105" y="362" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">CREATORS</text>
+                            </g>
+
+                            <!-- LEFT — Business Growth (60, 135) -->
+                            <g class="orch-node" id="node-growth" data-step-node="growth" style="cursor:pointer;">
+                                <circle cx="60" cy="135" r="42" fill="url(#node-grad)" stroke="rgba(168,85,247,0.2)" stroke-width="1.5"/>
+                                <text x="60" y="127" text-anchor="middle" font-size="18" fill="#a855f7">📈</text>
+                                <text x="60" y="142" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">BUSINESS</text>
+                                <text x="60" y="152" text-anchor="middle" font-size="7.5" fill="rgba(255,255,255,0.5)" font-family="Inter,sans-serif" font-weight="700" letter-spacing="0.04em">GROWTH</text>
+                            </g>
+
+                            <!-- ── CENTER — ADDUS OS (210, 210) ── -->
+                            <g class="orch-node orch-node-center" id="node-os" data-step-node="os" style="cursor:pointer;">
+                                <circle cx="210" cy="210" r="62" fill="url(#center-grad)" stroke="#D6FF01" stroke-width="1.5" opacity="0.7" filter="url(#glow-primary)"/>
+                                <circle cx="210" cy="210" r="58" fill="none" stroke="#D6FF01" stroke-width="0.5" stroke-dasharray="4 4" opacity="0.35"/>
+                                <text x="210" y="198" text-anchor="middle" font-size="22" fill="#D6FF01">⚡</text>
+                                <text x="210" y="218" text-anchor="middle" font-size="11" fill="#ffffff" font-family="Inter,sans-serif" font-weight="800" letter-spacing="0.06em">ADDUS OS</text>
+                                <text x="210" y="232" text-anchor="middle" font-size="7" fill="rgba(255,255,255,0.45)" font-family="Inter,sans-serif" font-weight="500" letter-spacing="0.06em">AI OPERATING SYSTEM</text>
+                            </g>
+                        </svg>
+
+                        <!-- Description Panel -->
+                        <div class="orch-desc-panel">
+                            <div class="orch-desc active" data-desc-for="goal">
+                                <strong>Business Goal</strong>
+                                <span>Define objectives — increase sales, launch products, improve brand visibility, generate leads.</span>
+                            </div>
+                            <div class="orch-desc" data-desc-for="os">
+                                <strong>ADDUS OS</strong>
+                                <span>The central AI Operating System orchestrating the complete creative journey end to end.</span>
+                            </div>
+                            <div class="orch-desc" data-desc-for="ai">
+                                <strong>AI Intelligence</strong>
+                                <span>Analyzes goals, audience, and industry context to recommend the most effective creative strategy.</span>
+                            </div>
+                            <div class="orch-desc" data-desc-for="execution">
+                                <strong>Creative Execution</strong>
+                                <span>Generates proposals, transparent pricing, manages workflows, coordinates approvals and delivery.</span>
+                            </div>
+                            <div class="orch-desc" data-desc-for="creators">
+                                <strong>Verified Creators</strong>
+                                <span>Intelligently assembles the ideal team of verified creative professionals for each project.</span>
+                            </div>
+                            <div class="orch-desc" data-desc-for="growth">
+                                <strong>Business Growth</strong>
+                                <span>Measurable creative outcomes that improve visibility, engagement, and business growth.</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="problem-card scroll-reveal">
-                    <i data-lucide="layout"></i>
-                    <h3>No consistent content</h3>
-                    <p>A dormant social presence that fails to inspire or build trust.</p>
-                </div>
-                <div class="problem-card scroll-reveal">
-                    <i data-lucide="trending-down"></i>
-                    <h3>Ads without conversions</h3>
-                    <p>Burning budget on clicks that never become guests.</p>
-                </div>
-            </div>
-            <div class="problem-footer scroll-reveal text-center">
-                <p class="result-text">Result: <span class="text-danger">Less attention, fewer bookings</span></p>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Solution Section -->
-    <section class="solution section-padding" id="solution">
+
+    <!-- SECTION 2: PROBLEM STATEMENT -->
+    <section class="section-padding" id="why-needs">
         <div class="container">
-            <div class="solution-grid">
-                <div class="solution-image scroll-reveal">
-                    <img src="1382.jpg"
-                        alt="Addus Marketing Strategy - Converting Resort Visibility into Direct Bookings"
-                        class="solution-img">
+            <div class="why-needs-grid">
+                <div class="glass-card complexity-card scroll-reveal">
+                    <h3>The Complexity Trap</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary); margin-bottom: 1.5rem;">
+                        Businesses today spend valuable time searching for creative partners, comparing quotations, coordinating multiple vendors, managing revisions, and tracking project execution.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-secondary);">
+                        Creative execution has become fragmented, time consuming, and difficult to scale. ADDUS exists to simplify this entire journey.
+                    </p>
                 </div>
-                <div class="solution-content scroll-reveal">
-                    <h2 class="section-title">We Turn Visibility into <span class="text-accent">Bookings</span></h2>
-                    <p class="solution-para">Addus isn't just a marketing agency. We are your revenue partners. By
-                        combining high-impact <strong>Influencer Marketing</strong>, cinematic <strong>Content
-                            Creation</strong>, and data driven <strong>Performance Campaigns</strong>, we create a
-                        ecosystem that fills your rooms year round.</p>
+                <div class="why-needs-content scroll-reveal">
+                    <span class="section-subtitle">The Dilemma</span>
+                    <h2 class="section-title gradient-text">Creative execution shouldn't be this complicated.</h2>
+                    <p>
+                        Managing design, copywriting, strategy, and video across siloed platforms drains your team's energy and delays time to market. ADDUS replaces this manual overhead with a unified operating system built for outcomes.
+                    </p>
+                    <a href="#workflow" class="btn btn-secondary">See How ADDUS Works</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Brand Transformation Section -->
-    <section class="transformation section-padding" id="transformation">
-        <div class="container text-center">
-            <div class="section-header scroll-reveal">
-                <h2 class="section-title">What Your Brand Becomes </h2>
-                <p class="subtitle text-muted">A clear transformation from low visibility to high performing bookings.
+    <!-- SECTION 2.5: MISSION -->
+    <section class="section-padding" id="purpose" style="background: rgba(168, 85, 247, 0.02); border-top: 1px solid var(--border-glass); border-bottom: 1px solid var(--border-glass);">
+        <div class="container text-center scroll-reveal">
+            <span class="section-subtitle">Our Purpose</span>
+            <h2 class="section-title gradient-text" style="max-width: 800px; margin: 0 auto 1.5rem auto; font-size: clamp(2rem, 4.5vw, 3rem);">Accelerating the world's transition to AI powered business creativity.</h2>
+            <p style="max-width: 750px; margin: 0 auto; font-size: 1.2rem; line-height: 1.8; color: var(--text-secondary);">
+                We believe creativity should never be limited by budget, geography, or access to agencies. By combining artificial intelligence, workflow automation, and a trusted creator ecosystem, ADDUS enables businesses of every size to access enterprise level creative execution through one intelligent platform.
+            </p>
+        </div>
+    </section>
+
+    <!-- SECTION 3: WHAT IS ADDUS -->
+    <section class="section-padding" id="what-is-addus" style="background: rgba(0, 0, 0, 0.2);">
+        <div class="container">
+            <div class="what-is-grid">
+                <div class="what-is-content scroll-reveal">
+                    <span class="section-subtitle">Category Definition | What is ADDUS?</span>
+                    <h2 class="section-title gradient-text" style="font-size: clamp(1.8rem, 4.5vw, 2.8rem); line-height: 1.25; margin-bottom: 1.5rem;">What We Are Up To — An AI Operating System for Business Creativity</h2>
+                    <p style="font-size: 1.15rem; line-height: 1.8; margin-bottom: 1.5rem; font-weight: 600; color: var(--text-primary);">
+                        We believe every business should have access to the same creative capabilities as the world's biggest brands.
+                    </p>
+                    <p style="font-size: 1.05rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem;">
+                        ADDUS is building the intelligence layer that transforms business goals into creative outcomes by combining artificial intelligence, workflow automation, and verified creative professionals into one intelligent platform.
+                    </p>
+                    <div style="border-left: 2px solid var(--accent-blue); padding-left: 1.5rem; font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem; line-height: 1.6; color: var(--text-primary);">
+                        More than an agency.<br>
+                        More than a marketplace.<br>
+                        <span style="color: var(--accent-blue);">A new operating system for business creativity.</span>
+                    </div>
+                </div>
+                
+                <div class="outcome-shift scroll-reveal">
+                    <div class="shift-card">
+                        <div class="shift-from">
+                            <div class="shift-label">Old Way</div>
+                            <div class="shift-val">Buying Services</div>
+                        </div>
+                        <div class="shift-arrow"><i data-lucide="arrow-right-left"></i></div>
+                        <div class="shift-to">
+                            <div class="shift-label">New Way</div>
+                            <div class="shift-val to">Orchestrating Outcomes</div>
+                        </div>
+                    </div>
+                    <div class="shift-card">
+                        <div class="shift-from">
+                            <div class="shift-label">Old Execution</div>
+                            <div class="shift-val">Fragmented Vendors</div>
+                        </div>
+                        <div class="shift-arrow"><i data-lucide="arrow-right-left"></i></div>
+                        <div class="shift-to">
+                            <div class="shift-label">ADDUS Way</div>
+                            <div class="shift-val to">One Unified Intelligent OS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3.2: CREATING A NEW CATEGORY -->
+    <section class="section-padding cat-section" id="category-creator">
+        <div class="container">
+
+            <!-- Section Header -->
+            <div class="section-header text-center scroll-reveal">
+                <span class="section-subtitle">Category Creation</span>
+                <h2 class="section-title gradient-text">Creating a New Category</h2>
+                <p class="cat-intro-sub">The world's most influential technology companies didn't just build products—they created entirely new categories. ADDUS is doing the same for business creativity.</p>
+            </div>
+
+            <!-- Intro Text -->
+            <div class="cat-intro-block scroll-reveal">
+                <p>Every generation of technology companies has fundamentally changed how businesses operate.</p>
+                <p>Rather than improving an existing industry, they created a new category that redefined it.</p>
+                <p>ADDUS is applying the same philosophy to business creativity by building the <strong>AI Operating System for Business Creativity</strong>.</p>
+            </div>
+
+            <!-- Category Creator Cards -->
+            <div class="cat-cards-grid">
+
+                <div class="cat-card scroll-reveal" style="--cat-delay: 0ms;">
+                    <div class="cat-card-logo">🛒</div>
+                    <div class="cat-card-company">Shopify</div>
+                    <div class="cat-card-category">Commerce Operating System</div>
+                    <p class="cat-card-desc">Helping millions of businesses build and manage online commerce.</p>
+                </div>
+
+                <div class="cat-card scroll-reveal" style="--cat-delay: 80ms;">
+                    <div class="cat-card-logo">☁️</div>
+                    <div class="cat-card-company">Salesforce</div>
+                    <div class="cat-card-category">CRM Platform</div>
+                    <p class="cat-card-desc">Transforming how organizations manage customer relationships.</p>
+                </div>
+
+                <div class="cat-card scroll-reveal" style="--cat-delay: 160ms;">
+                    <div class="cat-card-logo">💳</div>
+                    <div class="cat-card-company">Stripe</div>
+                    <div class="cat-card-category">Payments Infrastructure</div>
+                    <p class="cat-card-desc">Simplifying digital payments for businesses around the world.</p>
+                </div>
+
+                <div class="cat-card scroll-reveal" style="--cat-delay: 240ms;">
+                    <div class="cat-card-logo">🤖</div>
+                    <div class="cat-card-company">OpenAI</div>
+                    <div class="cat-card-category">AI Intelligence Platform</div>
+                    <p class="cat-card-desc">Making artificial intelligence accessible through powerful foundation models.</p>
+                </div>
+
+                <div class="cat-card scroll-reveal" style="--cat-delay: 320ms;">
+                    <div class="cat-card-logo">🎨</div>
+                    <div class="cat-card-company">Figma</div>
+                    <div class="cat-card-category">Collaborative Design Platform</div>
+                    <p class="cat-card-desc">Changing how teams design and collaborate together.</p>
+                </div>
+
+                <div class="cat-card cat-card-addus scroll-reveal" style="--cat-delay: 400ms;">
+                    <div class="cat-addus-badge">Building Now</div>
+                    <div class="cat-card-logo">⚡</div>
+                    <div class="cat-card-company">ADDUS</div>
+                    <div class="cat-card-category">AI Operating System for Business Creativity</div>
+                    <p class="cat-card-desc">Transforming business goals into creative outcomes through AI intelligence, workflow automation, and verified creative professionals.</p>
+                </div>
+
+            </div>
+
+            <!-- Intersection Diagram -->
+            <div class="cat-intersection-block scroll-reveal">
+                <div class="section-header text-center" style="margin-bottom: 3rem;">
+                    <span class="section-subtitle">Where ADDUS Fits</span>
+                    <h3 class="section-title gradient-text" style="font-size: clamp(1.6rem, 3vw, 2.4rem);">Positioned at the Intersection of Multiple Industries</h3>
+                </div>
+                <div class="cat-intersect-diagram">
+                    <div class="cat-intersect-node cat-node-top"><span class="cat-node-icon">🧠</span><span>Artificial Intelligence</span></div>
+                    <div class="cat-intersect-node cat-node-right"><span class="cat-node-icon">💼</span><span>Business Software</span></div>
+                    <div class="cat-intersect-node cat-node-bottom"><span class="cat-node-icon">⚙️</span><span>Workflow Automation</span></div>
+                    <div class="cat-intersect-node cat-node-left"><span class="cat-node-icon">🎭</span><span>Creator Economy</span></div>
+                    <div class="cat-intersect-center">
+                        <span class="cat-center-name">ADDUS</span>
+                        <span class="cat-center-label">AI Operating System</span>
+                    </div>
+                    <div class="cat-line cat-line-v"></div>
+                    <div class="cat-line cat-line-h"></div>
+                </div>
+                <p class="cat-intersect-caption">ADDUS combines technologies and business models from multiple proven industries to create an entirely new category focused on intelligent creative execution.</p>
+            </div>
+
+            <!-- Proven Models Cards -->
+            <div class="cat-proven-block scroll-reveal">
+                <div class="section-header text-center" style="margin-bottom: 3rem;">
+                    <span class="section-subtitle">Built on Proven Models</span>
+                    <h3 class="section-title gradient-text" style="font-size: clamp(1.6rem, 3vw, 2.4rem);">Built on Proven Models.<br>Creating a New Category.</h3>
+                </div>
+                <div class="cat-proven-grid">
+                    <div class="cat-proven-card glass-card"><div class="cat-proven-icon">🧠</div><h4>AI Intelligence</h4><p>Inspired by companies that transformed artificial intelligence.</p></div>
+                    <div class="cat-proven-card glass-card"><div class="cat-proven-icon">🤝</div><h4>Marketplace Ecosystem</h4><p>Connecting businesses with verified creative professionals.</p></div>
+                    <div class="cat-proven-card glass-card"><div class="cat-proven-icon">⚙️</div><h4>Workflow Automation</h4><p>Digitizing project planning, approvals, collaboration, and delivery.</p></div>
+                    <div class="cat-proven-card glass-card"><div class="cat-proven-icon">💼</div><h4>Business Software</h4><p>Providing businesses with one intelligent operating system instead of multiple disconnected tools.</p></div>
+                    <div class="cat-proven-card glass-card"><div class="cat-proven-icon">🎯</div><h4>Creative Intelligence</h4><p>Transforming business objectives into measurable creative outcomes.</p></div>
+                    <div class="cat-proven-card glass-card"><div class="cat-proven-icon">🚀</div><h4>Enterprise Scalability</h4><p>Designed to serve startups, SMEs, agencies, and enterprises through one unified platform.</p></div>
+                </div>
+            </div>
+
+            <!-- Final Statement -->
+            <div class="cat-final-statement scroll-reveal">
+                <blockquote class="cat-final-quote">
+                    <p>Every transformative company created a category before it dominated one.</p>
+                </blockquote>
+                <div class="cat-final-list">
+                    <div class="cat-final-item"><span class="cat-final-co">Shopify</span><span class="cat-final-txt">transformed commerce.</span></div>
+                    <div class="cat-final-item"><span class="cat-final-co">Salesforce</span><span class="cat-final-txt">transformed customer relationship management.</span></div>
+                    <div class="cat-final-item"><span class="cat-final-co">Stripe</span><span class="cat-final-txt">transformed digital payments.</span></div>
+                    <div class="cat-final-item"><span class="cat-final-co">OpenAI</span><span class="cat-final-txt">transformed artificial intelligence.</span></div>
+                </div>
+                <p class="cat-final-addus">
+                    <strong>ADDUS</strong> is building the AI Operating System for Business Creativity—bringing AI, business understanding, workflow automation, and verified creative professionals together into one intelligent platform.
                 </p>
             </div>
-            <div class="transformation-grid">
-                <div class="video-card scroll-reveal">
-                    <video autoplay muted loop playsinline class="showcase-video">
-                        <source
-                            src="From Main Klickpin CF- Captivating Tranquility Discover the Enchanting HAYA Home in Kerala - 2mywkjba1.mp4"
-                            type="video/mp4">
-                    </video>
-                </div>
-                <div class="video-card scroll-reveal">
-                    <video autoplay muted loop playsinline class="showcase-video">
-                        <source src="From Main Klickpin CF- Isn’t it just a resort_ - 6BBBCU6cJ.mp4" type="video/mp4">
-                    </video>
-                </div>
-                <div class="video-card scroll-reveal">
-                    <video autoplay muted loop playsinline class="showcase-video">
-                        <source src="From Main Klickpin CF- Luxury Villa With Private Pool in Goa - 4J3ZVnPow.mp4"
-                            type="video/mp4">
-                    </video>
-                </div>
-                <div class="video-card scroll-reveal">
-                    <video autoplay muted loop playsinline class="showcase-video">
-                        <source src="From Main Klickpin CF- Video Pinterest - 1aDivheeT.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
+
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services section-padding" id="services">
-        <div class="container">
-            <div class="section-header scroll-reveal text-center">
-                <h2 class="section-title">Tailored Growth Services</h2>
-            </div>
-            <div class="services-grid">
-                <!-- Card 1 -->
-                <a href="https://wa.me/918943573519?text=Hi,%20I'm%20interested%20in%20the%20Influencer%20Marketing%20package:%20Influencer%20discovery,%20Negotiation,%20Content%20planning,%20and%20Execution%20%26%20delivery."
-                    target="_blank" class="service-card scroll-reveal">
-                    <div class="service-icon"><i data-lucide="users"></i></div>
-                    <h3>Influencer Marketing</h3>
-                    <ul class="service-list">
-                        <li>Influencer discovery</li>
-                        <li>Negotiation</li>
-                        <li>Content planning</li>
-                        <li>Execution & delivery</li>
-                    </ul>
-                </a>
-                <!-- Card 2 -->
-                <a href="https://wa.me/918943573519?text=Hi,%20I'm%20interested%20in%20the%20Social%20Media%20Growth%20package:%201%20On%20site%20shoot,%201%20Campaign%20reel,%203%20Posters,%20and%20Social%20media%20handling."
-                    target="_blank" class="service-card scroll-reveal">
-                    <div class="service-icon"><i data-lucide="camera"></i></div>
-                    <h3>Social Media Growth</h3>
-                    <ul class="service-list">
-                        <li>1 reel with crew</li>
-                        <li>1 Campaign reel</li>
-                        <li>3 Posters</li>
-                        <li>Social media handling</li>
-                    </ul>
-                </a>
-                <!-- Card 3 -->
-                <a href="https://wa.me/918943573519?text=Hi,%20I'm%20interested%20in%20the%20Combo%20Package%20(The%20ultimate%20growth%20engine):%20Influencer%20%2B%20Social%20%2B%20Campaigns."
-                    target="_blank" class="service-card scroll-reveal featured">
-                    <div class="recommended-badge">Recommended</div>
-                    <div class="service-icon"><i data-lucide="zap"></i></div>
-                    <h3>Combo Package</h3>
-                    <p class="service-desc">The ultimate growth engine.</p>
-                    <ul class="service-list">
-                        <li>Influencer + Social + Campaigns</li>
-                    </ul>
-                </a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Add-ons Section -->
-    <section class="addons section-padding">
-        <div class="container">
-            <div class="addons-wrap scroll-reveal">
-                <h3>Add-On Services</h3>
-                <div class="addons-grid">
-                    <div class="addon-item">Meta Ads Campaigns</div>
-                    <div class="addon-item">Google Search & Maps Optimization</div>
-                    <div class="addon-item">Listing on Booking Platforms</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How It Works Section -->
-    <section class="works section-padding" id="works">
-        <div class="container">
-            <div class="section-header scroll-reveal text-center">
-                <h2 class="section-title">How It Works</h2>
-            </div>
-            <div class="steps-grid">
-                <div class="step scroll-reveal">
-                    <div class="step-num">01</div>
-                    <h4>Understand your resort</h4>
-                </div>
-                <div class="step scroll-reveal">
-                    <div class="step-num">02</div>
-                    <h4>Identify target audience</h4>
-                </div>
-                <div class="step scroll-reveal">
-                    <div class="step-num">03</div>
-                    <h4>Collaborate with influencers</h4>
-                </div>
-                <div class="step scroll-reveal">
-                    <div class="step-num">04</div>
-                    <h4>Launch campaigns</h4>
-                </div>
-                <div class="step scroll-reveal">
-                    <div class="step-num">05</div>
-                    <h4>Drive bookings</h4>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Results Section -->
-    <section class="results section-padding" id="results">
-        <div class="container">
-            <div class="section-header scroll-reveal text-center">
-                <h2 class="section-title">Expected Outcomes</h2>
-            </div>
-            <div class="results-layout">
-                <div class="result-box scroll-reveal">
-                    <span class="outcome">Increased Visibility</span>
-                    <i data-lucide="eye"></i>
-                </div>
-                <div class="result-box scroll-reveal">
-                    <span class="outcome">Higher Engagement</span>
-                    <i data-lucide="trending-up"></i>
-                </div>
-                <div class="result-box scroll-reveal">
-                    <span class="outcome">More Inquiries</span>
-                    <i data-lucide="message-square"></i>
-                </div>
-                <div class="result-box scroll-reveal">
-                    <span class="outcome">More Bookings</span>
-                    <i data-lucide="key"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Content Preview Section (Hidden for now)
-    <section class="preview section-padding">
-        <div class="container">
-            <div class="section-header scroll-reveal text-center">
-                <h2 class="section-title">Content Preview</h2>
-            </div>
-            <div class="preview-grid">
-                <div class="preview-card scroll-reveal">
-                    <div class="video-mock">
-                        <i data-lucide="play-circle"></i>
-                        <span>Resort Reel Preview</span>
-                    </div>
-                </div>
-                <div class="preview-card scroll-reveal">
-                    <div class="video-mock">
-                        <i data-lucide="play-circle"></i>
-                        <span>Influencer Campaign Preview</span>
-                    </div>
-                </div>
-                <div class="preview-card scroll-reveal">
-                    <div class="video-mock">
-                        <i data-lucide="play-circle"></i>
-                        <span>Lifestyle Content Preview</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    -->
-
-    <!-- Why Choose Section -->
-    <section class="why section-padding">
-        <div class="container">
+    <!-- SECTION 3.5: SOLUTION -->
+    <section class="section-padding" id="solution" style="background: linear-gradient(180deg, rgba(0,0,0,0.2) 0%, transparent 100%);">
+        <div class="container text-center">
             <div class="section-header scroll-reveal">
-                <h2 class="section-title">Why Choose Addus</h2>
+                <span class="section-subtitle">Goal Oriented Flow</span>
+                <h2 class="section-title gradient-text">Focus on Outcomes, Not Services</h2>
+                <p style="max-width: 700px; margin: 0 auto;">Businesses simply define their target commercial objectives. ADDUS intelligently transforms these business goals into structured creative execution.</p>
             </div>
-            <div class="why-grid">
-                <div class="why-item scroll-reveal">
-                    <div class="why-icon"><i data-lucide="target"></i></div>
-                    <div>
-                        <h4>Strategy driven</h4>
-                        <p>No random acts of marketing. Everything is planned for ROI.</p>
-                    </div>
+            
+            <div class="solution-grid scroll-reveal" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin: 3rem 0;">
+                <div class="glass-card" style="padding: 1.75rem; text-align: center; border: 1px solid var(--border-glass); border-radius: var(--radius); transition: var(--transition);">
+                    <i data-lucide="trending-up" style="color: var(--accent-blue); width: 32px; height: 32px; margin-bottom: 1rem;"></i>
+                    <h4 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">Increase Sales</h4>
                 </div>
-                <div class="why-item scroll-reveal">
-                    <div class="why-icon"><i data-lucide="shield-check"></i></div>
-                    <div>
-                        <h4>End to end execution</h4>
-                        <p>From discovery to reporting, we handle it all.</p>
-                    </div>
+                <div class="glass-card" style="padding: 1.75rem; text-align: center; border: 1px solid var(--border-glass); border-radius: var(--radius); transition: var(--transition);">
+                    <i data-lucide="rocket" style="color: var(--accent-purple); width: 32px; height: 32px; margin-bottom: 1rem;"></i>
+                    <h4 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">Launch a Product</h4>
                 </div>
-                <div class="why-item scroll-reveal">
-                    <div class="why-icon"><i data-lucide="zap"></i></div>
-                    <div>
-                        <h4>Performance focused</h4>
-                        <p>We are obsessed with data and actual room bookings.</p>
-                    </div>
+                <div class="glass-card" style="padding: 1.75rem; text-align: center; border: 1px solid var(--border-glass); border-radius: var(--radius); transition: var(--transition);">
+                    <i data-lucide="eye" style="color: var(--accent-blue); width: 32px; height: 32px; margin-bottom: 1rem;"></i>
+                    <h4 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">Improve Brand Visibility</h4>
                 </div>
-                <div class="why-item scroll-reveal">
-                    <div class="why-icon"><i data-lucide="clock"></i></div>
-                    <div>
-                        <h4>Saves time and effort</h4>
-                        <p>Focus on your guests while we handle the growth.</p>
+                <div class="glass-card" style="padding: 1.75rem; text-align: center; border: 1px solid var(--border-glass); border-radius: var(--radius); transition: var(--transition);">
+                    <i data-lucide="share-2" style="color: var(--accent-purple); width: 32px; height: 32px; margin-bottom: 1rem;"></i>
+                    <h4 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">Grow on Social Media</h4>
+                </div>
+                <div class="glass-card" style="padding: 1.75rem; text-align: center; border: 1px solid var(--border-glass); border-radius: var(--radius); transition: var(--transition);">
+                    <i data-lucide="user-plus" style="color: var(--accent-blue); width: 32px; height: 32px; margin-bottom: 1rem;"></i>
+                    <h4 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">Generate Leads</h4>
+                </div>
+                <div class="glass-card" style="padding: 1.75rem; text-align: center; border: 1px solid var(--border-glass); border-radius: var(--radius); transition: var(--transition);">
+                    <i data-lucide="hotel" style="color: var(--accent-purple); width: 32px; height: 32px; margin-bottom: 1rem;"></i>
+                    <h4 style="font-family: var(--font-heading); font-size: 1.1rem; font-weight: 700; color: var(--text-primary);">Increase Hotel Bookings</h4>
+                </div>
+            </div>
+            
+            <div class="scroll-reveal" style="max-width: 800px; margin: 0 auto; padding: 2rem; background: var(--bg-card); border: 1px solid var(--border-glass); border-radius: var(--radius-lg); text-align: center;">
+                <p style="font-size: 1.2rem; line-height: 1.6; color: var(--text-primary); font-weight: 600;">
+                    ADDUS intelligently transforms these business goals into structured creative execution using AI, workflow automation, and verified creative professionals.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: HOW ADDUS WORKS (INTERACTIVE WORKFLOW) -->
+    <section class="section-padding workflow-section" id="workflow">
+        <div class="container">
+            <div class="section-header text-center scroll-reveal">
+                <span class="section-subtitle">The Execution Engine</span>
+                <h2 class="section-title gradient-text">How ADDUS Works</h2>
+                <p>An intelligent, automated workflow that takes you from high-level objectives to finalized creative assets.</p>
+            </div>
+            
+            <div class="workflow-interactive-container scroll-reveal">
+                <div class="workflow-steps-list" id="workflow-steps-menu">
+                    <button class="workflow-step-btn active" data-step="0">
+                        <div class="step-btn-num">01</div>
+                        <div class="step-btn-title">Business Goal</div>
+                    </button>
+                    <button class="workflow-step-btn" data-step="1">
+                        <div class="step-btn-num">02</div>
+                        <div class="step-btn-title">AI Business Understanding</div>
+                    </button>
+                    <button class="workflow-step-btn" data-step="2">
+                        <div class="step-btn-num">03</div>
+                        <div class="step-btn-title">Creative Strategy</div>
+                    </button>
+                    <button class="workflow-step-btn" data-step="3">
+                        <div class="step-btn-num">04</div>
+                        <div class="step-btn-title">Proposal Generation</div>
+                    </button>
+                    <button class="workflow-step-btn" data-step="4">
+                        <div class="step-btn-num">05</div>
+                        <div class="step-btn-title">Transparent Pricing</div>
+                    </button>
+                    <button class="workflow-step-btn" data-step="5">
+                        <div class="step-btn-num">06</div>
+                        <div class="step-btn-title">Creator Matching</div>
+                    </button>
+                    <button class="workflow-step-btn" data-step="6">
+                        <div class="step-btn-num">07</div>
+                        <div class="step-btn-title">Project Execution</div>
+                    </button>
+                    <button class="workflow-step-btn" data-step="7">
+                        <div class="step-btn-num">08</div>
+                        <div class="step-btn-title">Quality Review</div>
+                    </button>
+                    <button class="workflow-step-btn" data-step="8">
+                        <div class="step-btn-num">09</div>
+                        <div class="step-btn-title">Delivery</div>
+                    </button>
+                </div>
+                
+                <div class="glass-card workflow-display-card">
+                    <!-- Step 1 Content -->
+                    <div class="display-card-content active" data-step-content="0">
+                        <div class="display-card-num">01</div>
+                        <h3 class="display-card-title">Define Your Goal</h3>
+                        <p class="display-card-desc">Simply input your core objective. Whether it's to increase resort bookings, launch a new product, establish a brand identity, or run a lead gen campaign.</p>
+                        <div class="display-card-mockup">
+                            > Input: "Launch high conversion campaign for boutique eco resort in Goa."
+                        </div>
+                    </div>
+                    <!-- Step 2 Content -->
+                    <div class="display-card-content" data-step-content="1">
+                        <div class="display-card-num">02</div>
+                        <h3 class="display-card-title">AI Business Understanding</h3>
+                        <p class="display-card-desc">Our core LLM agent reads and learns about your company's values, tone of voice, visual aesthetics, and existing content architecture.</p>
+                        <div class="display-card-mockup">
+                            > Processing branding assets... Tone: Eco luxury, Minimal. Primary color: Earth green.
+                        </div>
+                    </div>
+                    <!-- Step 3 Content -->
+                    <div class="display-card-content" data-step-content="2">
+                        <div class="display-card-num">03</div>
+                        <h3 class="display-card-title">Creative Strategy</h3>
+                        <p class="display-card-desc">ADDUS crawls market trends, competitor output, and target demographics to recommend custom campaigns and strategic directions.</p>
+                        <div class="display-card-mockup">
+                            > Strategy generated: 4 cinematic shorts, 3 brand identity style sheets, 1 site redesign.
+                        </div>
+                    </div>
+                    <!-- Step 4 Content -->
+                    <div class="display-card-content" data-step-content="3">
+                        <div class="display-card-num">04</div>
+                        <h3 class="display-card-title">Intelligent Proposal Generation</h3>
+                        <p class="display-card-desc">Receive a comprehensive project structure outlining scopes, timelines, exact deliverables, and workflow dependencies automatically.</p>
+                        <div class="display-card-mockup">
+                            > Generated proposal #ADD 889. Time to delivery: 12 days. Revisions: Unlimited within scope.
+                        </div>
+                    </div>
+                    <!-- Step 5 Content -->
+                    <div class="display-card-content" data-step-content="4">
+                        <div class="display-card-num">05</div>
+                        <h3 class="display-card-title">Transparent Pricing</h3>
+                        <p class="display-card-desc">No estimation game. Our pricing engine compiles rates, resource costs, and platform fees into one transparent flat quote.</p>
+                        <div class="display-card-mockup">
+                            > Total Flat Cost: $3,200. Breakdown: AI tokens: $0, Strategy: $800, Creator payouts: $2,400.
+                        </div>
+                    </div>
+                    <!-- Step 6 Content -->
+                    <div class="display-card-content" data-step-content="5">
+                        <div class="display-card-num">06</div>
+                        <h3 class="display-card-title">Creator Matching</h3>
+                        <p class="display-card-desc">ADDUS matches strategic roles in the proposal with background-checked creative talent specializing in your industry vertical.</p>
+                        <div class="display-card-mockup">
+                            > Matched: Lead Designer (Elena R., 98% rating), Director of Copy (Marcus G., 100% rating).
+                        </div>
+                    </div>
+                    <!-- Step 7 Content -->
+                    <div class="display-card-content" data-step-content="6">
+                        <div class="display-card-num">07</div>
+                        <h3 class="display-card-title">Project Execution</h3>
+                        <p class="display-card-desc">All collaboration, file exchanges, version control updates, and client review feedback loop in a unified workspace.</p>
+                        <div class="display-card-mockup">
+                            > Phase 1 draft uploaded. Awaiting client review. Milestone 1 of 3 complete.
+                        </div>
+                    </div>
+                    <!-- Step 8 Content -->
+                    <div class="display-card-content" data-step-content="7">
+                        <div class="display-card-num">08</div>
+                        <h3 class="display-card-title">Automated Quality Review</h3>
+                        <p class="display-card-desc">AI check tools verify compliance with brand guidelines, resolution specs, format constraints, and style guides prior to final client handoff.</p>
+                        <div class="display-card-mockup">
+                            > Checklists passing: Color fidelity (100%), Aspect ratios (100%), Legal check (Passed).
+                        </div>
+                    </div>
+                    <!-- Step 9 Content -->
+                    <div class="display-card-content" data-step-content="8">
+                        <div class="display-card-num">09</div>
+                        <h3 class="display-card-title">Delivery</h3>
+                        <p class="display-card-desc">Securely access, export, and deploy your production-ready design, video, copy, and structural assets directly.</p>
+                        <div class="display-card-mockup">
+                            > All deliverables approved. Assets archived in Cloud Vault. Integration sync ready.
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA Section -->
-    <section class="final-cta section-padding" id="contact">
-        <div class="container scroll-reveal text-center">
-            <h2 class="cta-title">Let’s Grow Your Resort</h2>
-            <div class="cta-btns">
-                <a href="https://wa.me/918943573519?text=Hi,%20I'm%20looking%20to%20increase%20bookings%20for%20my%20resort.%20Can%20you%20share%20how%20Addus%20can%20help%20with%20influencer%20marketing%20and%20campaigns?"
-                    class="btn btn-primary btn-lg" target="_blank">Start Your First Campaign</a>
-                <a href="https://wa.me/918943573519?text=Hi,%20I'm%20looking%20to%20increase%20bookings%20for%20my%20resort.%20Can%20you%20share%20how%20Addus%20can%20help%20with%20influencer%20marketing%20and%20campaigns?"
-                    class="btn btn-outline btn-lg" target="_blank">Book a Free Consultation</a>
+    <!-- SECTION 5: THE INTELLIGENCE LAYER -->
+    <section class="section-padding" id="intelligence-layer">
+        <div class="container text-center">
+            <div class="section-header">
+                <span class="section-subtitle">Orchestration System</span>
+                <h2 class="section-title gradient-text">More Than AI Generation. AI Orchestration.</h2>
+                <p>Generative tools produce isolated items. While AI tools generate raw content, businesses still require strategic thinking, business understanding, collaboration, quality control, and execution accountability. ADDUS orchestrates all of these elements into one intelligent operating system.</p>
+            </div>
+            
+            <div class="equation-container scroll-reveal">
+                <div class="eq-card">
+                    <i data-lucide="trending-up"></i>
+                    <h4>Business Intelligence</h4>
+                </div>
+                <div class="eq-operator">+</div>
+                <div class="eq-card eq-purple">
+                    <i data-lucide="cpu"></i>
+                    <h4>Artificial Intelligence</h4>
+                </div>
+                <div class="eq-operator">+</div>
+                <div class="eq-card">
+                    <i data-lucide="users"></i>
+                    <h4>Verified Creators</h4>
+                </div>
+                <div class="eq-operator">+</div>
+                <div class="eq-card eq-purple">
+                    <i data-lucide="git-pull-request"></i>
+                    <h4>Workflow Automation</h4>
+                </div>
+                <div class="eq-operator">=</div>
+                <div class="eq-card eq-result">
+                    <i data-lucide="sparkles"></i>
+                    <h4 class="accent-gradient-text">ADDUS</h4>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- SECTION 6: PLATFORM CAPABILITIES -->
+    <section class="section-padding" id="capabilities" style="background: rgba(0, 0, 0, 0.15);">
+        <div class="container">
+            <div class="section-header text-center scroll-reveal">
+                <span class="section-subtitle">Features & Toolkit</span>
+                <h2 class="section-title gradient-text">Platform Capabilities</h2>
+                <p>Everything you need to orchestrate complex creative project execution inside a single interface.</p>
+            </div>
+            
+            <div class="capabilities-grid scroll-reveal">
+                <div class="glass-card cap-card">
+                    <div class="cap-icon"><i data-lucide="assistant"></i></div>
+                    <h3>AI Business Assistant</h3>
+                    <p>Transforms high-level business ideas and targets into structured execution roadmaps.</p>
+                </div>
+                <div class="glass-card cap-card">
+                    <div class="cap-icon"><i data-lucide="lightbulb"></i></div>
+                    <h3>Recommendation Engine</h3>
+                    <p>Analyzes industry trends and automatically recommends campaigns to run.</p>
+                </div>
+                <div class="glass-card cap-card">
+                    <div class="cap-icon"><i data-lucide="file-text"></i></div>
+                    <h3>Proposal Builder</h3>
+                    <p>Automatically maps scope, deliverables, task sequences, and timeline estimates.</p>
+                </div>
+                <div class="glass-card cap-card">
+                    <div class="cap-icon"><i data-lucide="dollar-sign"></i></div>
+                    <h3>Dynamic Pricing Engine</h3>
+                    <p>Ensures transparent, unified pricing models, completely eliminating negotiation.</p>
+                </div>
+                <div class="glass-card cap-card">
+                    <div class="cap-icon"><i data-lucide="network"></i></div>
+                    <h3>Creator Network</h3>
+                    <p>Connects projects with pre-vetted, highly qualified designers, marketers, and developers.</p>
+                </div>
+                <div class="glass-card cap-card">
+                    <div class="cap-icon"><i data-lucide="briefcase"></i></div>
+                    <h3>Smart Workspace</h3>
+                    <p>Centralizes version tracking, file handoff, comments, and milestones seamlessly.</p>
+                </div>
+                <div class="glass-card cap-card">
+                    <div class="cap-icon"><i data-lucide="layout"></i></div>
+                    <h3>Business Dashboard</h3>
+                    <p>Gives executives immediate visual indicators on project health, budgets, and schedules.</p>
+                </div>
+                <div class="glass-card cap-card">
+                    <div class="cap-icon"><i data-lucide="user-check"></i></div>
+                    <h3>Creator Dashboard</h3>
+                    <p>Enables creative partners to accept proposals, collaborate, and manage payouts instantly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 7: WHO ARE CREATIVES -->
+    <section class="section-padding" id="creatives">
+        <div class="container">
+            <div class="creatives-grid">
+                <div class="creatives-content scroll-reveal">
+                    <span class="section-subtitle">Ecosystem Partners</span>
+                    <h2 class="section-title gradient-text">The Right Creative Team for Every Business Goal</h2>
+                    <p>
+                        At ADDUS, a Creative is any verified professional who contributes to building a brand, telling its story, engaging its audience, and driving measurable business growth. The AI intelligently assembles the ideal creative team for every project.
+                    </p>
+                </div>
+                
+                <div class="creatives-tags scroll-reveal">
+                    <span class="creative-tag">Brand Strategists</span>
+                    <span class="creative-tag">Creative Directors</span>
+                    <span class="creative-tag">Graphic Designers</span>
+                    <span class="creative-tag">Photographers</span>
+                    <span class="creative-tag">Videographers</span>
+                    <span class="creative-tag">Motion Designers</span>
+                    <span class="creative-tag">Content Writers</span>
+                    <span class="creative-tag">Digital Marketers</span>
+                    <span class="creative-tag">Social Media Specialists</span>
+                    <span class="creative-tag">Website Developers</span>
+                    <span class="creative-tag">SEO Specialists</span>
+                    <span class="creative-tag">Advertising Experts</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 8: WHY ADDUS IS DIFFERENT -->
+    <section class="section-padding" id="comparison">
+        <div class="container">
+            <div class="section-header text-center scroll-reveal">
+                <span class="section-subtitle">How We Stack Up</span>
+                <h2 class="section-title gradient-text">Why ADDUS is Different</h2>
+                <p>Traditional creative pipelines fail to bridge strategy, execution, and automation. Here is how we differ.</p>
+            </div>
+            
+            <div class="comparison-container scroll-reveal">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Traditional Agencies</th>
+                            <th>Freelancer Platforms</th>
+                            <th>AI Content Tools</th>
+                            <th>ADDUS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Project Coordination</td>
+                            <td>Manual coordination</td>
+                            <td>Self service hiring</td>
+                            <td>None</td>
+                            <td><i data-lucide="check" class="check-success"></i> Project orchestration</td>
+                        </tr>
+                        <tr>
+                            <td>Strategy & Planning</td>
+                            <td>Slow / high overhead</td>
+                            <td>No business understanding</td>
+                            <td>Generate content (no strategy)</td>
+                            <td><i data-lucide="check" class="check-success"></i> Deep business understanding</td>
+                        </tr>
+                        <tr>
+                            <td>Sourcing Talent</td>
+                            <td>Internal team limits</td>
+                            <td>Varies (quality inconsistency)</td>
+                            <td>No human collaboration</td>
+                            <td><i data-lucide="check" class="check-success"></i> Verified creator ecosystem</td>
+                        </tr>
+                        <tr>
+                            <td>Execution Model</td>
+                            <td>Long turnaround times</td>
+                            <td>No project orchestration</td>
+                            <td>No collaboration/accountability</td>
+                            <td><i data-lucide="check" class="check-success"></i> End to end execution</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 9: MARKET OPPORTUNITY -->
+    <section class="section-padding" id="market-opportunity">
+        <div class="container">
+            <div class="section-header text-center scroll-reveal">
+                <span class="section-subtitle">Market Potential</span>
+                <h2 class="section-title gradient-text">Building the Infrastructure for Business Creativity</h2>
+                <p>ADDUS addresses a massive expanding market across both the Indian and Global landscape.</p>
+            </div>
+            
+            <div class="market-grid scroll-reveal">
+                <div class="glass-card market-card" data-progress="85%">
+                    <div class="market-metric" style="font-size: 2.2rem; margin-bottom: 1rem;">$250B / ₹20.8L Cr</div>
+                    <div class="market-label">World TAM</div>
+                    <div class="market-desc">Total Addressable Market for global business creative services and digital advertising assets.</div>
+                    <div class="market-progress">
+                        <div class="market-progress-bar" style="--progress-target: 85%;"></div>
+                    </div>
+                </div>
+                <div class="glass-card market-card featured-market" data-progress="60%">
+                    <div class="market-metric" style="font-size: 2.2rem; margin-bottom: 1rem;">$15B / ₹1.25L Cr</div>
+                    <div class="market-label">India TAM</div>
+                    <div class="market-desc">Rapidly expanding addressable market for digital creators and brands within the Indian growth ecosystem.</div>
+                    <div class="market-progress">
+                        <div class="market-progress-bar" style="--progress-target: 60%;"></div>
+                    </div>
+                </div>
+                <div class="glass-card market-card" data-progress="35%">
+                    <div class="market-metric" style="font-size: 2.2rem; margin-bottom: 1rem;">$8B / ₹66K Cr</div>
+                    <div class="market-label">SME SOM</div>
+                    <div class="market-desc">Serviceable Obtainable Market targetable through our immediate SME automation products.</div>
+                    <div class="market-progress">
+                        <div class="market-progress-bar" style="--progress-target: 35%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 10: BUSINESS MODEL -->
+    <section class="section-padding" id="business-model" style="background: rgba(0, 0, 0, 0.15);">
+        <div class="container">
+            <div class="section-header text-center scroll-reveal">
+                <span class="section-subtitle">Monetization Engine</span>
+                <h2 class="section-title gradient-text">Designed for Sustainable Growth</h2>
+                <p>We combine scalable software margins with stable commission pipelines to maximize revenue scaling.</p>
+            </div>
+            
+            <div class="model-grid scroll-reveal">
+                <div class="glass-card model-card">
+                    <div class="model-icon"><i data-lucide="layers"></i></div>
+                    <h3>SaaS Subscriptions</h3>
+                    <p>Recurring workspace access tiers for businesses to unlock advanced AI orchestration modules.</p>
+                </div>
+                <div class="glass-card model-card">
+                    <div class="model-icon"><i data-lucide="percent"></i></div>
+                    <h3>Platform Commissions</h3>
+                    <p>Sleek transactional platform fees on projects successfully executed and delivered to buyers.</p>
+                </div>
+                <div class="glass-card model-card">
+                    <div class="model-icon"><i data-lucide="building"></i></div>
+                    <h3>Enterprise CreativeOS</h3>
+                    <p>Dedicated instances with custom styling controls, SSO, and localized compliance systems for corporate brands.</p>
+                </div>
+                <div class="glass-card model-card">
+                    <div class="model-icon"><i data-lucide="star"></i></div>
+                    <h3>Premium AI Features</h3>
+                    <p>Add-on capabilities for specialized image and model generation finetuned to your brand identity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 11: ROADMAP -->
+    <section class="section-padding" id="roadmap">
+        <div class="container">
+            <div class="section-header text-center scroll-reveal">
+                <span class="section-subtitle">Product Evolution</span>
+                <h2 class="section-title gradient-text">Our Roadmap</h2>
+                <p>The strategic timeline for deploying the world's most robust business creativity infrastructure.</p>
+            </div>
+            
+            <div class="roadmap-container scroll-reveal">
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="glass-card roadmap-card">
+                        <div class="roadmap-phase">Phase 1</div>
+                        <h3 class="roadmap-title">AI Powered Creative Marketplace</h3>
+                        <p>Launch dynamic generator matching algorithm, baseline workspace features, and transparent project estimator.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="glass-card roadmap-card">
+                        <div class="roadmap-phase">Phase 2</div>
+                        <h3 class="roadmap-title">Workflow Automation Platform</h3>
+                        <p>Integrate structured asset validation scripts, auto-approvals, version histories, and localized legal checks.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="glass-card roadmap-card">
+                        <div class="roadmap-phase">Phase 3</div>
+                        <h3 class="roadmap-title">Enterprise CreativeOS</h3>
+                        <p>Introduce corporate instances with role level settings, localized asset library controls, and SSO support.</p>
+                    </div>
+                </div>
+                <div class="roadmap-item">
+                    <div class="roadmap-dot"></div>
+                    <div class="glass-card roadmap-card">
+                        <div class="roadmap-phase">Phase 4</div>
+                        <h3 class="roadmap-title">Global AI Creativity Infrastructure</h3>
+                        <p>Deploy specialized custom foundational models for cross functional business intelligence and visual strategy generation.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 12: VISION -->
+    <section class="section-padding" id="vision" style="background: radial-gradient(circle, rgba(168, 85, 247, 0.05) 0%, transparent 70%); padding: 10rem 0;">
+        <div class="container">
+            <div class="vision-container scroll-reveal" style="max-width: 950px; margin: 0 auto; text-align: center;">
+                <span class="section-subtitle" style="margin-bottom: 2rem;">The Vision</span>
+                <div class="vision-text" style="font-size: clamp(1.8rem, 3.8vw, 3rem); font-weight: 700; line-height: 1.5; letter-spacing: -0.02em; margin-bottom: 2.5rem; color: #fff;">
+                    Every business deserves enterprise level creativity.<br><br>
+                    Every creative deserves meaningful opportunities.<br><br>
+                    Artificial intelligence should empower creativity, not replace it.<br><br>
+                    ADDUS is building the AI Operating System for Business Creativity to make that future possible.
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+                <p>Every generation of technology companies has fundamentally changed how businesses operate.</p>
+                <p>Rather than improving an existing industry, they created a new category that redefined it.</p>
+                <p>ADDUS is applying the same philosophy to business creativity by building the <strong>AI Operating System for Business Creativity</strong>.</p>
+            </div>
+
+            <!-- Category Creator Cards -->
+            <div class="cat-cards-grid">
+
+                <div class="cat-card scroll-reveal" style="--cat-delay: 0ms;">
+                    <div class="cat-card-logo">🛒</div>
+                    <div class="cat-card-company">Shopify</div>
+                    <div class="cat-card-category">Commerce Operating System</div>
+                    <p class="cat-card-desc">Helping millions of businesses build and manage online commerce.</p>
+                </div>
+
+                <div class="cat-card scroll-reveal" style="--cat-delay: 80ms;">
+                    <div class="cat-card-logo">☁️</div>
+                    <div class="cat-card-company">Salesforce</div>
+                    <div class="cat-card-category">CRM Platform</div>
+                    <p class="cat-card-desc">Transforming how organizations manage customer relationships.</p>
+                </div>
+
+                <div class="cat-card scroll-reveal" style="--cat-delay: 160ms;">
+                    <div class="cat-card-logo">💳</div>
+                    <div class="cat-card-company">Stripe</div>
+                    <div class="cat-card-category">Payments Infrastructure</div>
+                    <p class="cat-card-desc">Simplifying digital payments for businesses around the world.</p>
+                </div>
+
+                <div class="cat-card scroll-reveal" style="--cat-delay: 240ms;">
+                    <div class="cat-card-logo">🤖</div>
+                    <div class="cat-card-company">OpenAI</div>
+                    <div class="cat-card-category">AI Intelligence Platform</div>
+                    <p class="cat-card-desc">Making artificial intelligence accessible through powerful foundation models.</p>
+                </div>
+
+                <div class="cat-card scroll-reveal" style="--cat-delay: 320ms;">
+                    <div class="cat-card-logo">🎨</div>
+                    <div class="cat-card-company">Figma</div>
+                    <div class="cat-card-category">Collaborative Design Platform</div>
+                    <p class="cat-card-desc">Changing how teams design and collaborate together.</p>
+                </div>
+
+                <div class="cat-card cat-card-addus scroll-reveal" style="--cat-delay: 400ms;">
+                    <div class="cat-addus-badge">Building Now</div>
+                    <div class="cat-card-logo">⚡</div>
+                    <div class="cat-card-company">ADDUS</div>
+                    <div class="cat-card-category">AI Operating System for Business Creativity</div>
+                    <p class="cat-card-desc">Transforming business goals into creative outcomes through AI intelligence, workflow automation, and verified creative professionals.</p>
+                </div>
+
+            </div>
+
+            <!-- Intersection Diagram -->
+            <div class="cat-intersection-block scroll-reveal">
+                <div class="section-header text-center" style="margin-bottom: 3rem;">
+                    <span class="section-subtitle">Where ADDUS Fits</span>
+                    <h3 class="section-title gradient-text" style="font-size: clamp(1.6rem, 3vw, 2.4rem);">Positioned at the Intersection of Multiple Industries</h3>
+                </div>
+
+                <div class="cat-intersect-diagram">
+                    <div class="cat-intersect-node cat-node-top">
+                        <span class="cat-node-icon">🧠</span>
+                        <span>Artificial Intelligence</span>
+                    </div>
+                    <div class="cat-intersect-node cat-node-right">
+                        <span class="cat-node-icon">💼</span>
+                        <span>Business Software</span>
+                    </div>
+                    <div class="cat-intersect-node cat-node-bottom">
+                        <span class="cat-node-icon">⚙️</span>
+                        <span>Workflow Automation</span>
+                    </div>
+                    <div class="cat-intersect-node cat-node-left">
+                        <span class="cat-node-icon">🎭</span>
+                        <span>Creator Economy</span>
+                    </div>
+                    <div class="cat-intersect-center">
+                        <span class="cat-center-name">ADDUS</span>
+                        <span class="cat-center-label">AI Operating System</span>
+                    </div>
+                    <!-- Connector lines drawn in CSS via pseudo-elements -->
+                    <div class="cat-line cat-line-v"></div>
+                    <div class="cat-line cat-line-h"></div>
+                </div>
+
+                <p class="cat-intersect-caption">ADDUS combines technologies and business models from multiple proven industries to create an entirely new category focused on intelligent creative execution.</p>
+            </div>
+
+            <!-- Proven Models Cards -->
+            <div class="cat-proven-block scroll-reveal">
+                <div class="section-header text-center" style="margin-bottom: 3rem;">
+                    <span class="section-subtitle">Built on Proven Models</span>
+                    <h3 class="section-title gradient-text" style="font-size: clamp(1.6rem, 3vw, 2.4rem);">Built on Proven Models.<br>Creating a New Category.</h3>
+                </div>
+
+                <div class="cat-proven-grid">
+                    <div class="cat-proven-card glass-card">
+                        <div class="cat-proven-icon">🧠</div>
+                        <h4>AI Intelligence</h4>
+                        <p>Inspired by companies that transformed artificial intelligence.</p>
+                    </div>
+                    <div class="cat-proven-card glass-card">
+                        <div class="cat-proven-icon">🤝</div>
+                        <h4>Marketplace Ecosystem</h4>
+                        <p>Connecting businesses with verified creative professionals.</p>
+                    </div>
+                    <div class="cat-proven-card glass-card">
+                        <div class="cat-proven-icon">⚙️</div>
+                        <h4>Workflow Automation</h4>
+                        <p>Digitizing project planning, approvals, collaboration, and delivery.</p>
+                    </div>
+                    <div class="cat-proven-card glass-card">
+                        <div class="cat-proven-icon">💼</div>
+                        <h4>Business Software</h4>
+                        <p>Providing businesses with one intelligent operating system instead of multiple disconnected tools.</p>
+                    </div>
+                    <div class="cat-proven-card glass-card">
+                        <div class="cat-proven-icon">🎯</div>
+                        <h4>Creative Intelligence</h4>
+                        <p>Transforming business objectives into measurable creative outcomes.</p>
+                    </div>
+                    <div class="cat-proven-card glass-card">
+                        <div class="cat-proven-icon">🚀</div>
+                        <h4>Enterprise Scalability</h4>
+                        <p>Designed to serve startups, SMEs, agencies, and enterprises through one unified platform.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Final Statement -->
+            <div class="cat-final-statement scroll-reveal">
+                <blockquote class="cat-final-quote">
+                    <p>Every transformative company created a category before it dominated one.</p>
+                </blockquote>
+                <div class="cat-final-list">
+                    <div class="cat-final-item">
+                        <span class="cat-final-co">Shopify</span>
+                        <span class="cat-final-txt">transformed commerce.</span>
+                    </div>
+                    <div class="cat-final-item">
+                        <span class="cat-final-co">Salesforce</span>
+                        <span class="cat-final-txt">transformed customer relationship management.</span>
+                    </div>
+                    <div class="cat-final-item">
+                        <span class="cat-final-co">Stripe</span>
+                        <span class="cat-final-txt">transformed digital payments.</span>
+                    </div>
+                    <div class="cat-final-item">
+                        <span class="cat-final-co">OpenAI</span>
+                        <span class="cat-final-txt">transformed artificial intelligence.</span>
+                    </div>
+                </div>
+                <p class="cat-final-addus">
+                    <strong>ADDUS</strong> is building the AI Operating System for Business Creativity—bringing AI, business understanding, workflow automation, and verified creative professionals together into one intelligent platform.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION 13: FINAL CALL TO ACTION -->
+
+    <section class="section-padding final-cta-section" id="cta-section">
+        <div class="container">
+            <div class="cta-box scroll-reveal">
+                <h2 class="gradient-text" style="font-size: clamp(2rem, 4.5vw, 3.5rem); line-height: 1.2; margin-bottom: 1.5rem;">Every Great Business Begins With an Idea.<br>ADDUS Helps the World Create It.</h2>
+                <p style="margin-bottom: 3rem;">Join us in defining the future of commercial creativity infrastructure.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary trigger-waitlist-modal">Join the Waitlist</button>
+                    <button class="btn btn-secondary trigger-pitchdeck">Download Pitch Deck</button>
+                    <button class="btn btn-outline trigger-waitlist-modal">Partner With ADDUS</button>
+                    <a href="mailto:addusindia@gmail.com" class="btn btn-outline" style="display: inline-flex; align-items: center; justify-content: center;">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-top">
+            <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="#" class="logo-link">
-                        <img src="addus.svg" alt="Addus Logo - Scale Your Resort Globally" class="logo-img">
-                        <span class="logo-text">ADDUS<span class="text-accent">.</span></span>
+                        <img src="addus.svg" alt="ADDUS Logo" class="logo-img">
+                        <span class="logo-text">ADDUS<span>.</span></span>
                     </a>
-                    <p>Helping resorts scale globally through strategic influencer and performance marketing.</p>
+                    <p>Building the AI Operating System for Business Creativity, an intelligent platform that transforms business goals into creative outcomes.</p>
                 </div>
-                <div class="footer-contact">
-                    <h4>Contact Us</h4>
-                    <p><i data-lucide="mail"></i> addusindia@gmail.com</p>
-                    <p><i data-lucide="phone"></i> +91 8943573519</p>
-                    <p><i data-lucide="phone"></i> +91 8590616400</p>
-
+                <div class="footer-nav">
+                    <a href="#why-needs" class="footer-nav-link">Why ADDUS</a>
+                    <a href="#capabilities" class="footer-nav-link">Capabilities</a>
+                    <a href="#workflow" class="footer-nav-link">Workflow</a>
+                    <a href="#roadmap" class="footer-nav-link">Roadmap</a>
                 </div>
-                <div class="footer-social">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="#"><i data-lucide="instagram"></i></a>
-                        <a href="#"><i data-lucide="linkedin"></i></a>
-                        <a href="#"><i data-lucide="twitter"></i></a>
-                    </div>
+                <div class="footer-contact" style="min-width: 200px;">
+                    <h4 style="font-family: var(--font-heading); font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.75rem;">Contact Us</h4>
+                    <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+                        Email: <a href="mailto:addusindia@gmail.com" class="footer-nav-link">addusindia@gmail.com</a><br>
+                        Phone: <a href="tel:8943573519" class="footer-nav-link">8943573519</a>
+                    </p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Addus. All rights reserved.</p>
+                <p>&copy; 2026 ADDUS. All rights reserved.</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                    <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Video Modal Overlay -->
-    <div id="videoModal" class="video-modal">
+    <!-- WAITLIST POPUP MODAL -->
+    <div class="modal" id="waitlist-modal">
+        <div class="modal-overlay"></div>
         <div class="modal-content">
-            <span class="close-modal" id="closeModal">&times;</span>
-            <video id="modalVideo" controls playsinline>
-                <source id="modalSource" src="" type="video/mp4">
-            </video>
+            <button class="modal-close" aria-label="Close modal">&times;</button>
+            <h3 class="modal-title">Join the ADDUS Waitlist</h3>
+            <p class="modal-desc">Secure early access to the AI Operating System for Business Creativity and stay updated on our launch.</p>
+            
+            <form id="waitlist-form">
+                <div class="form-group">
+                    <label class="form-label" for="waitlist-name">Your Name</label>
+                    <input type="text" id="waitlist-name" class="form-control" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="waitlist-email">Email Address</label>
+                    <input type="email" id="waitlist-email" class="form-control" placeholder="you@company.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="waitlist-role">Tell us who you are</label>
+                    <select id="waitlist-role" class="form-control">
+                        <option value="business">Business / SME / Brand</option>
+                        <option value="creator">Creative Professional / Designer / Marketer</option>
+                        <option value="partner">Strategic Partner / Investor</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Secure Early Access</button>
+            </form>
         </div>
     </div>
 
+    <!-- JavaScript scripts -->
     <script src="script.js"></script>
     <script>
+        // Init Lucide Icons inside the page
         lucide.createIcons();
     </script>
 </body>
-
 </html>
