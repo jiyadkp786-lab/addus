@@ -660,46 +660,63 @@
                     assets.</p>
             </div>
 
+            <!-- Mobile step hint label -->
+            <div class="workflow-mobile-hint" id="workflowMobileHint">
+                <i data-lucide="hand-metal"></i>
+                <span>Tap a step to explore the workflow</span>
+                <i data-lucide="arrow-right"></i>
+            </div>
+
             <div class="workflow-interactive-container scroll-reveal">
-                <div class="workflow-steps-list" id="workflow-steps-menu">
-                    <button class="workflow-step-btn active" data-step="0">
-                        <div class="step-btn-num">01</div>
-                        <div class="step-btn-title">Business Goal</div>
-                    </button>
-                    <button class="workflow-step-btn" data-step="1">
-                        <div class="step-btn-num">02</div>
-                        <div class="step-btn-title">AI Business Understanding</div>
-                    </button>
-                    <button class="workflow-step-btn" data-step="2">
-                        <div class="step-btn-num">03</div>
-                        <div class="step-btn-title">Creative Strategy</div>
-                    </button>
-                    <button class="workflow-step-btn" data-step="3">
-                        <div class="step-btn-num">04</div>
-                        <div class="step-btn-title">Proposal Generation</div>
-                    </button>
-                    <button class="workflow-step-btn" data-step="4">
-                        <div class="step-btn-num">05</div>
-                        <div class="step-btn-title">Transparent Pricing</div>
-                    </button>
-                    <button class="workflow-step-btn" data-step="5">
-                        <div class="step-btn-num">06</div>
-                        <div class="step-btn-title">Creator Matching</div>
-                    </button>
-                    <button class="workflow-step-btn" data-step="6">
-                        <div class="step-btn-num">07</div>
-                        <div class="step-btn-title">Project Execution</div>
-                    </button>
-                    <button class="workflow-step-btn" data-step="7">
-                        <div class="step-btn-num">08</div>
-                        <div class="step-btn-title">Quality Review</div>
-                    </button>
-                    <button class="workflow-step-btn" data-step="8">
-                        <div class="step-btn-num">09</div>
-                        <div class="step-btn-title">Delivery</div>
-                    </button>
+
+                <!-- Steps list with mobile progress bar wrapper -->
+                <div class="workflow-steps-col">
+                    <div class="workflow-steps-list" id="workflow-steps-menu">
+                        <button class="workflow-step-btn active" data-step="0">
+                            <div class="step-btn-num">01</div>
+                            <div class="step-btn-title">Business Goal</div>
+                        </button>
+                        <button class="workflow-step-btn" data-step="1">
+                            <div class="step-btn-num">02</div>
+                            <div class="step-btn-title">AI Business Understanding</div>
+                        </button>
+                        <button class="workflow-step-btn" data-step="2">
+                            <div class="step-btn-num">03</div>
+                            <div class="step-btn-title">Creative Strategy</div>
+                        </button>
+                        <button class="workflow-step-btn" data-step="3">
+                            <div class="step-btn-num">04</div>
+                            <div class="step-btn-title">Proposal Generation</div>
+                        </button>
+                        <button class="workflow-step-btn" data-step="4">
+                            <div class="step-btn-num">05</div>
+                            <div class="step-btn-title">Transparent Pricing</div>
+                        </button>
+                        <button class="workflow-step-btn" data-step="5">
+                            <div class="step-btn-num">06</div>
+                            <div class="step-btn-title">Creator Matching</div>
+                        </button>
+                        <button class="workflow-step-btn" data-step="6">
+                            <div class="step-btn-num">07</div>
+                            <div class="step-btn-title">Project Execution</div>
+                        </button>
+                        <button class="workflow-step-btn" data-step="7">
+                            <div class="step-btn-num">08</div>
+                            <div class="step-btn-title">Quality Review</div>
+                        </button>
+                        <button class="workflow-step-btn" data-step="8">
+                            <div class="step-btn-num">09</div>
+                            <div class="step-btn-title">Delivery</div>
+                        </button>
+                    </div>
+
+                    <!-- Mobile-only step progress bar -->
+                    <div class="workflow-step-progress" id="workflowStepProgress">
+                        <div class="wf-progress-fill" id="wfProgressFill" style="width: 11.1%"></div>
+                    </div>
                 </div>
 
+                <!-- Content card -->
                 <div class="glass-card workflow-display-card">
                     <!-- Step 1 Content -->
                     <div class="display-card-content active" data-step-content="0">
@@ -748,8 +765,7 @@
                         <p class="display-card-desc">No estimation game. Our pricing engine compiles rates, resource
                             costs, and platform fees into one transparent flat quote.</p>
                         <div class="display-card-mockup">
-                            > Total Flat Cost: $3,200. Breakdown: AI tokens: $0, Strategy: $800, Creator payouts:
-                            $2,400.
+                            > Total Flat Cost: $3,200. Breakdown: AI tokens: $0, Strategy: $800, Creator payouts: $2,400.
                         </div>
                     </div>
                     <!-- Step 6 Content -->
@@ -791,6 +807,19 @@
                         <div class="display-card-mockup">
                             > All deliverables approved. Assets archived in Cloud Vault. Integration sync ready.
                         </div>
+                    </div>
+
+                    <!-- Mobile-only Prev / Next navigation -->
+                    <div class="workflow-card-nav" id="workflowCardNav">
+                        <button class="wf-nav-btn" id="wfPrevBtn" aria-label="Previous step">
+                            <i data-lucide="arrow-left"></i>
+                            <span>Prev</span>
+                        </button>
+                        <span class="wf-step-counter" id="wfStepCounter">Step 1 of 9</span>
+                        <button class="wf-nav-btn wf-nav-next" id="wfNextBtn" aria-label="Next step">
+                            <span>Next</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -939,48 +968,67 @@
                     differ.</p>
             </div>
 
-            <div class="comparison-container scroll-reveal">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Feature</th>
-                            <th>Traditional Agencies</th>
-                            <th>Freelancer Platforms</th>
-                            <th>AI Content Tools</th>
-                            <th>ADDUS</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Project Coordination</td>
-                            <td>Manual coordination</td>
-                            <td>Self service hiring</td>
-                            <td>None</td>
-                            <td><i data-lucide="check" class="check-success"></i> Project orchestration</td>
-                        </tr>
-                        <tr>
-                            <td>Strategy & Planning</td>
-                            <td>Slow / high overhead</td>
-                            <td>No business understanding</td>
-                            <td>Generate content (no strategy)</td>
-                            <td><i data-lucide="check" class="check-success"></i> Deep business understanding</td>
-                        </tr>
-                        <tr>
-                            <td>Sourcing Talent</td>
-                            <td>Internal team limits</td>
-                            <td>Varies (quality inconsistency)</td>
-                            <td>No human collaboration</td>
-                            <td><i data-lucide="check" class="check-success"></i> Verified creator ecosystem</td>
-                        </tr>
-                        <tr>
-                            <td>Execution Model</td>
-                            <td>Long turnaround times</td>
-                            <td>No project orchestration</td>
-                            <td>No collaboration/accountability</td>
-                            <td><i data-lucide="check" class="check-success"></i> End to end execution</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Mobile scroll wrapper -->
+            <div class="table-scroll-wrapper scroll-reveal">
+                <!-- Scroll arrows (mobile only) -->
+                <button class="table-scroll-btn table-scroll-left" id="tableScrollLeft" aria-label="Scroll table left">
+                    <i data-lucide="chevron-left"></i>
+                </button>
+                <button class="table-scroll-btn table-scroll-right" id="tableScrollRight" aria-label="Scroll table right">
+                    <i data-lucide="chevron-right"></i>
+                </button>
+
+                <div class="comparison-container" id="comparisonScroll">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Traditional Agencies</th>
+                                <th>Freelancer Platforms</th>
+                                <th>AI Content Tools</th>
+                                <th>ADDUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Project Coordination</td>
+                                <td>Manual coordination</td>
+                                <td>Self service hiring</td>
+                                <td>None</td>
+                                <td><i data-lucide="check" class="check-success"></i> Project orchestration</td>
+                            </tr>
+                            <tr>
+                                <td>Strategy &amp; Planning</td>
+                                <td>Slow / high overhead</td>
+                                <td>No business understanding</td>
+                                <td>Generate content (no strategy)</td>
+                                <td><i data-lucide="check" class="check-success"></i> Deep business understanding</td>
+                            </tr>
+                            <tr>
+                                <td>Sourcing Talent</td>
+                                <td>Internal team limits</td>
+                                <td>Varies (quality inconsistency)</td>
+                                <td>No human collaboration</td>
+                                <td><i data-lucide="check" class="check-success"></i> Verified creator ecosystem</td>
+                            </tr>
+                            <tr>
+                                <td>Execution Model</td>
+                                <td>Long turnaround times</td>
+                                <td>No project orchestration</td>
+                                <td>No collaboration/accountability</td>
+                                <td><i data-lucide="check" class="check-success"></i> End to end execution</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Swipe hint bar (mobile only) -->
+                <div class="table-swipe-hint" id="tableSwipeHint">
+                    <div class="swipe-track">
+                        <div class="swipe-thumb" id="tableSwipeThumb"></div>
+                    </div>
+                    <span class="swipe-label">swipe to explore</span>
+                </div>
             </div>
         </div>
     </section>

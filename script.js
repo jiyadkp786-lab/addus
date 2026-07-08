@@ -147,28 +147,91 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- 4. Interactive Step-by-Step Workflow ---
-    const stepButtons = document.querySelectorAll('.workflow-step-btn');
-    const displayContents = document.querySelectorAll('.display-card-content');
-    
-    if (stepButtons && displayContents) {
-        stepButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const targetStep = btn.getAttribute('data-step');
-                
-                // Toggle active button
-                stepButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                
-                // Toggle active content
-                displayContents.forEach(content => {
-                    content.classList.remove('active');
-                    if (content.getAttribute('data-step-content') === targetStep) {
-                        content.classList.add('active');
-                    }
-                });
-            });
+    const stepButtons      = document.querySelectorAll('.workflow-step-btn');
+    const displayContents  = document.querySelectorAll('.display-card-content');
+    const totalSteps       = stepButtons.length;
+
+    // Mobile UX elements
+    const progressFill  = document.getElementById('wfProgressFill');
+    const stepCounter   = document.getElementById('wfStepCounter');
+    const prevBtn       = document.getElementById('wfPrevBtn');
+    const nextBtn       = document.getElementById('wfNextBtn');
+    const stepsMenu     = document.getElementById('workflow-steps-menu');
+
+    let currentStep = 0;
+
+    /**
+     * Activate a specific step by index.
+     */
+    function activateStep(index) {
+        if (index < 0 || index >= totalSteps) return;
+        currentStep = index;
+
+        // Capture current vertical scroll so we can restore it after content swap
+        const savedScrollY = window.scrollY;
+
+        // Update step pills
+        stepButtons.forEach((btn, i) => {
+            btn.classList.toggle('active', i === index);
+        });
+
+        // Update content panels
+        displayContents.forEach(content => {
+            const match = parseInt(content.getAttribute('data-step-content'), 10) === index;
+            content.classList.toggle('active', match);
+        });
+
+        // ── Mobile extras ──
+
+        // Progress bar
+        if (progressFill) {
+            const pct = ((index + 1) / totalSteps) * 100;
+            progressFill.style.width = `${pct}%`;
+        }
+
+        // Step counter
+        if (stepCounter) {
+            stepCounter.textContent = `Step ${index + 1} of ${totalSteps}`;
+        }
+
+        // Prev/Next disable states
+        if (prevBtn) prevBtn.disabled = index === 0;
+        if (nextBtn) nextBtn.disabled = index === totalSteps - 1;
+
+        // Scroll active pill to centre of the strip ONLY (not the page)
+        const activeBtn = stepButtons[index];
+        if (activeBtn && stepsMenu) {
+            const containerWidth = stepsMenu.offsetWidth;
+            const btnLeft  = activeBtn.offsetLeft;
+            const btnWidth = activeBtn.offsetWidth;
+            const targetScrollLeft = btnLeft - (containerWidth / 2) + (btnWidth / 2);
+            stepsMenu.scrollLeft = Math.max(0, targetScrollLeft);
+        }
+
+        // Safety net: lock the window's horizontal scroll to 0 so the
+        // browser never drifts the entire page viewport sideways on mobile
+        window.scrollTo({ left: 0, top: savedScrollY, behavior: 'instant' });
+    }
+
+    // Click on any step pill
+    if (stepButtons.length && displayContents.length) {
+        stepButtons.forEach((btn, i) => {
+            btn.addEventListener('click', () => activateStep(i));
         });
     }
+
+    // Prev button
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => activateStep(currentStep - 1));
+    }
+
+    // Next button
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => activateStep(currentStep + 1));
+    }
+
+    // Initialise
+    activateStep(0);
 
     // --- 5. Scroll Reveal ---
     const revealElements = document.querySelectorAll('.scroll-reveal');
