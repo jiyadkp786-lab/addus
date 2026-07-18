@@ -1,29 +1,58 @@
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. Custom Cursor ---
+    // --- 1. Custom Cursor (Smooth Trailing Cursor with Lerp) ---
     const cursor = document.getElementById('cursor');
     if (cursor) {
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = `${e.clientX}px`;
-            cursor.style.top = `${e.clientY}px`;
-        });
+        let mouseX = 0;
+        let mouseY = 0;
+        let cursorX = 0;
+        let cursorY = 0;
+        let hasMoved = false;
 
-        // Hover expansions
-        const hoverTargets = document.querySelectorAll('a, button, .workflow-step-btn, .glass-card, .creative-tag');
-        hoverTargets.forEach(target => {
-            target.addEventListener('mouseenter', () => {
-                cursor.style.width = '30px';
-                cursor.style.height = '30px';
-                cursor.style.background = 'rgba(214, 255, 1, 0.3)';
-                cursor.style.borderColor = 'var(--primary)';
+        // Check if device is touch-enabled
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
+        if (isTouchDevice) {
+            cursor.style.display = 'none';
+        } else {
+            document.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                if (!hasMoved) {
+                    cursorX = mouseX;
+                    cursorY = mouseY;
+                    hasMoved = true;
+                }
             });
-            target.addEventListener('mouseleave', () => {
-                cursor.style.width = '10px';
-                cursor.style.height = '10px';
-                cursor.style.background = '#fff';
-                cursor.style.borderColor = 'transparent';
+
+            const renderCursor = () => {
+                if (hasMoved) {
+                    cursorX += (mouseX - cursorX) * 0.12;
+                    cursorY += (mouseY - cursorY) * 0.12;
+                    cursor.style.left = `${cursorX}px`;
+                    cursor.style.top = `${cursorY}px`;
+                }
+                requestAnimationFrame(renderCursor);
+            };
+            requestAnimationFrame(renderCursor);
+
+            // Hover expansions
+            const hoverTargets = document.querySelectorAll('a, button, .workflow-step-btn, .card, .creative-tag');
+            hoverTargets.forEach(target => {
+                target.addEventListener('mouseenter', () => {
+                    cursor.style.width = '30px';
+                    cursor.style.height = '30px';
+                    cursor.style.background = 'rgba(214, 255, 1, 0.3)';
+                    cursor.style.borderColor = 'var(--primary)';
+                });
+                target.addEventListener('mouseleave', () => {
+                    cursor.style.width = '10px';
+                    cursor.style.height = '10px';
+                    cursor.style.background = '#fff';
+                    cursor.style.borderColor = 'transparent';
+                });
             });
-        });
+        }
     }
 
     // --- 2. Canvas Particle Background ---
@@ -53,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 this.x += this.vx;
                 this.y += this.vy;
 
-                // Bounce walls
                 if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
                 if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
             }
@@ -65,21 +93,17 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Init
         for (let i = 0; i < maxParticles; i++) {
             particles.push(new Particle());
         }
 
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            // Update & Draw particles
             particles.forEach(p => {
                 p.update();
                 p.draw();
             });
 
-            // Draw connecting lines
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
@@ -106,10 +130,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const typingText = document.getElementById('typing-text');
     if (typingText) {
         const phrases = [
-            "Creative Reality Out.",
-            "AI Orchestration for Creativity.",
-            "From Goals to Outcomes.",
-            "Creativity, Powered by Intelligence."
+            "into execution.",
+            "project delivery.",
+            "completed visual assets.",
+            "business readiness."
         ];
         let phraseIndex = 0;
         let charIndex = phrases[0].length;
@@ -130,19 +154,17 @@ document.addEventListener('DOMContentLoaded', () => {
             typingText.innerHTML = currentPhrase.substring(0, charIndex);
 
             if (!isDeleting && charIndex === currentPhrase.length) {
-                // Pause at completion
                 isDeleting = true;
-                typeSpeed = 2000; // wait 2s
+                typeSpeed = 2000;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 phraseIndex = (phraseIndex + 1) % phrases.length;
-                typeSpeed = 500; // pause before typing next
+                typeSpeed = 500;
             }
 
             setTimeout(typeEffect, typeSpeed);
         };
         
-        // Start typing loop after hero animations finish
         setTimeout(typeEffect, 1000);
     }
 
@@ -160,45 +182,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let currentStep = 0;
 
-    /**
-     * Activate a specific step by index.
-     */
     function activateStep(index) {
         if (index < 0 || index >= totalSteps) return;
         currentStep = index;
 
-        // Capture current vertical scroll so we can restore it after content swap
         const savedScrollY = window.scrollY;
 
-        // Update step pills
         stepButtons.forEach((btn, i) => {
             btn.classList.toggle('active', i === index);
         });
 
-        // Update content panels
         displayContents.forEach(content => {
             const match = parseInt(content.getAttribute('data-step-content'), 10) === index;
             content.classList.toggle('active', match);
         });
 
-        // ── Mobile extras ──
-
-        // Progress bar
         if (progressFill) {
             const pct = ((index + 1) / totalSteps) * 100;
             progressFill.style.width = `${pct}%`;
         }
 
-        // Step counter
         if (stepCounter) {
             stepCounter.textContent = `Step ${index + 1} of ${totalSteps}`;
         }
 
-        // Prev/Next disable states
         if (prevBtn) prevBtn.disabled = index === 0;
         if (nextBtn) nextBtn.disabled = index === totalSteps - 1;
 
-        // Scroll active pill to centre of the strip ONLY (not the page)
         const activeBtn = stepButtons[index];
         if (activeBtn && stepsMenu) {
             const containerWidth = stepsMenu.offsetWidth;
@@ -208,29 +218,23 @@ document.addEventListener('DOMContentLoaded', () => {
             stepsMenu.scrollLeft = Math.max(0, targetScrollLeft);
         }
 
-        // Safety net: lock the window's horizontal scroll to 0 so the
-        // browser never drifts the entire page viewport sideways on mobile
         window.scrollTo({ left: 0, top: savedScrollY, behavior: 'instant' });
     }
 
-    // Click on any step pill
     if (stepButtons.length && displayContents.length) {
         stepButtons.forEach((btn, i) => {
             btn.addEventListener('click', () => activateStep(i));
         });
     }
 
-    // Prev button
     if (prevBtn) {
         prevBtn.addEventListener('click', () => activateStep(currentStep - 1));
     }
 
-    // Next button
     if (nextBtn) {
         nextBtn.addEventListener('click', () => activateStep(currentStep + 1));
     }
 
-    // Initialise
     activateStep(0);
 
     // --- 5. Scroll Reveal ---
@@ -239,11 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                
-                // If it's a market card, trigger progress bar animation
-                if (entry.target.classList.contains('market-card')) {
-                    entry.target.classList.add('active');
-                }
             }
         });
     }, { threshold: 0.15 });
@@ -273,7 +272,6 @@ document.addEventListener('DOMContentLoaded', () => {
             navMenu.classList.toggle('active');
         });
 
-        // Close mobile menu on clicking links
         document.querySelectorAll('.nav-link, .nav-links button').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
@@ -304,35 +302,29 @@ document.addEventListener('DOMContentLoaded', () => {
     if (modalClose) modalClose.addEventListener('click', closeModal);
     if (modalOverlay) modalOverlay.addEventListener('click', closeModal);
 
-    // Escape closes modal
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeModal();
     });
 
-    // Form Submission Handling
     if (waitlistForm) {
         waitlistForm.addEventListener('submit', (e) => {
             e.preventDefault();
             const name = document.getElementById('waitlist-name').value;
             const email = document.getElementById('waitlist-email').value;
-            const role = document.getElementById('waitlist-role').value;
 
-            // Form feedback UI change
             const contentContainer = modal.querySelector('.modal-content');
             contentContainer.innerHTML = `
                 <button class="modal-close" aria-label="Close modal">&times;</button>
                 <div style="text-align: center; padding: 2rem 0;">
-                    <i data-lucide="check-circle" style="width: 64px; height: 64px; color: var(--accent-blue); margin-bottom: 1.5rem;"></i>
+                    <i data-lucide="check-circle" style="width: 64px; height: 64px; color: var(--primary); margin-bottom: 1.5rem; display: block; margin-left: auto; margin-right: auto;"></i>
                     <h3 class="modal-title" style="margin-bottom: 1rem;">Welcome Aboard, ${name}!</h3>
-                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">You've successfully secured early access for <strong>ADDUS OS</strong> using <strong>${email}</strong>.</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">You've successfully secured early access for ADDUS using <strong>${email}</strong>.</p>
                     <button class="btn btn-secondary trigger-close-feedback" style="width: 100%;">Close</button>
                 </div>
             `;
             
-            // Reinitialize Lucide icons in modal
             lucide.createIcons();
             
-            // Add close handler to new button
             const closeFeedbackBtn = contentContainer.querySelector('.trigger-close-feedback');
             if (closeFeedbackBtn) {
                 closeFeedbackBtn.addEventListener('click', closeModal);
@@ -344,15 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- 9. Pitch Deck Mock Download Trigger ---
-    const pitchDeckTriggers = document.querySelectorAll('.trigger-pitchdeck');
-    pitchDeckTriggers.forEach(trigger => {
-        trigger.addEventListener('click', () => {
-            alert("Pitch Deck request received! Sending investor overview package (PDF) to your download tray.");
-        });
-    });
-
-    // --- 10. AI Orchestration Flow Loop (Pure-SVG version) ---
+    // --- 9. Animated SVG Orchestration Flow Loop ---
     const orchNodes   = document.querySelectorAll('.orch-node[data-step-node]');
     const orchLines   = document.querySelectorAll('.orch-line');
     const orchDescs   = document.querySelectorAll('.orch-desc');
@@ -360,7 +344,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let activeOrchStep = 0;
     let orchInterval   = null;
 
-    // Map each step to: which node ID to highlight, which line ID to activate, which desc key to show
     const stepsMap = [
         { node: 'node-goal',      line: 'fl-goal-os',     desc: 'goal'      },
         { node: 'node-os',        line: 'fl-os-ai',       desc: 'os'        },
@@ -374,20 +357,16 @@ document.addEventListener('DOMContentLoaded', () => {
         activeOrchStep = index;
         const current = stepsMap[index];
 
-        // Clear all
         orchNodes.forEach(n => n.classList.remove('active'));
         orchLines.forEach(l => l.classList.remove('active-line'));
         orchDescs.forEach(d => d.classList.remove('active'));
 
-        // Activate node
         const activeNode = document.getElementById(current.node);
         if (activeNode) activeNode.classList.add('active');
 
-        // Activate line
         const activeLine = document.getElementById(current.line);
         if (activeLine) activeLine.classList.add('active-line');
 
-        // Activate description
         const activeDesc = document.querySelector(`.orch-desc[data-desc-for="${current.desc}"]`);
         if (activeDesc) activeDesc.classList.add('active');
     }
@@ -403,7 +382,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (orchInterval) clearInterval(orchInterval);
     }
 
-    // Hover interaction
     orchNodes.forEach(node => {
         node.addEventListener('mouseenter', () => {
             pauseOrchCycle();
@@ -414,9 +392,55 @@ document.addEventListener('DOMContentLoaded', () => {
         node.addEventListener('mouseleave', startOrchCycle);
     });
 
-    // Kick off
     if (orchNodes.length > 0) {
         setOrchStep(0);
         startOrchCycle();
     }
+
+    // --- 10. Interactive Scenario Switcher ---
+    const scenarioButtons = document.querySelectorAll('.scenario-nav-btn');
+    const scenarioViews = document.querySelectorAll('.scenario-view-content');
+
+    if (scenarioButtons.length && scenarioViews.length) {
+        scenarioButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetScenario = btn.getAttribute('data-scenario');
+                
+                scenarioButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                scenarioViews.forEach(view => {
+                    if (view.id === `sc-${targetScenario}`) {
+                        view.classList.add('active');
+                    } else {
+                        view.classList.remove('active');
+                    }
+                });
+            });
+        });
+    }
+
+    // --- 11. Interactive Hero Mockup Tabs ---
+    const tabButtons = document.querySelectorAll('.mock-tab-btn');
+    const tabContents = document.querySelectorAll('.mock-tab-content');
+
+    if (tabButtons.length && tabContents.length) {
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const targetTabId = btn.getAttribute('data-target-tab');
+                
+                tabButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                tabContents.forEach(content => {
+                    if (content.id === `tab-${targetTabId}`) {
+                        content.classList.add('active');
+                    } else {
+                        content.classList.remove('active');
+                    }
+                });
+            });
+        });
+    }
+
 });
