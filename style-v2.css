@@ -1,4 +1,41 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+@font-face {
+    font-family: 'Gotham';
+    src: url('fonts/Gotham/Gotham-Regular.ttf') format('truetype'),
+         url('fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype-variations'),
+         url('fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Gotham';
+    src: url('fonts/Gotham/Gotham-Bold.ttf') format('truetype'),
+         url('fonts/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat/Montserrat-VariableFont_wght.ttf') format('truetype-variations'),
+         url('fonts/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('fonts/Montserrat/Montserrat-Italic-VariableFont_wght.ttf') format('truetype-variations'),
+         url('fonts/Montserrat/static/Montserrat-Italic.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
     --bg-dark: #020408;
@@ -19,8 +56,8 @@
     --text-secondary: #94a3b8;
     --text-dim: #64748b;
     
-    --font-heading: 'Outfit', sans-serif;
-    --font-body: 'Inter', sans-serif;
+    --font-heading: 'Gotham', 'Universal Sans Display', 'Montserrat', sans-serif;
+    --font-body: 'Gotham', 'Universal Sans Text', 'Montserrat', sans-serif;
     
     --radius: 16px;
     --radius-lg: 24px;

@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+    }
 
     // ==========================================================================
     // 1. Hero Section: Living Product Story Animation (V10 Final)
@@ -301,4 +304,276 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // ==========================================================================
+    // 4. What Happens — Two-Column Scroll-Stack Animation
+    // ==========================================================================
+    (function () {
+        const section = document.getElementById('what-happens');
+        const cards = Array.from(document.querySelectorAll('.ss-card'));
+        if (!section || !cards.length || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+        const SCALE_PER_CARD = 0.035; // how much each card shrinks when buried
+        const BASE_SCALE = 1;
+
+        // Animate each card stacking
+        cards.forEach((card, i) => {
+            // Only apply stacking animations for cards that have cards scrolling *after* them
+            if (i >= cards.length - 1) return;
+
+            const nextCard = cards[i + 1];
+
+            gsap.to(card, {
+                scrollTrigger: {
+                    trigger: nextCard,
+                    start: 'top bottom',   // starts when next card comes into viewport
+                    end: 'top top+=215',   // ends when next card reaches its sticky position
+                    scrub: true,
+                    onUpdate: (self) => {
+                        // The card scales down and dims slightly as the next card stacks on top of it
+                        const scaleProgress = self.progress; 
+                        const targetScale = BASE_SCALE - SCALE_PER_CARD * scaleProgress;
+                        const opacity = 1 - 0.15 * scaleProgress; // subtle dimming
+                        const blur = 1.5 * scaleProgress; // subtle blur
+                        
+                        card.style.transform = `scale(${targetScale})`;
+                        card.style.filter = `blur(${blur}px)`;
+                        card.style.opacity = opacity;
+                    }
+                }
+            });
+        });
+
+        // Entrance animation: Slide and fade cards up as they scroll into view
+        cards.forEach((card, i) => {
+            gsap.fromTo(card,
+                { opacity: 0, y: 50 },
+                {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: 'power2.out',
+                    scrollTrigger: {
+                        trigger: card,
+                        start: 'top 85%',
+                        toggleActions: 'play none none none'
+                    }
+                }
+            );
+        });
+    })();
+
+    // ==========================================================================
+    // 5. Why Choose — Bento Cards Slide In Left & Right On Scroll
+    // ==========================================================================
+    (() => {
+        const bentoContainer = document.querySelector('.bento-grid-container');
+        if (!bentoContainer || typeof IntersectionObserver === 'undefined') return;
+
+        const leftCards = Array.from(document.querySelectorAll('.bento-col-left .bento-item'));
+        const rightCards = Array.from(document.querySelectorAll('.bento-col-right .bento-item'));
+
+        const observerOptions = {
+            root: null,
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    leftCards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('animate-in');
+                        }, index * 50);
+                    });
+                    rightCards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('animate-in');
+                        }, index * 50 + 50);
+                    });
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        observer.observe(bentoContainer);
+    })();
+
+    // ==========================================================================
+    // 6. Flywheel Section — Single Black Card Unfolding Panel Toggle
+    // ==========================================================================
+    (() => {
+        const wrapper = document.querySelector('.flywheel-wrapper');
+        const trigger = document.querySelector('.flywheel-trigger-card');
+        const panel = document.querySelector('.flywheel-unfold-panel');
+        
+        if (!wrapper || !trigger || !panel) return;
+
+        trigger.addEventListener('click', () => {
+            const isActive = wrapper.classList.contains('active');
+            
+            if (isActive) {
+                // Collapse
+                wrapper.classList.remove('active');
+                panel.style.maxHeight = null;
+            } else {
+                // Expand
+                wrapper.classList.add('active');
+                panel.style.maxHeight = panel.scrollHeight + 'px';
+            }
+        });
+    })();
+
+    // ==========================================================================
+    // 7. Interactive Business Journeys Modal Data & Handlers
+    // ==========================================================================
+    const journeyData = {
+        resort: {
+            title: "Open a Resort",
+            subtitle: "Luxury hospitality launch.",
+            goal: "Open a luxury resort guests trust before they even arrive.",
+            understand: ["Resort concept", "Target guests", "Location", "Brand positioning", "Experience", "Budget", "Launch timeline"],
+            strategy: "ADDUS creates a complete professional presence roadmap.",
+            presence: ["Brand Identity", "Photography", "Videography", "Website", "Booking Experience", "Social Media Presence", "Launch Content", "Marketing Collateral"],
+            execution: "ADDUS coordinates photographers, designers, developers, writers and marketing specialists. You never manage multiple vendors.",
+            outcome: "A launch-ready resort with a professional presence people trust."
+        },
+        cafe: {
+            title: "Open a Café",
+            subtitle: "Create a memorable café people want to visit.",
+            goal: "Launch a café customers remember.",
+            understand: ["Café concept", "Audience", "Location", "Brand personality", "Budget"],
+            strategy: "A roadmap is created to build a memorable café presence.",
+            presence: ["Brand Identity", "Logo", "Menu Design", "Interior Photography", "Website", "Google Business Profile", "Social Media", "Launch Campaign"],
+            execution: "ADDUS coordinates creative specialists while keeping everything consistent.",
+            outcome: "A café with a strong professional presence from day one."
+        },
+        skincare: {
+            title: "Launch a Skincare Brand",
+            subtitle: "Build trust from the first impression.",
+            goal: "Launch a skincare brand customers trust.",
+            understand: ["Product range", "Target customers", "Brand positioning", "Market", "Packaging requirements"],
+            strategy: "ADDUS defines everything required for a successful launch.",
+            presence: ["Brand Strategy", "Identity", "Packaging Design", "Product Photography", "Website", "Content", "Launch Assets", "Marketing Materials"],
+            execution: "Verified specialists create every touchpoint while ADDUS manages the entire process.",
+            outcome: "A premium skincare brand ready for market."
+        },
+        saas: {
+            title: "Start a SaaS",
+            subtitle: "Launch with confidence.",
+            goal: "Launch a software company customers trust.",
+            understand: ["Product", "Users", "Market", "Positioning", "Growth goals"],
+            strategy: "A launch roadmap is created.",
+            presence: ["Brand Identity", "Website", "Landing Pages", "Product Visuals", "Demo Video", "Investor Presentation", "Marketing Assets", "Content"],
+            execution: "Everything is managed together instead of across multiple freelancers.",
+            outcome: "A launch-ready SaaS brand with a professional presence."
+        },
+        retail: {
+            title: "Open a Retail Store",
+            subtitle: "Build a brand customers remember.",
+            goal: "Create a retail business people recognize instantly.",
+            understand: ["Products", "Audience", "Store concept", "Expansion plans"],
+            strategy: "ADDUS creates the complete business presence roadmap.",
+            presence: ["Brand Identity", "Store Signage", "Packaging", "Photography", "Website", "Catalog", "Social Media", "Promotional Assets"],
+            execution: "ADDUS coordinates every specialist while maintaining consistency.",
+            outcome: "A retail brand ready for both online and offline customers."
+        },
+        clinic: {
+            title: "Open a Clinic",
+            subtitle: "Build confidence before the first appointment.",
+            goal: "Create a healthcare brand patients trust.",
+            understand: ["Medical specialty", "Patient audience", "Clinic positioning", "Services"],
+            strategy: "A roadmap focused on credibility and trust.",
+            presence: ["Brand Identity", "Clinic Photography", "Website", "Doctor Profiles", "Appointment Experience", "Educational Content", "Patient Communication", "Marketing Assets"],
+            execution: "Healthcare-focused specialists execute every stage under ADDUS coordination.",
+            outcome: "A trusted clinic with a professional presence patients feel confident choosing."
+        }
+    };
+
+    window.openJourneyModal = function(key) {
+        const jModal = document.getElementById('journey-detail-modal');
+        if (!jModal) return;
+        const data = journeyData[key];
+        if (!data) return;
+
+        const titleEl = document.getElementById('j-modal-title');
+        const subEl = document.getElementById('j-modal-subtitle');
+        if (titleEl) titleEl.textContent = data.title;
+        if (subEl) subEl.textContent = data.subtitle;
+
+        const timeline = document.getElementById('j-modal-timeline');
+        if (timeline) {
+            timeline.innerHTML = `
+                <div class="timeline-step">
+                    <span class="timeline-dot"></span>
+                    <div class="timeline-step-label">Step 1 — Business Goal</div>
+                    <div class="timeline-step-title">${data.goal}</div>
+                </div>
+
+                <div class="timeline-step">
+                    <span class="timeline-dot"></span>
+                    <div class="timeline-step-label">Step 2 — Business Understanding</div>
+                    <div class="timeline-step-title">ADDUS understands</div>
+                    <div class="timeline-tags">
+                        ${data.understand.map(u => `<span class="timeline-tag-pill">${u}</span>`).join('')}
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <span class="timeline-dot"></span>
+                    <div class="timeline-step-label">Step 3 — Strategy</div>
+                    <div class="timeline-step-title">${data.strategy}</div>
+                </div>
+
+                <div class="timeline-step">
+                    <span class="timeline-dot"></span>
+                    <div class="timeline-step-label">Step 4 — Professional Presence</div>
+                    <div class="timeline-tags">
+                        ${data.presence.map(p => `<span class="timeline-tag-pill" style="background: #ECFDF5; color: #065F46; border-color: #A7F3D0;">${p}</span>`).join('')}
+                    </div>
+                </div>
+
+                <div class="timeline-step">
+                    <span class="timeline-dot"></span>
+                    <div class="timeline-step-label">Step 5 — Coordinated Execution</div>
+                    <div class="timeline-step-desc">${data.execution}</div>
+                </div>
+
+                <div class="timeline-step">
+                    <span class="timeline-dot" style="border-color: #10B981; background: #10B981;"></span>
+                    <div class="timeline-step-label" style="color: #10B981;">Final Outcome</div>
+                    <div class="outcome-highlight-box">${data.outcome}</div>
+                </div>
+            `;
+        }
+
+        jModal.classList.add('active');
+        jModal.style.display = 'flex';
+        jModal.style.opacity = '1';
+        jModal.style.pointerEvents = 'auto';
+        document.body.style.overflow = 'hidden';
+    };
+
+    window.closeJourneyModal = function() {
+        const jModal = document.getElementById('journey-detail-modal');
+        if (!jModal) return;
+        jModal.classList.remove('active');
+        jModal.style.display = 'none';
+        jModal.style.opacity = '0';
+        jModal.style.pointerEvents = 'none';
+        document.body.style.overflow = '';
+    };
+
+    document.querySelectorAll('.journey-card').forEach(card => {
+        card.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const key = card.getAttribute('data-journey');
+            window.openJourneyModal(key);
+        });
+    });
+
 });
+
+
+
+
+

@@ -23,8 +23,13 @@
     <link rel="icon" type="image/svg+xml" href="addus.svg">
     <!-- Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Lottie Animation Player -->
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <!-- Styles -->
-    <link rel="stylesheet" href="style-v6.css?v=10.0">
+    <link rel="stylesheet" href="style-v6.css?v=160.0">
 </head>
 <body>
     <!-- Navigation -->
@@ -34,17 +39,14 @@
                 <img src="addus.svg" alt="ADDUS Logo" class="logo-img">
                 <span class="logo-text">ADDUS<span>.</span></span>
             </a>
-            <div class="nav-links" id="nav-menu">
-                <a href="#hero-section" class="nav-link">Home</a>
-                <a href="#brands-built" class="nav-link">Proof</a>
-                <a href="#why-addus" class="nav-link">Why ADDUS</a>
-                <a href="#what-happens" class="nav-link">What Happens</a>
-                <a href="#journeys" class="nav-link">Journeys</a>
-                <a href="#why-choose" class="nav-link">Why Choose</a>
-                <a href="#flywheel" class="nav-link">Flywheel</a>
-                <a href="#cta-section" class="nav-link">Get Started</a>
-                <button class="nav-link trigger-waitlist-modal" style="background:none; border:none; cursor:pointer;">Sign In</button>
-                <button class="btn btn-primary trigger-waitlist-modal" style="padding:0.5rem 1.25rem; font-size:0.85rem;">Tell Us What You're Building</button>
+            <div class="nav-links-center" id="nav-menu">
+                <a href="#hero-section" class="nav-link" style="color: #000000 !important; font-weight: 600 !important; text-decoration: none !important;">Home</a>
+                <a href="#brands-built" class="nav-link" style="color: #000000 !important; font-weight: 500 !important; text-decoration: none !important;">Proof</a>
+                <a href="#what-happens" class="nav-link" style="color: #000000 !important; font-weight: 500 !important; text-decoration: none !important;">What Happend</a>
+                <a href="#" class="nav-link trigger-waitlist-modal" style="color: #000000 !important; font-weight: 500 !important; text-decoration: none !important;">Get started</a>
+            </div>
+            <div class="nav-links-right">
+                <button class="nav-link btn-signin trigger-waitlist-modal">sign in</button>
             </div>
             <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
                 <span></span><span></span><span></span>
@@ -52,121 +54,162 @@
         </div>
     </nav>
 
-    <!-- HERO SECTION -->
-    <header class="hero" id="hero-section">
-        <div class="container">
+    <!-- HERO CONTAINER CARD WRAPPER -->
+    <div class="hero-container-card">
+
+        <!-- HERO SECTION -->
+        <header class="hero" id="hero-section">
             <div class="hero-grid">
-                <div class="hero-content scroll-reveal active">
-                    <h1 class="hero-title">Shape how your business is seen.</h1>
-                    <p class="hero-position"><strong>ADDUS helps businesses build a professional presence people trust.</strong></p>
-                    <p class="hero-desc">Every business deserves to be seen professionally. Tell us what you're building, and we'll take care of everything needed to shape how your business is seen.</p>
-                    <div class="btn-group">
-                        <button class="btn btn-primary trigger-waitlist-modal">Tell Us What You're Building</button>
-                        <a href="#what-happens" class="btn btn-secondary"><i data-lucide="arrow-down" style="width:14px;height:14px;"></i> See How It Works</a>
+                <!-- Left Column -->
+                <div class="hero-left">
+                    <h1 class="hero-title">SHAPE HOW YOUR<br>BUSINESS IS SEEN.</h1>
+                    <div class="hero-desc-group">
+                        <p class="hero-position">ADDUS helps businesses build a professional presence people trust.</p>
+                        <p class="hero-desc">Every business deserves to be seen professionally.</p>
                     </div>
-<p class="definition">A professional presence is everything your customers see, experience, and remember about your business.</p>
-<div class="tags-row"><span class="tag">Identity</span> <span class="tag">Photography</span> <span class="tag">Website</span> <span class="tag">Content</span> <span class="tag">Communication</span></div>
+                    <p class="hero-bottom-left">Tell us what you're building, and we'll take care of everything needed to shape how your business is seen.</p>
+                </div>
+                <!-- Right Column -->
+                <div class="hero-right">
+                    <div class="hero-video-wrapper">
+                        <video class="hero-video" autoplay loop muted playsinline>
+                            <source src="videos/WhatsApp Video 2026-07-18 at 3.31.21 PM.mp4" type="video/mp4">
+                            <source src="WhatsApp Video 2026-07-18 at 3.31.21 PM.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
 
+                </div>
+            </div>
+        </header>
+    </div>
 
+    <!-- PRESENCE DEFINITION SECTION -->
+    <section class="presence-definition-section">
+        <div class="presence-container">
+            <div class="presence-left">
+                <h2 class="presence-definition-text">
+                    Your professional presence is what customers <span class="highlight-word">see,</span><br>
+                    experience, and remember.
+                </h2>
+            </div>
+            <div class="presence-right">
+                <div class="carousel-track">
+                    <div class="carousel-group">
+                        <img src="5 frames/frame_1.png" alt="Service 1" class="carousel-card" onerror="this.src='frame_1.png'">
+                        <img src="5 frames/Frame 2.png" alt="Service 2" class="carousel-card" onerror="this.src='Frame 2.png'">
+                        <img src="5 frames/Frame 3 png.png" alt="Service 3" class="carousel-card" onerror="this.src='Frame 3 png.png'">
+                        <img src="5 frames/Frame 5 png.png" alt="Service 5" class="carousel-card" onerror="this.src='Frame 5 png.png'">
+                        <img src="5 frames/Frame 6.png" alt="Service 6" class="carousel-card" onerror="this.src='Frame 6.png'">
+                    </div>
+                    <div class="carousel-group" aria-hidden="true">
+                        <img src="5 frames/frame_1.png" alt="Service 1" class="carousel-card" onerror="this.src='frame_1.png'">
+                        <img src="5 frames/Frame 2.png" alt="Service 2" class="carousel-card" onerror="this.src='Frame 2.png'">
+                        <img src="5 frames/Frame 3 png.png" alt="Service 3" class="carousel-card" onerror="this.src='Frame 3 png.png'">
+                        <img src="5 frames/Frame 5 png.png" alt="Service 5" class="carousel-card" onerror="this.src='Frame 5 png.png'">
+                        <img src="5 frames/Frame 6.png" alt="Service 6" class="carousel-card" onerror="this.src='Frame 6.png'">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-
-
-
-
-
-<p class="hero-subline">Everything needed to build your professional presence, planned, created, managed, and delivered together.</p>
-<p class="trust-line">Built alongside real businesses from idea to launch.</p>
-                    <!-- Hero Story Animation (kept) -->
-                    <div class="hero-story-container scroll-reveal active">
-                        <div class="hero-story-panel">
-                            <div class="story-step"><span class="step-label">Business Understanding</span></div>
-                            <div class="story-arrow">↓</div>
-                            <div class="story-step"><span class="step-label">Creative Strategy</span></div>
-                            <div class="story-arrow">↓</div>
-                            <div class="story-step"><span class="step-label">Brand Identity</span></div>
-                            <div class="story-arrow">↓</div>
-                            <div class="story-step"><span class="step-label">Content &amp; Experiences</span></div>
-                            <div class="story-arrow">↓</div>
-                            <div class="story-step"><span class="step-label">Professional Presence</span></div>
-
-                            <div class="story-arrow">↓</div>
-                            <div class="story-step"><span class="step-label final-step">Customer Trust</span></div>
+    <!-- PROOF SECTION -->
+    <section id="brands-built" class="proof-cards-v7">
+        <div class="container">
+            <div class="proof-header-v7">
+                <h2>Businesses We've Helped Build</h2>
+            </div>
+            <div class="proof-slider-container">
+                <div class="proof-slider-track">
+                    <div class="proof-slider-group">
+                        <div class="proof-slide-card">
+                            <img src="3 products/img_1.png" alt="La Estuaire Showcase" onerror="this.src='img_1.png'">
+                        </div>
+                        <div class="proof-slide-card">
+                            <img src="3 products/img2.png" alt="36 Palms Showcase" onerror="this.src='img2.png'">
+                        </div>
+                        <div class="proof-slide-card">
+                            <img src="3 products/img3.png" alt="Ursel Showcase" onerror="this.src='img3.png'">
+                        </div>
+                    </div>
+                    <div class="proof-slider-group" aria-hidden="true">
+                        <div class="proof-slide-card">
+                            <img src="3 products/img_1.png" alt="La Estuaire Showcase" onerror="this.src='img_1.png'">
+                        </div>
+                        <div class="proof-slide-card">
+                            <img src="3 products/img2.png" alt="36 Palms Showcase" onerror="this.src='img2.png'">
+                        </div>
+                        <div class="proof-slide-card">
+                            <img src="3 products/img3.png" alt="Ursel Showcase" onerror="this.src='img3.png'">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </section>
 
-    <!-- PROOF SECTION -->
-    <section id="brands-built" class="proof-cards">
+    <!-- WHY ADDUS exists (two column layout with Lottie player on the left) -->
+    <section class="section-padding gap-section" id="why-addus">
         <div class="container">
-            <h2>Businesses We've Helped Build</h2>
-            <div class="cards">
-                <div class="card">
-  <h3>La Estuaire</h3>
-  <p class="before"><strong>Before:</strong> Luxury beach resort preparing for launch.</p>
-<p><strong>Business:</strong> Luxury beach resort</p>
-  <p><strong>ADDUS built:</strong></p>
-  <ul>
-    <li>Brand identity</li>
-    <li>Photography</li>
-    <li>Website</li>
-  </ul>
-  <p><strong>Outcome:</strong> Launch‑ready in 4 weeks</p>
-</div>
-<div class="card">
-  <h3>36 Palms</h3>
-  <p class="before"><strong>Before:</strong> Boutique hospitality brand preparing its visual identity.</p>
-<p><strong>Business:</strong> Boutique hospitality brand</p>
-  <p><strong>ADDUS built:</strong></p>
-  <ul>
-    <li>Photography</li>
-    <li>Video</li>
-    <li>Website</li>
-  </ul>
-  <p><strong>Outcome:</strong> Market ready in 3 weeks</p>
-</div>
-<div class="card">
-  <h3>Ursel</h3>
-  <p class="before"><strong>Before:</strong> Consumer product brand lacking cohesive brand assets.</p>
-<p><strong>Business:</strong> Consumer product brand</p>
-  <p><strong>ADDUS built:</strong></p>
-  <ul>
-    <li>Identity</li>
-    <li>Packaging</li>
-    <li>Brand assets</li>
-  </ul>
-  <p><strong>Outcome:</strong> Improved brand consistency across channels</p>
-</div>
+            <div class="why-addus-grid">
+                <div class="why-addus-left">
+                    <lottie-player src="lottttieee.json" background="transparent" speed="1" style="width: 100%; max-width: 580px; height: auto;" loop autoplay></lottie-player>
+                </div>
+                <div class="why-addus-right">
+                    <h2>Why ADDUS Exists</h2>
+                    <p>Coordinating designers, photographers, developers, marketers, and copywriters is a full‑time job. ADDUS handles that coordination so you can focus on building your business.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- WHY ADDUS exists (single paragraph) -->
-    <section class="section-padding gap-section" id="why-addus">
-        <div class="container">
-            <h2>Why ADDUS Exists</h2>
-            <p>Coordinating designers, photographers, developers, marketers, and copywriters is a full‑time job. ADDUS handles that coordination so you can focus on building your business.</p>
-        </div>
-    </section>
-
     <!-- WHAT HAPPENS AFTER YOU TELL US -->
-    <section class="section-padding" id="what-happens">
+    <section class="what-happens-section" id="what-happens">
         <div class="container">
-            <h2>What Happens After You Tell Us?</h2>
-            <div class="flow-steps">
-                <div class="flow-step"><span class="step-label">You tell us what you're building</span></div>
-                <div class="flow-arrow">↓</div>
-                <div class="flow-step"><span class="step-label">ADDUS understands your business</span></div>
-                <div class="flow-arrow">↓</div>
-                <div class="flow-step"><span class="step-label">ADDUS identifies what your presence needs</span></div>
-                <div class="flow-arrow">↓</div>
-                <div class="flow-step"><span class="step-label">The right creative experts are activated</span></div>
-                <div class="flow-arrow">↓</div>
-                <div class="flow-step"><span class="step-label">Everything comes together</span></div>
-                <div class="flow-arrow">↓</div>
-                <div class="flow-step"><span class="step-label">You focus on what you do best</span></div>
+            <div class="what-happens-grid">
+                <!-- Left Column: Sticky Info -->
+                <div class="wh-left-col">
+                    <div class="wh-sticky-content">
+                        <span class="section-subtitle">The Process</span>
+                        <h2 class="section-title">What happens after you tell us?</h2>
+                        <p class="section-desc">Once you share what you're building, ADDUS takes care of the strategy, execution, and expert coordination so you can focus on your business.</p>
+                    </div>
+                </div>
+                <!-- Right Column: Stacking Cards -->
+                <div class="wh-right-col">
+                    <div class="ss-card" data-index="0">
+                        <div class="ss-step-num">01</div>
+                        <h3 class="ss-title">You tell us what you're building</h3>
+                        <p class="ss-body">Share your vision — your business idea, stage, and goals. No jargon, no lengthy briefs. Just a conversation.</p>
+                    </div>
+                    <div class="ss-card" data-index="1">
+                        <div class="ss-step-num">02</div>
+                        <h3 class="ss-title">ADDUS understands your business</h3>
+                        <p class="ss-body">We dive deep into your market, audience, and goals — building a clear picture of what your business truly needs.</p>
+                    </div>
+                    <div class="ss-card" data-index="2">
+                        <div class="ss-step-num">03</div>
+                        <h3 class="ss-title">ADDUS identifies what your presence needs</h3>
+                        <p class="ss-body">We map out the exact creative work required — logo, website, photography, copy — nothing unnecessary, nothing missing.</p>
+                    </div>
+                    <div class="ss-card" data-index="3">
+                        <div class="ss-step-num">04</div>
+                        <h3 class="ss-title">The right creative experts are activated</h3>
+                        <p class="ss-body">Designers, photographers, developers, copywriters — the perfect team is assembled and briefed to match your business.</p>
+                    </div>
+                    <div class="ss-card" data-index="4">
+                        <div class="ss-step-num">05</div>
+                        <h3 class="ss-title">Everything comes together</h3>
+                        <p class="ss-body">ADDUS coordinates every moving part so every element of your presence feels cohesive, intentional, and professional.</p>
+                    </div>
+                    <div class="ss-card" data-index="5">
+                        <div class="ss-step-num">06</div>
+                        <h3 class="ss-title">You focus on what you do best</h3>
+                        <p class="ss-body">While we build your presence, you build your business. No coordination headaches. No creative overwhelm.</p>
+                    </div>
+                    <div class="ss-end-spacer"></div>
+                </div>
             </div>
         </div>
     </section>
@@ -193,112 +236,1016 @@
     <!-- WHY CHOOSE ADDUS (decision guide) -->
     <section class="section-padding" id="why-choose">
         <div class="container">
-            <h2>Which option is right for you?</h2>
-            <ul class="choice-list">
-                <li>If you already know exactly what needs to be designed… <strong>Hire a freelancer.</strong></li>
-                <li>If you already have a marketing team… <strong>Use a creative subscription.</strong></li>
-                <li>If you're a large enterprise… <strong>Hire an agency.</strong></li>
-                <li>If you need someone to figure out what should be created and manage everything from start to finish… <strong style="color: var(--accent);">Choose ADDUS.</strong></li>
-            </ul>
+            <div class="why-choose-header scroll-reveal">
+                <span class="section-subtitle">Decision Guide</span>
+                <h2 class="section-title">Which option is right for you?</h2>
+            </div>
+            
+            <style>
+                .bento-grid-outer-card {
+                    background: transparent !important;
+                    border-radius: 0 !important;
+                    padding: 0 !important;
+                    box-shadow: none !important;
+                    border: none !important;
+                    max-width: 1060px !important;
+                    margin: 0 auto !important;
+                    position: relative !important;
+                }
+                .bento-grid-container {
+                    display: grid !important;
+                    grid-template-columns: 1.15fr 1fr !important;
+                    gap: 1.25rem !important;
+                    position: relative !important;
+                }
+                .bento-col-left, .bento-col-right {
+                    display: flex !important;
+                    flex-direction: column !important;
+                    gap: 1.25rem !important;
+                }
+                .bento-row-top {
+                    display: grid !important;
+                    grid-template-columns: 1fr 1fr !important;
+                    gap: 1.25rem !important;
+                }
+                .bento-col-left .bento-item {
+                    opacity: 0;
+                    transform: translateX(-35px);
+                    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease, box-shadow 0.35s ease !important;
+                }
+                .bento-col-right .bento-item {
+                    opacity: 0;
+                    transform: translateX(35px);
+                    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease, box-shadow 0.35s ease !important;
+                }
+                .bento-item.animate-in {
+                    opacity: 1 !important;
+                    transform: translateX(0) !important;
+                }
+                .bento-item {
+                    position: relative !important;
+                    border-radius: 18px !important;
+                    overflow: hidden !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    padding: 2rem 1.5rem !important;
+                    cursor: pointer !important;
+                    background: #181818 !important;
+                }
+                .bento-item:hover {
+                    transform: translateY(-3px) !important;
+                    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25) !important;
+                }
+                .bento-item-bg {
+                    position: absolute !important;
+                    top: 0 !important;
+                    left: 0 !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                    background-size: cover !important;
+                    background-position: center !important;
+                    transition: transform 0.5s ease, opacity 0.5s ease, filter 0.5s ease !important;
+                    opacity: 0.68 !important;
+                    filter: grayscale(30%) brightness(0.9) contrast(105%) !important;
+                }
+                .bento-item:hover .bento-item-bg {
+                    transform: scale(1.05) !important;
+                    opacity: 0.85 !important;
+                    filter: grayscale(0%) brightness(0.95) contrast(105%) !important;
+                }
+                .bento-item-overlay {
+                    position: absolute !important;
+                    top: 0 !important;
+                    left: 0 !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                    background: linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.55) 100%) !important;
+                    z-index: 1 !important;
+                }
+                .bento-item-title {
+                    position: relative !important;
+                    z-index: 2 !important;
+                    font-family: 'Montserrat', 'Gotham', sans-serif !important;
+                    font-size: clamp(0.95rem, 1.6vw, 1.2rem) !important;
+                    font-weight: 600 !important;
+                    color: #FFFFFF !important;
+                    text-transform: uppercase !important;
+                    letter-spacing: 0.04em !important;
+                    text-align: center !important;
+                    margin: 0 !important;
+                    text-shadow: 0 2px 12px rgba(0,0,0,0.7) !important;
+                    line-height: 1.2 !important;
+                }
+                .card-freelancer-new, .card-subscription-new { height: 160px !important; }
+                .card-addus-new { height: 250px !important; }
+                .card-agency-new { height: 250px !important; }
+                .card-scale-new { height: 160px !important; }
+                .card-addus-new .bento-item-bg { opacity: 0.80 !important; filter: grayscale(15%) brightness(0.95) contrast(105%) !important; }
+                .bg-freelancer { background-image: url('hire_freelancer.jpg') !important; }
+                .bg-subscription { background-image: url('creative_subscription.jpg') !important; }
+                .bg-addus { background-image: url('choose_addus_phone.jpg') !important; }
+                .bg-agency { background-image: url('hire_agency.jpg') !important; }
+                .bg-scale { background-image: url('scale_brand.jpg') !important; }
+                @media (max-width: 900px) {
+                    .bento-grid-container { grid-template-columns: 1fr !important; }
+                    .card-freelancer-new, .card-subscription-new, .card-addus-new, .card-agency-new, .card-scale-new { height: 180px !important; }
+                }
+                @media (max-width: 600px) {
+                    .bento-row-top { grid-template-columns: 1fr !important; }
+                    .bento-grid-outer-card { padding: 1rem !important; border-radius: 20px !important; }
+                }
+            </style>
+            
+            <div class="bento-grid-outer-card">
+                <div class="bento-grid-container">
+                    <!-- Left Side Block -->
+                    <div class="bento-col-left">
+                        <div class="bento-row-top">
+                            <!-- Card 1: Hire a freelancer -->
+                            <div class="bento-item card-freelancer-new">
+                                <div class="bento-item-bg bg-freelancer"></div>
+                                <div class="bento-item-overlay"></div>
+                                <h3 class="bento-item-title">HIRE A FREELANCER</h3>
+                            </div>
+                            <!-- Card 2: Use a creative subscription -->
+                            <div class="bento-item card-subscription-new">
+                                <div class="bento-item-bg bg-subscription"></div>
+                                <div class="bento-item-overlay"></div>
+                                <h3 class="bento-item-title">USE A CREATIVE SUBSCRIPTION</h3>
+                            </div>
+                        </div>
+                        <!-- Card 3: Choose ADDUS -->
+                        <div class="bento-item card-addus-new">
+                            <div class="bento-item-bg bg-addus"></div>
+                            <div class="bento-item-overlay"></div>
+                            <h3 class="bento-item-title">CHOOSE ADDUS</h3>
+                        </div>
+                    </div>
+
+                    <!-- Right Side Block -->
+                    <div class="bento-col-right">
+                        <!-- Card 4: Hire an agency -->
+                        <div class="bento-item card-agency-new">
+                            <div class="bento-item-bg bg-agency"></div>
+                            <div class="bento-item-overlay"></div>
+                            <h3 class="bento-item-title">HIRE AN AGENCY</h3>
+                        </div>
+                        
+                        <!-- Card 5: Scale your brand -->
+                        <div class="bento-item card-scale-new">
+                            <div class="bento-item-bg bg-scale"></div>
+                            <div class="bento-item-overlay"></div>
+                            <h3 class="bento-item-title">SCALE YOUR BRAND</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- FLYWHEEL SECTION -->
     <section class="section-padding gap-section" id="flywheel">
         <div class="container">
-            <h2>Every Project Makes The Next One Better</h2>
-            <div class="flywheel-steps">
-                <div class="flywheel-step"><span class="step-label">Project</span></div>
-                <div class="flywheel-arrow">↓</div>
-                <div class="flywheel-step"><span class="step-label">Business understanding deepens</span></div>
-                <div class="flywheel-arrow">↓</div>
-                <div class="flywheel-step"><span class="step-label">Better creative decisions</span></div>
-                <div class="flywheel-arrow">↓</div>
-                <div class="flywheel-step"><span class="step-label">More consistent presence</span></div>
-                <div class="flywheel-arrow">↓</div>
-                <div class="flywheel-step"><span class="step-label">Stronger brand expression</span></div>
-                <div class="flywheel-arrow">↓</div>
-                <div class="flywheel-step"><span class="step-label">Next project</span></div>
-            </div>
-            <p>The more we work together, the better we understand your business.</p>
-        </div>
-    </section>
-    <!-- NEW WAY SECTION -->
-    <section class="section-padding" id="new-way">
-        <div class="container">
-            <h2>A New Way To Build Your Business Presence</h2>
-            <div class="comparison-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;">
-                <div>
-                    <h3>Traditional Approach</h3>
-                    <ul>
-                        <li>Find multiple specialists</li>
-                        <li>Explain your business repeatedly</li>
-                        <li>Manage everything yourself</li>
-                    </ul>
+            <div class="flywheel-wrapper">
+                <!-- Single Large Black Card Trigger -->
+                <div class="flywheel-trigger-card">
+                    <h2 class="flywheel-card-title">Every Project Makes The Next One Better</h2>
+                    <div class="flywheel-card-arrow">
+                        <i data-lucide="arrow-down"></i>
+                    </div>
                 </div>
-                <div>
-                    <h3>ADDUS Way</h3>
-                    <ul>
-                        <li>Tell us what you are building</li>
-                        <li>We understand your business</li>
-                        <li>We create the right plan</li>
-                        <li>We coordinate everything</li>
-                    </ul>
+
+                <!-- Unfolding White Content Panel -->
+                <div class="flywheel-unfold-panel">
+                    <div class="flywheel-unfold-content">
+                        <!-- Left Column -->
+                        <div class="flywheel-column left-column">
+                            <div class="unfold-step-symmetrical left-align">
+                                <span class="symmetrical-dot"></span>
+                                <h3 class="unfold-title">Project execution</h3>
+                            </div>
+                            <div class="unfold-step-symmetrical left-align">
+                                <span class="symmetrical-dot"></span>
+                                <h3 class="unfold-title">Business understanding deepens</h3>
+                            </div>
+                            <div class="unfold-step-symmetrical left-align">
+                                <span class="symmetrical-dot"></span>
+                                <h3 class="unfold-title">Better creative decisions</h3>
+                            </div>
+                        </div>
+
+                        <!-- Right Column -->
+                        <div class="flywheel-column right-column">
+                            <div class="unfold-step-symmetrical right-align">
+                                <h3 class="unfold-title">More consistent presence</h3>
+                                <span class="symmetrical-dot"></span>
+                            </div>
+                            <div class="unfold-step-symmetrical right-align">
+                                <h3 class="unfold-title">Stronger brand expression</h3>
+                                <span class="symmetrical-dot"></span>
+                            </div>
+                            <div class="unfold-step-symmetrical right-align">
+                                <h3 class="unfold-title">Next project</h3>
+                                <span class="symmetrical-dot"></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <p style="margin-top:1.5rem;">ADDUS brings strategy, creative expertise, and execution together in one coordinated experience that turns your vision into a trusted public presence.</p>
+            <p style="margin-top: 2.5rem; text-align: center; color: var(--text-secondary);">The more we work together, the better we understand your business.</p>
         </div>
     </section>
 
-    <!-- FINAL CTA -->
-    <section class="final-cta-v7" id="cta-section">
-        <div class="container">
-            <div class="cta-container scroll-reveal">
-                <span class="section-subtitle">Get Started</span>
-                <h2>Ready to shape how your business is seen?</h2>
-                <p>Tell us what you're building. We'll help you build a professional presence people remember.</p>
-                <button class="btn btn-primary trigger-waitlist-modal">Tell Us What You're Building</button>
+    <!-- INTERACTIVE BUSINESS JOURNEYS SECTION (UI/UX SPECIFIED V2) -->
+    <section class="journeys-section" id="journeys">
+        <style>
+            .journeys-section {
+                background: #FAFAFC !important;
+                padding: 90px 0 !important;
+                position: relative !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+            .journeys-container {
+                max-width: 1180px !important;
+                margin: 0 auto !important;
+                padding: 0 24px !important;
+                box-sizing: border-box !important;
+            }
+            .journeys-header {
+                max-width: 780px !important;
+                margin: 0 auto 40px auto !important;
+                text-align: center !important;
+            }
+            .journeys-subtitle-tag {
+                font-size: 0.75rem !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.15em !important;
+                text-transform: uppercase !important;
+                color: #10B981 !important;
+                margin-bottom: 0.5rem !important;
+                display: inline-block !important;
+            }
+            .journeys-title {
+                font-size: clamp(1.6rem, 3.2vw, 2.2rem) !important;
+                font-weight: 700 !important;
+                color: #111111 !important;
+                -webkit-text-fill-color: #111111 !important;
+                margin-bottom: 0.75rem !important;
+                letter-spacing: -0.03em !important;
+                line-height: 1.2 !important;
+            }
+            .journeys-desc-primary {
+                font-size: clamp(1rem, 1.5vw, 1.1rem) !important;
+                color: #4B5563 !important;
+                -webkit-text-fill-color: #4B5563 !important;
+                margin: 0 !important;
+            }
+
+            /* TABS SELECTOR BAR */
+            .j-tabs-wrapper {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                gap: 12px !important;
+                margin-bottom: 45px !important;
+            }
+            .j-tab-btn {
+                background: #FFFFFF !important;
+                border: 1px solid #E5E7EB !important;
+                border-radius: 14px !important;
+                padding: 12px 22px !important;
+                font-size: 0.95rem !important;
+                font-weight: 600 !important;
+                color: #374151 !important;
+                -webkit-text-fill-color: #374151 !important;
+                cursor: pointer !important;
+                transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.02) !important;
+            }
+            .j-tab-btn:hover {
+                border-color: #111111 !important;
+                transform: translateY(-2px) !important;
+            }
+            .j-tab-btn.active {
+                background: #111111 !important;
+                color: #FFFFFF !important;
+                -webkit-text-fill-color: #FFFFFF !important;
+                border-color: #111111 !important;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+            }
+
+            /* LIVE JOURNEY DISPLAY CANVAS */
+            .journey-display-canvas {
+                background: #FFFFFF !important;
+                border: 1px solid #E5E7EB !important;
+                border-radius: 24px !important;
+                padding: 44px 36px !important;
+                box-shadow: 0 16px 48px rgba(0,0,0,0.04) !important;
+                margin-bottom: 60px !important;
+                transition: opacity 0.3s ease !important;
+            }
+            .active-j-header {
+                text-align: center !important;
+                margin-bottom: 40px !important;
+                padding-bottom: 24px !important;
+                border-bottom: 1px solid #F3F4F6 !important;
+            }
+            .active-j-title {
+                font-size: clamp(1.4rem, 2.8vw, 1.85rem) !important;
+                font-weight: 700 !important;
+                color: #111111 !important;
+                -webkit-text-fill-color: #111111 !important;
+                margin-bottom: 6px !important;
+            }
+            .active-j-subtitle {
+                font-size: 1rem !important;
+                color: #5E6272 !important;
+                -webkit-text-fill-color: #5E6272 !important;
+                margin: 0 !important;
+            }
+
+            /* 4 CONNECTED STAGE CARDS */
+            .flow-cards-grid {
+                display: grid !important;
+                grid-template-columns: repeat(4, 1fr) !important;
+                gap: 20px !important;
+                position: relative !important;
+            }
+            @media (max-width: 1024px) {
+                .flow-cards-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                }
+            }
+            @media (max-width: 640px) {
+                .flow-cards-grid {
+                    grid-template-columns: 1fr !important;
+                }
+            }
+
+            .flow-card {
+                background: #F9FAFB !important;
+                border: 1px solid #E5E7EB !important;
+                border-radius: 18px !important;
+                padding: 24px 20px !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: flex-start !important;
+                transition: transform 0.25s ease, border-color 0.25s ease !important;
+                position: relative !important;
+            }
+            .flow-card:hover {
+                border-color: #10B981 !important;
+                transform: translateY(-4px) !important;
+                background: #FFFFFF !important;
+                box-shadow: 0 12px 30px rgba(0,0,0,0.05) !important;
+            }
+
+            .flow-card-head {
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                font-size: 0.82rem !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.06em !important;
+                text-transform: uppercase !important;
+                color: #111111 !important;
+                -webkit-text-fill-color: #111111 !important;
+                margin-bottom: 14px !important;
+                padding-bottom: 10px !important;
+                border-bottom: 1px solid #E5E7EB !important;
+            }
+            .flow-card-icon {
+                font-size: 1.1rem !important;
+            }
+
+            .flow-list {
+                list-style: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 8px !important;
+            }
+            .flow-list-item {
+                font-size: 0.9rem !important;
+                color: #374151 !important;
+                -webkit-text-fill-color: #374151 !important;
+                line-height: 1.4 !important;
+                display: flex !important;
+                align-items: flex-start !important;
+                gap: 6px !important;
+                font-weight: 500 !important;
+            }
+            .flow-list-item .check {
+                color: #10B981 !important;
+                font-weight: 700 !important;
+            }
+
+            .pill-tag-container {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                gap: 6px !important;
+            }
+            .flow-pill-tag {
+                background: #ECFDF5 !important;
+                color: #065F46 !important;
+                border: 1px solid #A7F3D0 !important;
+                font-size: 0.78rem !important;
+                font-weight: 600 !important;
+                padding: 4px 10px !important;
+                border-radius: 12px !important;
+            }
+
+            .outcome-box {
+                background: #ECFDF5 !important;
+                border: 1px solid #A7F3D0 !important;
+                border-radius: 14px !important;
+                padding: 14px 16px !important;
+                color: #065F46 !important;
+                -webkit-text-fill-color: #065F46 !important;
+                font-size: 0.92rem !important;
+                font-weight: 600 !important;
+                line-height: 1.5 !important;
+            }
+
+            /* FINAL CTA BANNER AT BOTTOM OF JOURNEYS */
+            .journeys-cta-banner {
+                background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%) !important;
+                border-radius: 24px !important;
+                padding: 50px 36px !important;
+                text-align: center !important;
+                color: #FFFFFF !important;
+                box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25) !important;
+            }
+            .journeys-cta-heading {
+                font-size: 0.85rem !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.15em !important;
+                text-transform: uppercase !important;
+                color: #10B981 !important;
+                margin-bottom: 10px !important;
+                display: inline-block !important;
+            }
+            .journeys-cta-quote {
+                font-size: clamp(2rem, 4vw, 3rem) !important;
+                font-weight: 800 !important;
+                letter-spacing: -0.035em !important;
+                line-height: 1.15 !important;
+                margin-bottom: 14px !important;
+                background: linear-gradient(135deg, #FFFFFF 60%, #94A3B8 100%) !important;
+                -webkit-background-clip: text !important;
+                -webkit-text-fill-color: transparent !important;
+            }
+            .journeys-cta-sub {
+                font-size: clamp(0.95rem, 1.4vw, 1.05rem) !important;
+                color: #94A3B8 !important;
+                max-width: 680px !important;
+                margin: 0 auto 28px auto !important;
+                line-height: 1.6 !important;
+            }
+            .btn-cta-build {
+                background: #FFFFFF !important;
+                color: #0F172A !important;
+                font-weight: 700 !important;
+                font-size: 1rem !important;
+                padding: 14px 32px !important;
+                border-radius: 12px !important;
+                border: none !important;
+                cursor: pointer !important;
+                transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                box-shadow: 0 10px 25px rgba(255,255,255,0.15) !important;
+            }
+            .btn-cta-build:hover {
+                transform: translateY(-2px) !important;
+                background: #F8FAFC !important;
+                box-shadow: 0 15px 35px rgba(255,255,255,0.25) !important;
+            }
+        </style>
+
+        <div class="journeys-container">
+            <!-- SECTION HEADER -->
+            <div class="journeys-header">
+                <span class="journeys-subtitle-tag">BUSINESS JOURNEYS</span>
+                <h2 class="journeys-title">Business Journeys</h2>
+                <p class="journeys-desc-primary">See how businesses build a professional presence with ADDUS.</p>
+            </div>
+
+            <!-- TABS SELECTOR BAR -->
+            <div class="j-tabs-wrapper">
+                <button class="j-tab-btn active" onclick="switchJourneyTab('resort', this)">
+                    <span>🏨</span> Resort
+                </button>
+                <button class="j-tab-btn" onclick="switchJourneyTab('cafe', this)">
+                    <span>☕</span> Café
+                </button>
+                <button class="j-tab-btn" onclick="switchJourneyTab('skincare', this)">
+                    <span>🧴</span> Skincare
+                </button>
+                <button class="j-tab-btn" onclick="switchJourneyTab('saas', this)">
+                    <span>💻</span> SaaS
+                </button>
+                <button class="j-tab-btn" onclick="switchJourneyTab('retail', this)">
+                    <span>🛍</span> Retail
+                </button>
+                <button class="j-tab-btn" onclick="switchJourneyTab('clinic', this)">
+                    <span>🏥</span> Clinic
+                </button>
+            </div>
+
+            <!-- LIVE JOURNEY DISPLAY CANVAS (IN-PAGE DISPLAY) -->
+            <div class="journey-display-canvas" id="active-journey-canvas">
+                <div class="active-j-header">
+                    <h3 class="active-j-title" id="active-j-title">Open a Resort</h3>
+                    <p class="active-j-subtitle" id="active-j-subtitle">Launch a luxury beach resort people trust.</p>
+                </div>
+
+                <!-- 4 CONNECTED STAGE CARDS -->
+                <div class="flow-cards-grid" id="flow-cards-container">
+                    <!-- Populated dynamically by switchJourneyTab -->
+                </div>
+            </div>
+
+            <!-- FINAL CTA BANNER -->
+            <div class="journeys-cta-banner">
+                <span class="journeys-cta-heading">THE FIRST STEP</span>
+                <h2 class="journeys-cta-quote">&ldquo;What are you building?&rdquo;</h2>
+                <p class="journeys-cta-sub">Tell us what you're building. ADDUS will understand your business, create the right roadmap, coordinate everything needed, and help you build a professional presence people trust.</p>
+                <button class="btn-cta-build trigger-waitlist-modal">Tell Us What You're Building &rarr;</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- INLINE SELF-CONTAINED SCRIPT FOR IN-PAGE JOURNEYS -->
+    <script>
+        var journeyDataV2 = {
+            resort: {
+                title: "Open a Resort",
+                subtitle: "Launch a luxury beach resort people trust.",
+                goal: "Open a luxury resort.",
+                understand: ["Guests", "Positioning", "Experience", "Budget", "Timeline"],
+                presence: ["Brand Identity", "Photography", "Website", "Booking Experience", "Content", "Marketing Assets"],
+                outcome: "Launch-ready resort with a professional presence people trust."
+            },
+            cafe: {
+                title: "Open a Café",
+                subtitle: "Create a café customers remember.",
+                goal: "Open a memorable café.",
+                understand: ["Concept", "Audience", "Location", "Personality"],
+                presence: ["Brand Identity", "Menu", "Photography", "Website", "Social Presence", "Google Business"],
+                outcome: "A café ready to welcome customers."
+            },
+            skincare: {
+                title: "Launch a Skincare Brand",
+                subtitle: "Build trust from the first impression.",
+                goal: "Launch a trusted skincare brand.",
+                understand: ["Products", "Customers", "Positioning", "Market"],
+                presence: ["Brand Identity", "Packaging", "Product Photography", "Website", "Launch Assets", "Content"],
+                outcome: "A premium brand ready for market."
+            },
+            saas: {
+                title: "Start a SaaS",
+                subtitle: "Launch with confidence.",
+                goal: "Launch a software company.",
+                understand: ["Product", "Users", "Market", "Goals"],
+                presence: ["Brand Identity", "Website", "Landing Pages", "Demo Video", "Marketing Assets"],
+                outcome: "A launch-ready SaaS brand."
+            },
+            retail: {
+                title: "Open a Retail Store",
+                subtitle: "Build a brand customers remember.",
+                goal: "Launch a retail business.",
+                understand: ["Products", "Customers", "Store Concept"],
+                presence: ["Brand Identity", "Packaging", "Signage", "Photography", "Website", "Social Presence"],
+                outcome: "A retail brand customers remember."
+            },
+            clinic: {
+                title: "Open a Clinic",
+                subtitle: "Build confidence before the first appointment.",
+                goal: "Build a trusted healthcare practice.",
+                understand: ["Patients", "Services", "Positioning"],
+                presence: ["Brand Identity", "Website", "Clinic Photography", "Doctor Profiles", "Communication"],
+                outcome: "A trusted clinic patients choose."
+            }
+        };
+
+        function renderJourneyFlow(key) {
+            var data = journeyDataV2[key];
+            if (!data) return;
+
+            var titleEl = document.getElementById('active-j-title');
+            var subEl = document.getElementById('active-j-subtitle');
+            if (titleEl) titleEl.textContent = data.title;
+            if (subEl) subEl.textContent = data.subtitle;
+
+            var flowContainer = document.getElementById('flow-cards-container');
+            if (flowContainer) {
+                var html = '';
+
+                // CARD 1: Business Goal
+                html += '<div class="flow-card">';
+                html += '  <div class="flow-card-head"><span class="flow-card-icon">🎯</span> Business Goal</div>';
+                html += '  <div style="font-size:0.95rem; font-weight:700; color:#111111; line-height:1.4;">' + data.goal + '</div>';
+                html += '</div>';
+
+                // CARD 2: ADDUS Understands
+                html += '<div class="flow-card">';
+                html += '  <div class="flow-card-head"><span class="flow-card-icon">🧠</span> ADDUS Understands</div>';
+                html += '  <ul class="flow-list">';
+                for (var i = 0; i < data.understand.length; i++) {
+                    html += '<li class="flow-list-item"><span class="check">✓</span> ' + data.understand[i] + '</li>';
+                }
+                html += '  </ul>';
+                html += '</div>';
+
+                // CARD 3: Professional Presence
+                html += '<div class="flow-card">';
+                html += '  <div class="flow-card-head"><span class="flow-card-icon">✨</span> Professional Presence</div>';
+                html += '  <div class="pill-tag-container">';
+                for (var j = 0; j < data.presence.length; j++) {
+                    html += '<span class="flow-pill-tag">✓ ' + data.presence[j] + '</span>';
+                }
+                html += '  </div>';
+                html += '</div>';
+
+                // CARD 4: Outcome
+                html += '<div class="flow-card">';
+                html += '  <div class="flow-card-head"><span class="flow-card-icon">🚀</span> Outcome</div>';
+                html += '  <div class="outcome-box">' + data.outcome + '</div>';
+                html += '</div>';
+
+                flowContainer.innerHTML = html;
+            }
+        }
+
+        function switchJourneyTab(key, btnEl) {
+            var tabs = document.querySelectorAll('.j-tab-btn');
+            tabs.forEach(function(tab) { tab.classList.remove('active'); });
+            if (btnEl) btnEl.classList.add('active');
+
+            var canvas = document.getElementById('active-journey-canvas');
+            if (canvas) {
+                canvas.style.opacity = '0.5';
+                setTimeout(function() {
+                    renderJourneyFlow(key);
+                    canvas.style.opacity = '1';
+                }, 120);
+            } else {
+                renderJourneyFlow(key);
+            }
+        }
+
+        // Initialize default view (Resort) on load
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() { renderJourneyFlow('resort'); });
+        } else {
+            renderJourneyFlow('resort');
+        }
+    </script>
+
+    <!-- BRAND NEW COMPARISON SECTION -->
+    <section class="why-choose-section" id="why-choose-addus">
+        <style>
+            .why-choose-section {
+                background-color: #FFFFFF !important;
+                padding: 80px 0 !important;
+                position: relative !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+                display: block !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+            .why-choose-container {
+                max-width: 1140px !important;
+                margin: 0 auto !important;
+                padding: 0 20px !important;
+                text-align: center !important;
+                box-sizing: border-box !important;
+            }
+            .why-choose-header {
+                max-width: 780px !important;
+                margin: 0 auto 50px auto !important;
+                text-align: center !important;
+            }
+            .why-choose-title {
+                font-size: clamp(1.6rem, 3vw, 2.2rem) !important;
+                font-weight: 700 !important;
+                letter-spacing: -0.03em !important;
+                color: #111111 !important;
+                margin-bottom: 0.85rem !important;
+                line-height: 1.2 !important;
+                font-family: 'Gotham', 'Montserrat', sans-serif !important;
+            }
+            .why-choose-subtitle {
+                font-size: clamp(0.95rem, 1.4vw, 1.05rem) !important;
+                color: #5E6272 !important;
+                line-height: 1.5 !important;
+                max-width: 680px !important;
+                margin: 0 auto !important;
+                font-weight: 400 !important;
+                font-family: 'Gotham', 'Montserrat', sans-serif !important;
+            }
+            .why-choose-cards-wrapper {
+                position: relative !important;
+                margin-bottom: 32px !important;
+                width: 100% !important;
+            }
+            .why-choose-cards-grid {
+                display: grid !important;
+                grid-template-columns: repeat(2, minmax(0, 520px)) !important;
+                justify-content: center !important;
+                gap: 32px !important;
+                align-items: stretch !important;
+                width: 100% !important;
+                margin: 0 auto !important;
+            }
+            .why-choose-card {
+                width: 100% !important;
+                background: #FFFFFF !important;
+                border: 1px solid #EAEAEA !important;
+                border-radius: 20px !important;
+                padding: 36px 32px !important;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04) !important;
+                transition: transform 300ms ease, box-shadow 300ms ease !important;
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: flex-start !important;
+                text-align: left !important;
+                box-sizing: border-box !important;
+            }
+            .card-traditional {
+                border-top: 4px solid #EF4444 !important;
+            }
+            .card-addus {
+                border-top: 4px solid #10B981 !important;
+                box-shadow: 0 14px 40px rgba(16, 185, 129, 0.1) !important;
+            }
+            .why-choose-card:hover {
+                transform: translateY(-4px) !important;
+                box-shadow: 0 18px 45px rgba(0, 0, 0, 0.08) !important;
+            }
+            .why-choose-pill {
+                font-size: 0.72rem !important;
+                font-weight: 700 !important;
+                letter-spacing: 0.06em !important;
+                text-transform: uppercase !important;
+                padding: 5px 12px !important;
+                border-radius: 16px !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                margin-bottom: 16px !important;
+            }
+            .pill-old-way {
+                background: #FEF2F2 !important;
+                color: #EF4444 !important;
+                border: 1px solid rgba(239, 68, 68, 0.2) !important;
+            }
+            .pill-smarter {
+                background: #ECFDF5 !important;
+                color: #10B981 !important;
+                border: 1px solid rgba(16, 185, 129, 0.25) !important;
+            }
+            .why-choose-card-heading {
+                font-size: clamp(1.2rem, 2vw, 1.45rem) !important;
+                font-weight: 700 !important;
+                color: #111111 !important;
+                margin-bottom: 24px !important;
+                letter-spacing: -0.025em !important;
+                line-height: 1.25 !important;
+                font-family: 'Gotham', 'Montserrat', sans-serif !important;
+            }
+            .why-choose-list {
+                list-style: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 0 !important;
+                width: 100% !important;
+            }
+            .why-choose-list li {
+                display: flex !important;
+                align-items: center !important;
+                gap: 14px !important;
+                font-size: 0.98rem !important;
+                line-height: 1.5 !important;
+                padding: 12px 0 !important;
+                border-bottom: 1px solid #F3F4F6 !important;
+                margin: 0 !important;
+                width: 100% !important;
+            }
+            .why-choose-list li:last-child {
+                border-bottom: none !important;
+            }
+            .card-traditional .why-choose-list-text {
+                color: #4B5563 !important;
+                font-weight: 500 !important;
+            }
+            .card-addus .why-choose-list-text {
+                color: #111827 !important;
+                font-weight: 600 !important;
+            }
+            .why-choose-icon-wrap {
+                width: 22px !important;
+                height: 22px !important;
+                border-radius: 50% !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                flex-shrink: 0 !important;
+            }
+            .icon-red-x {
+                background: #FEF2F2 !important;
+                border: 1px solid #FCA5A5 !important;
+                color: #EF4444 !important;
+            }
+            .icon-green-check {
+                background: #10B981 !important;
+                color: #FFFFFF !important;
+                box-shadow: 0 2px 6px rgba(16, 185, 129, 0.3) !important;
+            }
+            .why-choose-vs-badge {
+                position: absolute !important;
+                top: 50% !important;
+                left: 50% !important;
+                transform: translate(-50%, -50%) !important;
+                z-index: 10 !important;
+                width: 44px !important;
+                height: 44px !important;
+                border-radius: 50% !important;
+                background: #FFFFFF !important;
+                border: 1px solid #EAEAEA !important;
+                box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                font-size: 0.78rem !important;
+                font-weight: 800 !important;
+                color: #6B7280 !important;
+                letter-spacing: 0.05em !important;
+            }
+            @media (max-width: 768px) {
+                .why-choose-cards-grid {
+                    grid-template-columns: 1fr !important;
+                }
+                .why-choose-vs-badge {
+                    display: none !important;
+                }
+            }
+        </style>
+        <div class="why-choose-container">
+            <div class="why-choose-header">
+                <h2 class="why-choose-title">Why Businesses Choose <span class="why-choose-lime-text">ADDUS</span></h2>
+                <p class="why-choose-subtitle">Stop managing multiple agencies and freelancers. Build everything through one coordinated AI-powered experience.</p>
+            </div>
+            
+            <div class="why-choose-cards-wrapper">
+                <div class="why-choose-cards-grid">
+                    <!-- LEFT CARD: TRADITIONAL APPROACH -->
+                    <div class="why-choose-card card-traditional">
+                        <span class="why-choose-pill pill-old-way">OLD WAY</span>
+                        <h3 class="why-choose-card-heading">Traditional Approach</h3>
+                        <ul class="why-choose-list">
+                            <li>
+                                <span class="why-choose-icon-wrap icon-red-x">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </span>
+                                <span class="why-choose-list-text">Search for different specialists</span>
+                            </li>
+                            <li>
+                                <span class="why-choose-icon-wrap icon-red-x">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </span>
+                                <span class="why-choose-list-text">Explain your business repeatedly</span>
+                            </li>
+                            <li>
+                                <span class="why-choose-icon-wrap icon-red-x">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </span>
+                                <span class="why-choose-list-text">Manage designers, developers and marketers separately</span>
+                            </li>
+                            <li>
+                                <span class="why-choose-icon-wrap icon-red-x">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </span>
+                                <span class="why-choose-list-text">Delayed communication</span>
+                            </li>
+                            <li>
+                                <span class="why-choose-icon-wrap icon-red-x">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </span>
+                                <span class="why-choose-list-text">No single ownership</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- RIGHT CARD: THE ADDUS WAY -->
+                    <div class="why-choose-card card-addus">
+                        <span class="why-choose-pill pill-smarter">SMARTER WITH ADDUS</span>
+                        <h3 class="why-choose-card-heading">The ADDUS Way</h3>
+                        <ul class="why-choose-list">
+                            <li>
+                                <span class="why-choose-icon-wrap icon-green-check">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </span>
+                                <span class="why-choose-list-text">Tell us what you're building</span>
+                            </li>
+                            <li>
+                                <span class="why-choose-icon-wrap icon-green-check">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </span>
+                                <span class="why-choose-list-text">AI understands your business</span>
+                            </li>
+                            <li>
+                                <span class="why-choose-icon-wrap icon-green-check">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </span>
+                                <span class="why-choose-list-text">Get one unified strategy</span>
+                            </li>
+                            <li>
+                                <span class="why-choose-icon-wrap icon-green-check">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </span>
+                                <span class="why-choose-list-text">Work with the right experts automatically</span>
+                            </li>
+                            <li>
+                                <span class="why-choose-icon-wrap icon-green-check">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                                </span>
+                                <span class="why-choose-list-text">Everything coordinated from one place</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- FLOATING CIRCULAR VS BADGE -->
+                <div class="why-choose-vs-badge">VS</div>
             </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="footer-v7">
-        <div class="container">
-            <div class="footer-grid-v7">
-                <div class="footer-brand">
-                    <a href="#" class="logo-link">
+    <footer class="footer-v7-wrapper" style="background: url('footer-clean-min.jpg') no-repeat center center / cover !important; padding: 24px 16px !important; position: relative !important; display: flex !important; justify-content: center !important; align-items: center !important; width: 100% !important; box-sizing: border-box !important;">
+        <div class="footer-full-white-card" style="background: #ffffff !important; background-color: #ffffff !important; border-radius: 20px !important; max-width: 1200px !important; margin: 0 auto !important; padding: 20px 32px !important; box-shadow: 0 16px 48px rgba(0,0,0,0.1) !important; border: 1px solid #eaeaea !important; width: 100% !important; box-sizing: border-box !important;">
+            
+            <!-- STATEMENT INSIDE WHITE RECTANGLE -->
+            <div class="footer-card-statement" style="display: flex !important; align-items: center !important; justify-content: center !important; gap: 10px !important; text-align: center !important; padding-bottom: 12px !important; border-bottom: 1px solid #f3f4f6 !important; margin-bottom: 14px !important;">
+                <p style="font-size: 0.95rem !important; font-weight: 500 !important; color: #1f2937 !important; margin: 0 !important; line-height: 1.4 !important;">
+                    <strong style="font-weight: 800 !important; color: #111111 !important;">ADDUS</strong> combines strategy, creative expertise and execution into one coordinated system that transforms ideas into trusted business presence.
+                </p>
+            </div>
+
+            <!-- MAIN GRID INSIDE WHITE RECTANGLE -->
+            <div class="footer-grid-v7" style="display: grid !important; grid-template-columns: 2fr 1fr 1fr !important; gap: 24px !important; align-items: start !important; margin-bottom: 14px !important;">
+                <div class="footer-brand" style="align-self: start !important;">
+                    <a href="#" class="logo-link" style="text-decoration: none !important;">
                         <img src="addus.svg" alt="ADDUS Logo" class="logo-img">
-                        <span class="logo-text">ADDUS<span>.</span></span>
+                        <span class="logo-text" style="color: #111111 !important; font-weight: 800 !important; font-size: 1.4rem !important;">ADDUS<span style="color: #10b981 !important;">.</span></span>
                     </a>
-                    <p>Every business deserves to be professionally seen.</p>
+                    <p style="color: #4b5563 !important; font-size: 0.9rem !important; margin-top: 4px !important; line-height: 1.4 !important;">Every business deserves to be professionally seen.</p>
                 </div>
-                <div class="footer-column-v7">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links-v7">
-                        <li><a href="#hero-section">Home</a></li>
-                        <li><a href="#brands-built">Proof</a></li>
-                        <li><a href="#why-addus">Why ADDUS</a></li>
-                        <li><a href="#what-happens">What Happens</a></li>
-                        <li><a href="#journeys">Journeys</a></li>
-                        <li><a href="#why-choose">Why Choose</a></li>
+                <div class="footer-column-v7" style="align-self: start !important;">
+                    <h4 style="color: #111111 !important; font-size: 0.75rem !important; text-transform: uppercase !important; letter-spacing: 0.08em !important; font-weight: 700 !important; margin-bottom: 8px !important;">Quick Links</h4>
+                    <ul class="footer-links-v7" style="list-style: none !important; padding: 0 !important; margin: 0 !important; display: flex !important; flex-direction: column !important; gap: 6px !important;">
+                        <li><a href="#hero-section" style="color: #111111 !important; font-size: 0.88rem !important; text-decoration: none !important; font-weight: 600 !important;">Home</a></li>
+                        <li><a href="#brands-built" style="color: #4b5563 !important; font-size: 0.88rem !important; text-decoration: none !important; font-weight: 500 !important;">Proof</a></li>
+                        <li><a href="#why-addus" style="color: #4b5563 !important; font-size: 0.88rem !important; text-decoration: none !important; font-weight: 500 !important;">Why ADDUS</a></li>
+                        <li><a href="#what-happens" style="color: #4b5563 !important; font-size: 0.88rem !important; text-decoration: none !important; font-weight: 500 !important;">What Happens</a></li>
+                        <li><a href="#journeys" style="color: #4b5563 !important; font-size: 0.88rem !important; text-decoration: none !important; font-weight: 500 !important;">Journeys</a></li>
+                        <li><a href="#why-choose" style="color: #4b5563 !important; font-size: 0.88rem !important; text-decoration: none !important; font-weight: 500 !important;">Why Choose</a></li>
                     </ul>
                 </div>
-                <div class="footer-column-v7">
-                    <h4>Contact</h4>
-                    <ul class="footer-links-v7">
-                        <li><a href="mailto:addusindia@gmail.com">addusindia@gmail.com</a></li>
-                        <li><a href="tel:8943573519">8943573519</a></li>
-                        <li><a href="#" class="trigger-waitlist-modal">Join Waitlist</a></li>
+                <div class="footer-column-v7" style="align-self: start !important;">
+                    <h4 style="color: #111111 !important; font-size: 0.75rem !important; text-transform: uppercase !important; letter-spacing: 0.08em !important; font-weight: 700 !important; margin-bottom: 8px !important;">Contact</h4>
+                    <ul class="footer-links-v7" style="list-style: none !important; padding: 0 !important; margin: 0 !important; display: flex !important; flex-direction: column !important; gap: 6px !important;">
+                        <li><a href="mailto:addusindia@gmail.com" style="color: #4b5563 !important; font-size: 0.88rem !important; text-decoration: none !important; font-weight: 500 !important;">addusindia@gmail.com</a></li>
+                        <li><a href="tel:8943573519" style="color: #4b5563 !important; font-size: 0.88rem !important; text-decoration: none !important; font-weight: 500 !important;">8943573519</a></li>
+                        <li><a href="#" class="trigger-waitlist-modal" style="color: #111111 !important; font-size: 0.88rem !important; font-weight: 600 !important; text-decoration: underline !important;">Join Waitlist</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom-v7">
-                <p>&copy; 2026 ADDUS. All rights reserved.</p>
-                <div class="footer-socials">
-                    <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
-                    <a href="#" aria-label="GitHub"><i data-lucide="github"></i></a>
+
+            <!-- BOTTOM COPYRIGHT & SOCIALS INSIDE WHITE RECTANGLE -->
+            <div class="footer-bottom-v7" style="display: flex !important; justify-content: space-between !important; align-items: center !important; border-top: 1px solid #f3f4f6 !important; padding-top: 12px !important;">
+                <p style="color: #6b7280 !important; font-size: 0.85rem !important; margin: 0 !important; font-weight: 500 !important;">&copy; 2026 ADDUS. All rights reserved.</p>
+                <div class="footer-socials" style="display: flex !important; gap: 10px !important; align-items: center !important;">
+                    <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" style="color: #111111 !important; background: #e5e7eb !important; width: 36px !important; height: 36px !important; border-radius: 50% !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; text-decoration: none !important; transition: background 0.2s ease, transform 0.2s ease !important;" onmouseover="this.style.background='#d1d5db'; this.style.transform='scale(1.08)';" onmouseout="this.style.background='#e5e7eb'; this.style.transform='scale(1)';">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" style="color: #111111 !important; background: #e5e7eb !important; width: 36px !important; height: 36px !important; border-radius: 50% !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; text-decoration: none !important; transition: background 0.2s ease, transform 0.2s ease !important;" onmouseover="this.style.background='#d1d5db'; this.style.transform='scale(1.08)';" onmouseout="this.style.background='#e5e7eb'; this.style.transform='scale(1)';">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    <a href="https://x.com" target="_blank" rel="noopener" aria-label="X" style="color: #111111 !important; background: #e5e7eb !important; width: 36px !important; height: 36px !important; border-radius: 50% !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; text-decoration: none !important; transition: background 0.2s ease, transform 0.2s ease !important;" onmouseover="this.style.background='#d1d5db'; this.style.transform='scale(1.08)';" onmouseout="this.style.background='#e5e7eb'; this.style.transform='scale(1)';">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
                 </div>
             </div>
         </div>
@@ -328,13 +1275,183 @@
                         <option value="enterprise">Enterprise Manager</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary" style="width:100%;margin-top:1rem;color:#fff;">Secure Early Access</button>
+                <button type="submit" class="btn" style="width: 100% !important; margin-top: 1.25rem !important; background: #111111 !important; color: #FFFFFF !important; border-radius: 10px !important; padding: 0.95rem 1.5rem !important; font-weight: 600 !important; font-size: 0.98rem !important; border: none !important; box-shadow: 0 6px 20px rgba(0,0,0,0.15) !important;">Secure Early Access</button>
             </form>
         </div>
     </div>
 
+    <!-- DETAILED JOURNEY TIMELINE MODAL -->
+    <div class="modal" id="journey-detail-modal">
+        <div class="modal-overlay" onclick="closeJourneyModal()"></div>
+        <div class="modal-content" style="max-width: 580px !important; max-height: 85vh !important; overflow-y: auto !important; position: relative !important; z-index: 1000000 !important;">
+            <button class="modal-close" aria-label="Close modal" onclick="closeJourneyModal()">&times;</button>
+            <h3 class="modal-title" id="j-modal-title" style="color: #111111 !important; margin-bottom: 4px !important;">Business Journey Detail</h3>
+            <p class="modal-desc" id="j-modal-subtitle" style="color: #5E6272 !important; margin-bottom: 20px !important;">Step-by-step roadmap tailored by ADDUS</p>
+            <div class="timeline-flow" id="j-modal-timeline">
+                <!-- Dynamically populated timeline content -->
+            </div>
+            <button class="btn-cta-build trigger-waitlist-modal" onclick="closeJourneyModal()" style="width: 100% !important; justify-content: center !important; margin-top: 24px !important; background: #111111 !important; color: #FFFFFF !important; border-radius: 12px !important; padding: 12px !important;">Start Your Business Journey &rarr;</button>
+        </div>
+    </div>
+
+    <script>
+        var journeyData = {
+            resort: {
+                title: "Open a Resort",
+                subtitle: "Luxury hospitality launch.",
+                goal: "Open a luxury resort guests trust before they even arrive.",
+                understand: ["Resort concept", "Target guests", "Location", "Brand positioning", "Experience", "Budget", "Launch timeline"],
+                strategy: "ADDUS creates a complete professional presence roadmap.",
+                presence: ["Brand Identity", "Photography", "Videography", "Website", "Booking Experience", "Social Media Presence", "Launch Content", "Marketing Collateral"],
+                execution: "ADDUS coordinates photographers, designers, developers, writers and marketing specialists. You never manage multiple vendors.",
+                outcome: "A launch-ready resort with a professional presence people trust."
+            },
+            cafe: {
+                title: "Open a Café",
+                subtitle: "Create a memorable café people want to visit.",
+                goal: "Launch a café customers remember.",
+                understand: ["Café concept", "Audience", "Location", "Brand personality", "Budget"],
+                strategy: "A roadmap is created to build a memorable café presence.",
+                presence: ["Brand Identity", "Logo", "Menu Design", "Interior Photography", "Website", "Google Business Profile", "Social Media", "Launch Campaign"],
+                execution: "ADDUS coordinates creative specialists while keeping everything consistent.",
+                outcome: "A café with a strong professional presence from day one."
+            },
+            skincare: {
+                title: "Launch a Skincare Brand",
+                subtitle: "Build trust from the first impression.",
+                goal: "Launch a skincare brand customers trust.",
+                understand: ["Product range", "Target customers", "Brand positioning", "Market", "Packaging requirements"],
+                strategy: "ADDUS defines everything required for a successful launch.",
+                presence: ["Brand Strategy", "Identity", "Packaging Design", "Product Photography", "Website", "Content", "Launch Assets", "Marketing Materials"],
+                execution: "Verified specialists create every touchpoint while ADDUS manages the entire process.",
+                outcome: "A premium skincare brand ready for market."
+            },
+            saas: {
+                title: "Start a SaaS",
+                subtitle: "Launch with confidence.",
+                goal: "Launch a software company customers trust.",
+                understand: ["Product", "Users", "Market", "Positioning", "Growth goals"],
+                strategy: "A launch roadmap is created.",
+                presence: ["Brand Identity", "Website", "Landing Pages", "Product Visuals", "Demo Video", "Investor Presentation", "Marketing Assets", "Content"],
+                execution: "Everything is managed together instead of across multiple freelancers.",
+                outcome: "A launch-ready SaaS brand with a professional presence."
+            },
+            retail: {
+                title: "Open a Retail Store",
+                subtitle: "Build a brand customers remember.",
+                goal: "Create a retail business people recognize instantly.",
+                understand: ["Products", "Audience", "Store concept", "Expansion plans"],
+                strategy: "ADDUS creates the complete business presence roadmap.",
+                presence: ["Brand Identity", "Store Signage", "Packaging", "Photography", "Website", "Catalog", "Social Media", "Promotional Assets"],
+                execution: "ADDUS coordinates every specialist while maintaining consistency.",
+                outcome: "A retail brand ready for both online and offline customers."
+            },
+            clinic: {
+                title: "Open a Clinic",
+                subtitle: "Build confidence before the first appointment.",
+                goal: "Create a healthcare brand patients trust.",
+                understand: ["Medical specialty", "Patient audience", "Clinic positioning", "Services"],
+                strategy: "A roadmap focused on credibility and trust.",
+                presence: ["Brand Identity", "Clinic Photography", "Website", "Doctor Profiles", "Appointment Experience", "Educational Content", "Patient Communication", "Marketing Assets"],
+                execution: "Healthcare-focused specialists execute every stage under ADDUS coordination.",
+                outcome: "A trusted clinic with a professional presence patients feel confident choosing."
+            }
+        };
+
+        function openJourneyModal(key) {
+            var jModal = document.getElementById('journey-detail-modal');
+            if (!jModal) return;
+            var data = journeyData[key];
+            if (!data) return;
+
+            var titleEl = document.getElementById('j-modal-title');
+            var subEl = document.getElementById('j-modal-subtitle');
+            if (titleEl) titleEl.textContent = data.title;
+            if (subEl) subEl.textContent = data.subtitle;
+
+            var timeline = document.getElementById('j-modal-timeline');
+            if (timeline) {
+                var html = '';
+                html += '<div class="timeline-step">';
+                html += '  <span class="timeline-dot"></span>';
+                html += '  <div class="timeline-step-label">Step 1 — Business Goal</div>';
+                html += '  <div class="timeline-step-title" style="color:#111111 !important; font-weight:700 !important; font-size:1.05rem !important;">' + data.goal + '</div>';
+                html += '</div>';
+
+                html += '<div class="timeline-step">';
+                html += '  <span class="timeline-dot"></span>';
+                html += '  <div class="timeline-step-label">Step 2 — Business Understanding</div>';
+                html += '  <div class="timeline-step-title" style="color:#111111 !important; font-weight:700 !important;">ADDUS understands</div>';
+                html += '  <div class="timeline-tags" style="display:flex; flex-wrap:wrap; gap:6px; margin-top:8px;">';
+                for (var i = 0; i < data.understand.length; i++) {
+                    html += '<span class="timeline-tag-pill" style="background:#F3F4F6 !important; color:#1F2937 !important; font-weight:600 !important; padding:4px 10px; border-radius:12px; border:1px solid #E5E7EB;">' + data.understand[i] + '</span>';
+                }
+                html += '  </div>';
+                html += '</div>';
+
+                html += '<div class="timeline-step">';
+                html += '  <span class="timeline-dot"></span>';
+                html += '  <div class="timeline-step-label">Step 3 — Strategy</div>';
+                html += '  <div class="timeline-step-title" style="color:#111111 !important; font-weight:700 !important;">' + data.strategy + '</div>';
+                html += '</div>';
+
+                html += '<div class="timeline-step">';
+                html += '  <span class="timeline-dot"></span>';
+                html += '  <div class="timeline-step-label">Step 4 — Professional Presence</div>';
+                html += '  <div class="timeline-tags" style="display:flex; flex-wrap:wrap; gap:6px; margin-top:8px;">';
+                for (var j = 0; j < data.presence.length; j++) {
+                    html += '<span class="timeline-tag-pill" style="background:#ECFDF5 !important; color:#065F46 !important; font-weight:600 !important; padding:4px 10px; border-radius:12px; border:1px solid #A7F3D0 !important;">' + data.presence[j] + '</span>';
+                }
+                html += '  </div>';
+                html += '</div>';
+
+                html += '<div class="timeline-step">';
+                html += '  <span class="timeline-dot"></span>';
+                html += '  <div class="timeline-step-label">Step 5 — Coordinated Execution</div>';
+                html += '  <div class="timeline-step-desc" style="color:#4B5563 !important; line-height:1.5 !important;">' + data.execution + '</div>';
+                html += '</div>';
+
+                html += '<div class="timeline-step">';
+                html += '  <span class="timeline-dot" style="border-color:#10B981 !important; background:#10B981 !important;"></span>';
+                html += '  <div class="timeline-step-label" style="color:#10B981 !important; font-weight:700 !important;">Final Outcome</div>';
+                html += '  <div class="outcome-highlight-box" style="background:#ECFDF5 !important; border:1px solid #A7F3D0 !important; border-radius:12px; padding:12px 16px; color:#065F46 !important; font-weight:600 !important; margin-top:6px;">' + data.outcome + '</div>';
+                html += '</div>';
+
+                timeline.innerHTML = html;
+            }
+
+            jModal.classList.add('active');
+            jModal.style.setProperty('display', 'flex', 'important');
+            jModal.style.setProperty('opacity', '1', 'important');
+            jModal.style.setProperty('pointer-events', 'auto', 'important');
+            jModal.style.setProperty('z-index', '999999', 'important');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeJourneyModal() {
+            var jModal = document.getElementById('journey-detail-modal');
+            if (!jModal) return;
+            jModal.classList.remove('active');
+            jModal.style.setProperty('display', 'none', 'important');
+            jModal.style.setProperty('opacity', '0', 'important');
+            jModal.style.setProperty('pointer-events', 'none', 'important');
+            document.body.style.overflow = '';
+        }
+    </script>
+
+    <!-- Floating Bottom Action Bar -->
+    <div class="floating-action-bar-container">
+        <div class="floating-action-bar">
+            <div class="floating-action-bar-left trigger-waitlist-modal">
+                <span class="chat-icon">💬</span>
+                <span class="action-bar-text">Tell us what you're building...</span>
+            </div>
+            <button class="btn btn-action-bar-primary trigger-waitlist-modal">Start Building</button>
+        </div>
+    </div>
+
     <!-- Scripts -->
-    <script src="script-v6.js"></script>
+    <script src="script-v6.js?v=19.0"></script>
     <script>lucide.createIcons();</script>
 </body>
 </html>
