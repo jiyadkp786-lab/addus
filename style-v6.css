@@ -3697,6 +3697,44 @@ select.form-control {
     .hero-video-wrapper {
         margin-bottom: 24px;
     }
+    .footer-v7-wrapper {
+        padding: 24px 16px 140px 16px !important;
+    }
+    .footer-full-white-card {
+        padding: 24px 20px 36px 20px !important;
+    }
+    .footer-grid-v7 {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 24px !important;
+        align-items: center !important;
+        text-align: center !important;
+    }
+    .footer-brand, .footer-column-v7 {
+        align-self: center !important;
+        text-align: center !important;
+    }
+    .footer-links-v7 {
+        align-items: center !important;
+    }
+    .footer-bottom-v7 {
+        flex-direction: column-reverse !important;
+        gap: 16px !important;
+        align-items: center !important;
+        text-align: center !important;
+        margin-top: 24px !important;
+        padding-top: 20px !important;
+        border-top: 1px solid #f3f4f6 !important;
+    }
+    .footer-socials {
+        display: flex !important;
+        justify-content: center !important;
+        gap: 16px !important;
+        width: 100% !important;
+    }
+    .footer-socials a {
+        margin-left: 0 !important;
+    }
 }
 
 
