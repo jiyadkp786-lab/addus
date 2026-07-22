@@ -2860,7 +2860,10 @@ select.form-control {
         font-size: 0.9rem !important;
     }
     .footer-links-v7 a {
-        word-break: break-all !important;
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        hyphens: none !important;
     }
 }
 /* ==========================================================================
@@ -3417,14 +3420,25 @@ select.form-control {
     }
     .footer-full-white-card .footer-grid-v7 {
         grid-template-columns: 1fr !important;
-        gap: 24px !important;
+        gap: 36px !important;
     }
     .footer-full-white-card .footer-bottom-v7 {
         flex-direction: column-reverse !important;
         gap: 14px !important;
         align-items: flex-start !important;
     }
+    .footer-links-v7 a,
+    .footer-brand p,
+    .footer-card-statement p,
+    .footer-column-v7 h4 {
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
+        white-space: normal !important;
+        hyphens: none !important;
+    }
 }
+
+.footer-card-cta-bar {
     display: flex !important;
     justify-content: space-between !important;
     align-items: center !important;

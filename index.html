@@ -29,7 +29,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <!-- Styles -->
-    <link rel="stylesheet" href="style-v6.css?v=163.0">
+    <link rel="stylesheet" href="style-v6.css?v=169.0">
 </head>
 <body>
     <!-- Navigation -->
@@ -529,8 +529,10 @@
                 border-radius: 24px !important;
                 padding: 44px 36px !important;
                 box-shadow: 0 16px 48px rgba(0,0,0,0.04) !important;
-                margin-bottom: 60px !important;
+                margin-bottom: 40px !important;
                 transition: opacity 0.3s ease !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
             }
             .active-j-header {
                 text-align: center !important;
@@ -552,12 +554,37 @@
                 margin: 0 !important;
             }
 
+            /* REVEAL CONTAINER WITH SMOOTH ANIMATION */
+            .journey-reveal-container {
+                display: none;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+                width: 100% !important;
+            }
+            .journey-reveal-container.show {
+                display: block !important;
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+            }
+
             /* 4 CONNECTED STAGE CARDS */
             .flow-cards-grid {
                 display: grid !important;
                 grid-template-columns: repeat(4, 1fr) !important;
                 gap: 20px !important;
                 position: relative !important;
+                width: 100% !important;
+            }
+            @media (max-width: 1024px) {
+                .flow-cards-grid {
+                    grid-template-columns: repeat(2, 1fr) !important;
+                }
+            }
+            @media (max-width: 640px) {
+                .flow-cards-grid {
+                    grid-template-columns: 1fr !important;
+                }
             }
             @media (max-width: 1024px) {
                 .flow-cards-grid {
@@ -656,21 +683,21 @@
                 line-height: 1.5 !important;
             }
 
-            /* FINAL CTA BANNER AT BOTTOM OF JOURNEYS */
             .journeys-cta-banner {
-                background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%) !important;
+                background: url('cta-bg.png') no-repeat center center / cover !important;
                 border-radius: 24px !important;
                 padding: 50px 36px !important;
                 text-align: center !important;
                 color: #FFFFFF !important;
-                box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25) !important;
+                box-shadow: 0 20px 50px rgba(37, 99, 235, 0.15) !important;
             }
             .journeys-cta-heading {
                 font-size: 0.85rem !important;
                 font-weight: 700 !important;
                 letter-spacing: 0.15em !important;
                 text-transform: uppercase !important;
-                color: #10B981 !important;
+                color: #FFFFFF !important;
+                opacity: 0.9 !important;
                 margin-bottom: 10px !important;
                 display: inline-block !important;
             }
@@ -680,13 +707,15 @@
                 letter-spacing: -0.035em !important;
                 line-height: 1.15 !important;
                 margin-bottom: 14px !important;
-                background: linear-gradient(135deg, #FFFFFF 60%, #94A3B8 100%) !important;
-                -webkit-background-clip: text !important;
-                -webkit-text-fill-color: transparent !important;
+                background: none !important;
+                -webkit-background-clip: unset !important;
+                -webkit-text-fill-color: #FFFFFF !important;
+                color: #FFFFFF !important;
             }
             .journeys-cta-sub {
                 font-size: clamp(0.95rem, 1.4vw, 1.05rem) !important;
-                color: #94A3B8 !important;
+                color: #FFFFFF !important;
+                opacity: 0.95 !important;
                 max-width: 680px !important;
                 margin: 0 auto 28px auto !important;
                 line-height: 1.6 !important;
@@ -747,11 +776,11 @@
 
             <!-- TABS SELECTOR BAR -->
             <div class="j-tabs-wrapper">
-                <button class="j-tab-btn active" onclick="switchJourneyTab('resort', this)">
+                <button class="j-tab-btn" onclick="switchJourneyTab('resort', this)">
                     <span></span> Resort
                 </button>
                 <button class="j-tab-btn" onclick="switchJourneyTab('cafe', this)">
-                    <span></span> Café
+                    <span></span> Cafe
                 </button>
                 <button class="j-tab-btn" onclick="switchJourneyTab('skincare', this)">
                     <span></span> Skincare
@@ -767,25 +796,27 @@
                 </button>
             </div>
 
-            <!-- LIVE JOURNEY DISPLAY CANVAS (IN-PAGE DISPLAY) -->
-            <div class="journey-display-canvas" id="active-journey-canvas">
-                <div class="active-j-header">
-                    <h3 class="active-j-title" id="active-j-title">Open a Resort</h3>
-                    <p class="active-j-subtitle" id="active-j-subtitle">Launch a luxury beach resort people trust.</p>
+            <!-- LIVE JOURNEY DISPLAY CANVAS (IN-PAGE DISPLAY) & FINAL CTA BANNER -->
+            <div class="journey-reveal-container" id="journey-reveal-container">
+                <div class="journey-display-canvas" id="active-journey-canvas">
+                    <div class="active-j-header">
+                        <h3 class="active-j-title" id="active-j-title">Open a Resort</h3>
+                        <p class="active-j-subtitle" id="active-j-subtitle">Launch a luxury beach resort people trust.</p>
+                    </div>
+
+                    <!-- 4 CONNECTED STAGE CARDS -->
+                    <div class="flow-cards-grid" id="flow-cards-container">
+                        <!-- Populated dynamically by switchJourneyTab -->
+                    </div>
                 </div>
 
-                <!-- 4 CONNECTED STAGE CARDS -->
-                <div class="flow-cards-grid" id="flow-cards-container">
-                    <!-- Populated dynamically by switchJourneyTab -->
+                <!-- FINAL CTA BANNER -->
+                <div class="journeys-cta-banner">
+                    <span class="journeys-cta-heading">THE FIRST STEP</span>
+                    <h2 class="journeys-cta-quote">&ldquo;What are you building?&rdquo;</h2>
+                    <p class="journeys-cta-sub">Tell us what you're building. ADDUS will understand your business, create the right roadmap, coordinate everything needed, and help you build a professional presence people trust.</p>
+                    <button class="btn-cta-build trigger-waitlist-modal">Tell Us What You're Building &rarr;</button>
                 </div>
-            </div>
-
-            <!-- FINAL CTA BANNER -->
-            <div class="journeys-cta-banner">
-                <span class="journeys-cta-heading">THE FIRST STEP</span>
-                <h2 class="journeys-cta-quote">&ldquo;What are you building?&rdquo;</h2>
-                <p class="journeys-cta-sub">Tell us what you're building. ADDUS will understand your business, create the right roadmap, coordinate everything needed, and help you build a professional presence people trust.</p>
-                <button class="btn-cta-build trigger-waitlist-modal">Tell Us What You're Building &rarr;</button>
             </div>
         </div>
     </section>
@@ -802,12 +833,12 @@
                 outcome: "Launch-ready resort with a professional presence people trust."
             },
             cafe: {
-                title: "Open a Café",
-                subtitle: "Create a café customers remember.",
-                goal: "Open a memorable café.",
+                title: "Open a Cafe",
+                subtitle: "Create a cafe customers remember.",
+                goal: "Open a memorable cafe.",
                 understand: ["Concept", "Audience", "Location", "Personality"],
                 presence: ["Brand Identity", "Menu", "Photography", "Website", "Social Presence", "Google Business"],
-                outcome: "A café ready to welcome customers."
+                outcome: "A cafe ready to welcome customers."
             },
             skincare: {
                 title: "Launch a Skincare Brand",
@@ -858,13 +889,13 @@
 
                 // CARD 1: Business Goal
                 html += '<div class="flow-card">';
-                html += '  <div class="flow-card-head"><span class="flow-card-icon">🎯</span> Business Goal</div>';
+                html += '  <div class="flow-card-head">Business Goal</div>';
                 html += '  <div style="font-size:0.95rem; font-weight:700; color:#111111; line-height:1.4;">' + data.goal + '</div>';
                 html += '</div>';
 
                 // CARD 2: ADDUS Understands
                 html += '<div class="flow-card">';
-                html += '  <div class="flow-card-head"><span class="flow-card-icon">🧠</span> ADDUS Understands</div>';
+                html += '  <div class="flow-card-head">ADDUS Understands</div>';
                 html += '  <ul class="flow-list">';
                 for (var i = 0; i < data.understand.length; i++) {
                     html += '<li class="flow-list-item"><span class="check">✓</span> ' + data.understand[i] + '</li>';
@@ -874,7 +905,7 @@
 
                 // CARD 3: Professional Presence
                 html += '<div class="flow-card">';
-                html += '  <div class="flow-card-head"><span class="flow-card-icon">✨</span> Professional Presence</div>';
+                html += '  <div class="flow-card-head">Professional Presence</div>';
                 html += '  <div class="pill-tag-container">';
                 for (var j = 0; j < data.presence.length; j++) {
                     html += '<span class="flow-pill-tag">✓ ' + data.presence[j] + '</span>';
@@ -884,7 +915,7 @@
 
                 // CARD 4: Outcome
                 html += '<div class="flow-card">';
-                html += '  <div class="flow-card-head"><span class="flow-card-icon">🚀</span> Outcome</div>';
+                html += '  <div class="flow-card-head">Outcome</div>';
                 html += '  <div class="outcome-box">' + data.outcome + '</div>';
                 html += '</div>';
 
@@ -897,23 +928,39 @@
             tabs.forEach(function(tab) { tab.classList.remove('active'); });
             if (btnEl) btnEl.classList.add('active');
 
-            var canvas = document.getElementById('active-journey-canvas');
-            if (canvas) {
-                canvas.style.opacity = '0.5';
-                setTimeout(function() {
-                    renderJourneyFlow(key);
-                    canvas.style.opacity = '1';
-                }, 120);
-            } else {
-                renderJourneyFlow(key);
-            }
-        }
+            var container = document.getElementById('journey-reveal-container');
+            if (!container) return;
 
-        // Initialize default view (Resort) on load
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function() { renderJourneyFlow('resort'); });
-        } else {
-            renderJourneyFlow('resort');
+            // If first time opening
+            if (!container.classList.contains('show')) {
+                renderJourneyFlow(key);
+                container.style.display = 'block';
+                // Force reflow
+                container.offsetHeight;
+                container.classList.add('show');
+
+                // Smooth scroll if outside viewport
+                setTimeout(function() {
+                    var rect = container.getBoundingClientRect();
+                    var isOutside = (rect.bottom > window.innerHeight || rect.top < 0);
+                    if (isOutside) {
+                        container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            } else {
+                // Fade out content inside container
+                var canvas = document.getElementById('active-journey-canvas');
+                if (canvas) {
+                    canvas.style.opacity = '0';
+                    canvas.style.transform = 'translateY(10px)';
+                    canvas.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+                    setTimeout(function() {
+                        renderJourneyFlow(key);
+                        canvas.style.opacity = '1';
+                        canvas.style.transform = 'translateY(0)';
+                    }, 200);
+                }
+            }
         }
     </script>
 
@@ -1211,7 +1258,7 @@
             </div>
 
             <!-- MAIN GRID INSIDE WHITE RECTANGLE -->
-            <div class="footer-grid-v7" style="display: grid !important; grid-template-columns: 2fr 1fr 1fr !important; gap: 24px !important; align-items: start !important; margin-bottom: 14px !important;">
+            <div class="footer-grid-v7">
                 <div class="footer-brand" style="align-self: start !important;">
                     <a href="#" class="logo-link" style="text-decoration: none !important;">
                         <img src="addus.svg" alt="ADDUS Logo" class="logo-img">
@@ -1241,7 +1288,7 @@
             </div>
 
             <!-- BOTTOM COPYRIGHT & SOCIALS INSIDE WHITE RECTANGLE -->
-            <div class="footer-bottom-v7" style="display: flex !important; justify-content: space-between !important; align-items: center !important; border-top: 1px solid #f3f4f6 !important; padding-top: 12px !important;">
+            <div class="footer-bottom-v7">
                 <p style="color: #6b7280 !important; font-size: 0.85rem !important; margin: 0 !important; font-weight: 500 !important;">&copy; 2026 ADDUS. All rights reserved.</p>
                 <div class="footer-socials" style="display: flex !important; gap: 10px !important; align-items: center !important;">
                     <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" style="color: #111111 !important; background: #e5e7eb !important; width: 36px !important; height: 36px !important; border-radius: 50% !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; text-decoration: none !important; transition: background 0.2s ease, transform 0.2s ease !important;" onmouseover="this.style.background='#d1d5db'; this.style.transform='scale(1.08)';" onmouseout="this.style.background='#e5e7eb'; this.style.transform='scale(1)';">
