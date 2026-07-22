@@ -374,6 +374,7 @@ p {
 .logo-img {
     height: 20px;
     width: auto;
+    object-fit: contain;
 }
 
 .logo-text span {
@@ -2903,7 +2904,7 @@ select.form-control {
 }
 
 .why-choose-lime-text {
-    background: linear-gradient(135deg, #10B981 0%, #059669 100%) !important;
+    background: linear-gradient(135deg, #d946ef 0%, #8b5cf6 100%) !important;
     background-clip: text !important;
     -webkit-background-clip: text !important;
     -webkit-text-fill-color: transparent !important;
