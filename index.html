@@ -230,25 +230,25 @@
                     padding: 0 !important;
                     box-shadow: none !important;
                     border: none !important;
-                    max-width: 1060px !important;
+                    max-width: 1280px !important;
                     margin: 0 auto !important;
                     position: relative !important;
                 }
                 .bento-grid-container {
                     display: grid !important;
                     grid-template-columns: 1.15fr 1fr !important;
-                    gap: 1.25rem !important;
+                    gap: 24px !important;
                     position: relative !important;
                 }
                 .bento-col-left, .bento-col-right {
                     display: flex !important;
                     flex-direction: column !important;
-                    gap: 1.25rem !important;
+                    gap: 24px !important;
                 }
                 .bento-row-top {
                     display: grid !important;
                     grid-template-columns: 1fr 1fr !important;
-                    gap: 1.25rem !important;
+                    gap: 24px !important;
                 }
                 .bento-col-left .bento-item {
                     opacity: 0;
@@ -444,20 +444,20 @@
         <style>
             .journeys-section {
                 background: #FAFAFC !important;
-                padding: 90px 0 !important;
+                padding: 112px 0 !important;
                 position: relative !important;
                 width: 100% !important;
                 box-sizing: border-box !important;
             }
             .journeys-container {
-                max-width: 1180px !important;
+                max-width: 1280px !important;
                 margin: 0 auto !important;
-                padding: 0 24px !important;
+                padding: 0 32px !important;
                 box-sizing: border-box !important;
             }
             .journeys-header {
                 max-width: 780px !important;
-                margin: 0 auto 40px auto !important;
+                margin: 0 auto 48px auto !important;
                 text-align: center !important;
             }
             .journeys-subtitle-tag {
@@ -466,7 +466,7 @@
                 letter-spacing: 0.15em !important;
                 text-transform: uppercase !important;
                 color: #10B981 !important;
-                margin-bottom: 0.5rem !important;
+                margin-bottom: 12px !important;
                 display: inline-block !important;
             }
             .journeys-title {
@@ -474,7 +474,7 @@
                 font-weight: 700 !important;
                 color: #111111 !important;
                 -webkit-text-fill-color: #111111 !important;
-                margin-bottom: 0.75rem !important;
+                margin-bottom: 16px !important;
                 letter-spacing: -0.03em !important;
                 line-height: 1.2 !important;
             }
@@ -491,7 +491,7 @@
                 flex-wrap: wrap !important;
                 justify-content: center !important;
                 gap: 12px !important;
-                margin-bottom: 45px !important;
+                margin-bottom: 48px !important;
             }
             .j-tab-btn {
                 background: #FFFFFF !important;
@@ -526,16 +526,16 @@
                 background: #FFFFFF !important;
                 border: 1px solid #E5E7EB !important;
                 border-radius: 24px !important;
-                padding: 44px 36px !important;
+                padding: 48px 40px !important;
                 box-shadow: 0 16px 48px rgba(0,0,0,0.04) !important;
-                margin-bottom: 40px !important;
+                margin-bottom: 48px !important;
                 transition: opacity 0.3s ease !important;
                 width: 100% !important;
                 box-sizing: border-box !important;
             }
             .active-j-header {
                 text-align: center !important;
-                margin-bottom: 40px !important;
+                margin-bottom: 48px !important;
                 padding-bottom: 24px !important;
                 border-bottom: 1px solid #F3F4F6 !important;
             }
@@ -571,7 +571,7 @@
             .flow-cards-grid {
                 display: grid !important;
                 grid-template-columns: repeat(4, 1fr) !important;
-                gap: 20px !important;
+                gap: 24px !important;
                 position: relative !important;
                 width: 100% !important;
             }
@@ -685,7 +685,7 @@
             .journeys-cta-banner {
                 background: url('cta-bg.png') no-repeat center center / cover !important;
                 border-radius: 24px !important;
-                padding: 50px 36px !important;
+                padding: 48px 40px !important;
                 text-align: center !important;
                 color: #FFFFFF !important;
                 box-shadow: 0 20px 50px rgba(37, 99, 235, 0.15) !important;
@@ -795,7 +795,7 @@
                 </button>
             </div>
 
-            <!-- LIVE JOURNEY DISPLAY CANVAS (IN-PAGE DISPLAY) & FINAL CTA BANNER -->
+            <!-- LIVE JOURNEY DISPLAY CANVAS (IN-PAGE DISPLAY) -->
             <div class="journey-reveal-container" id="journey-reveal-container">
                 <div class="journey-display-canvas" id="active-journey-canvas">
                     <div class="active-j-header">
@@ -808,14 +808,14 @@
                         <!-- Populated dynamically by switchJourneyTab -->
                     </div>
                 </div>
+            </div>
 
-                <!-- FINAL CTA BANNER -->
-                <div class="journeys-cta-banner">
-                    <span class="journeys-cta-heading">THE FIRST STEP</span>
-                    <h2 class="journeys-cta-quote">&ldquo;What are you building?&rdquo;</h2>
-                    <p class="journeys-cta-sub">Tell us what you're building. ADDUS will understand your business, create the right roadmap, coordinate everything needed, and help you build a professional presence people trust.</p>
-                    <button class="btn-cta-build trigger-waitlist-modal">Tell Us What You're Building &rarr;</button>
-                </div>
+            <!-- FINAL CTA BANNER (ALWAYS VISIBLE) -->
+            <div class="journeys-cta-banner" style="margin-top: 40px !important;">
+                <span class="journeys-cta-heading">THE FIRST STEP</span>
+                <h2 class="journeys-cta-quote">&ldquo;What are you building?&rdquo;</h2>
+                <p class="journeys-cta-sub">Tell us what you're building. ADDUS will understand your business, create the right roadmap, coordinate everything needed, and help you build a professional presence people trust.</p>
+                <button class="btn-cta-build trigger-waitlist-modal">Tell Us What You're Building &rarr;</button>
             </div>
         </div>
     </section>
@@ -961,6 +961,13 @@
                 }
             }
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var firstTab = document.querySelector('.j-tab-btn');
+            if (firstTab) {
+                switchJourneyTab('resort', firstTab);
+            }
+        });
     </script>
 
     <!-- BRAND NEW COMPARISON SECTION -->
@@ -968,7 +975,7 @@
         <style>
             .why-choose-section {
                 background-color: #FFFFFF !important;
-                padding: 80px 0 !important;
+                padding: 112px 0 !important;
                 position: relative !important;
                 width: 100% !important;
                 box-sizing: border-box !important;
@@ -977,15 +984,15 @@
                 transform: none !important;
             }
             .why-choose-container {
-                max-width: 1140px !important;
+                max-width: 1280px !important;
                 margin: 0 auto !important;
-                padding: 0 20px !important;
+                padding: 0 32px !important;
                 text-align: center !important;
                 box-sizing: border-box !important;
             }
             .why-choose-header {
                 max-width: 780px !important;
-                margin: 0 auto 50px auto !important;
+                margin: 0 auto 48px auto !important;
                 text-align: center !important;
             }
             .why-choose-title {
@@ -1246,8 +1253,8 @@
     </section>
 
     <!-- FOOTER -->
-    <footer class="footer-v7-wrapper" style="background: url('footer-clean-min.jpg') no-repeat center center / cover !important; padding: 24px 16px !important; position: relative !important; display: flex !important; justify-content: center !important; align-items: center !important; width: 100% !important; box-sizing: border-box !important;">
-        <div class="footer-full-white-card" style="background: #ffffff !important; background-color: #ffffff !important; border-radius: 20px !important; max-width: 1200px !important; margin: 0 auto !important; padding: 20px 32px !important; box-shadow: 0 16px 48px rgba(0,0,0,0.1) !important; border: 1px solid #eaeaea !important; width: 100% !important; box-sizing: border-box !important;">
+    <footer class="footer-v7-wrapper" style="background: url('footer-clean-min.jpg') no-repeat center center / cover !important; padding: 32px 16px !important; position: relative !important; display: flex !important; justify-content: center !important; align-items: center !important; width: 100% !important; box-sizing: border-box !important;">
+        <div class="footer-full-white-card" style="background: #ffffff !important; background-color: #ffffff !important; border-radius: 24px !important; max-width: 1280px !important; margin: 0 auto !important; padding: 32px 48px !important; box-shadow: 0 16px 48px rgba(0,0,0,0.06) !important; border: 1px solid #eaeaea !important; width: 100% !important; box-sizing: border-box !important;">
             
             <!-- STATEMENT INSIDE WHITE RECTANGLE -->
             <div class="footer-card-statement" style="display: flex !important; align-items: center !important; justify-content: center !important; gap: 10px !important; text-align: center !important; padding-bottom: 12px !important; border-bottom: 1px solid #f3f4f6 !important; margin-bottom: 14px !important;">

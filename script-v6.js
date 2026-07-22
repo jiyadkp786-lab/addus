@@ -333,10 +333,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         const scaleProgress = self.progress; 
                         const targetScale = BASE_SCALE - SCALE_PER_CARD * scaleProgress;
                         const opacity = 1 - 0.15 * scaleProgress; // subtle dimming
-                        const blur = 1.5 * scaleProgress; // subtle blur
                         
                         card.style.transform = `scale(${targetScale})`;
-                        card.style.filter = `blur(${blur}px)`;
+                        card.style.filter = 'none';
                         card.style.opacity = opacity;
                     }
                 }
