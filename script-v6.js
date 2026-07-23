@@ -427,64 +427,64 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     const journeyData = {
         resort: {
-            title: "Open a Resort",
-            subtitle: "Luxury hospitality launch.",
-            goal: "Open a luxury resort guests trust before they even arrive.",
-            understand: ["Resort concept", "Target guests", "Location", "Brand positioning", "Experience", "Budget", "Launch timeline"],
-            strategy: "ADDUS creates a complete professional presence roadmap.",
-            presence: ["Brand Identity", "Photography", "Videography", "Website", "Booking Experience", "Social Media Presence", "Launch Content", "Marketing Collateral"],
-            execution: "ADDUS coordinates photographers, designers, developers, writers and marketing specialists. You never manage multiple vendors.",
+            title: "Open a Luxury Resort",
+            subtitle: "Establish an exclusive hospitality destination guests trust before booking.",
+            goal: "Launch a high-end resort with immediate premium credibility.",
+            understand: ["Target Guest Expectations", "Resort Positioning", "Guest Experience Journey", "Booking Dynamics"],
+            strategy: "ADDUS creates a complete professional presence roadmap tailored to your resort.",
+            presence: ["Identity", "Visual Assets", "Digital Presence", "Communication", "Experiences"],
+            execution: "ADDUS coordinates verified specialists across identity, digital presence, and content. You never manage vendors.",
             outcome: "A launch-ready resort with a professional presence people trust."
         },
         cafe: {
-            title: "Open a Café",
-            subtitle: "Create a memorable café people want to visit.",
-            goal: "Launch a café customers remember.",
-            understand: ["Café concept", "Audience", "Location", "Brand personality", "Budget"],
-            strategy: "A roadmap is created to build a memorable café presence.",
-            presence: ["Brand Identity", "Logo", "Menu Design", "Interior Photography", "Website", "Google Business Profile", "Social Media", "Launch Campaign"],
-            execution: "ADDUS coordinates creative specialists while keeping everything consistent.",
-            outcome: "A café with a strong professional presence from day one."
+            title: "Open an Artisanal Café",
+            subtitle: "Turn a neighborhood concept into an iconic daily destination.",
+            goal: "Build a distinctive café brand that attracts loyal daily regulars.",
+            understand: ["Café Concept & Vibe", "Local Demographics", "Menu Specialties", "Location Dynamics"],
+            strategy: "ADDUS creates a unified presence roadmap to build local brand authority.",
+            presence: ["Identity", "Packaging", "Visual Assets", "Digital Presence", "Communication"],
+            execution: "ADDUS aligns all specialists while ensuring full brand consistency.",
+            outcome: "A standalone local brand with strong foot traffic from day one."
         },
         skincare: {
             title: "Launch a Skincare Brand",
-            subtitle: "Build trust from the first impression.",
-            goal: "Launch a skincare brand customers trust.",
-            understand: ["Product range", "Target customers", "Brand positioning", "Market", "Packaging requirements"],
-            strategy: "ADDUS defines everything required for a successful launch.",
-            presence: ["Brand Strategy", "Identity", "Packaging Design", "Product Photography", "Website", "Content", "Launch Assets", "Marketing Materials"],
-            execution: "Verified specialists create every touchpoint while ADDUS manages the entire process.",
-            outcome: "A premium skincare brand ready for market."
+            subtitle: "Earn consumer trust from the very first unboxing.",
+            goal: "Introduce a clean skincare line into a competitive market.",
+            understand: ["Product Formulation Story", "Target Demographic", "Unboxing Experience", "Sales Funnel"],
+            strategy: "ADDUS defines every touchpoint required for a successful market entry.",
+            presence: ["Identity", "Packaging", "Visual Assets", "Digital Presence", "Marketing Assets"],
+            execution: "Verified specialists execute identity, packaging, and digital channels under single ADDUS ownership.",
+            outcome: "A retail-ready skincare brand trusted by buyers and consumers."
         },
         saas: {
-            title: "Start a SaaS",
-            subtitle: "Launch with confidence.",
-            goal: "Launch a software company customers trust.",
-            understand: ["Product", "Users", "Market", "Positioning", "Growth goals"],
-            strategy: "A launch roadmap is created.",
-            presence: ["Brand Identity", "Website", "Landing Pages", "Product Visuals", "Demo Video", "Investor Presentation", "Marketing Assets", "Content"],
-            execution: "Everything is managed together instead of across multiple freelancers.",
-            outcome: "A launch-ready SaaS brand with a professional presence."
+            title: "Start a B2B SaaS",
+            subtitle: "Transform complex tech into a clear, trustworthy product value proposition.",
+            goal: "Launch a software company enterprise users trust.",
+            understand: ["Core Product Utility", "User Pain Points", "Market Differentiators", "Growth Goals"],
+            strategy: "ADDUS maps out a comprehensive enterprise-ready presence roadmap.",
+            presence: ["Identity", "Digital Presence", "Content", "Communication", "Marketing Assets"],
+            execution: "Execution is managed end-to-end through one coordinated workflow.",
+            outcome: "A venture-ready software brand positioned for rapid growth."
         },
         retail: {
             title: "Open a Retail Store",
-            subtitle: "Build a brand customers remember.",
-            goal: "Create a retail business people recognize instantly.",
-            understand: ["Products", "Audience", "Store concept", "Expansion plans"],
-            strategy: "ADDUS creates the complete business presence roadmap.",
-            presence: ["Brand Identity", "Store Signage", "Packaging", "Photography", "Website", "Catalog", "Social Media", "Promotional Assets"],
-            execution: "ADDUS coordinates every specialist while maintaining consistency.",
-            outcome: "A retail brand ready for both online and offline customers."
+            subtitle: "Connect physical store experience with an omni-channel digital presence.",
+            goal: "Build an enduring retail brand with high customer retention.",
+            understand: ["Merchandise Curation", "Customer Journey", "Omni-channel Strategy", "Brand Storytelling"],
+            strategy: "ADDUS creates the complete physical and digital presence strategy.",
+            presence: ["Identity", "Packaging", "Visual Assets", "Digital Presence", "Communication"],
+            execution: "ADDUS coordinates every specialist while maintaining seamless consistency.",
+            outcome: "A unified retail brand loved in-person and online."
         },
         clinic: {
-            title: "Open a Clinic",
-            subtitle: "Build confidence before the first appointment.",
-            goal: "Create a healthcare brand patients trust.",
-            understand: ["Medical specialty", "Patient audience", "Clinic positioning", "Services"],
-            strategy: "A roadmap focused on credibility and trust.",
-            presence: ["Brand Identity", "Clinic Photography", "Website", "Doctor Profiles", "Appointment Experience", "Educational Content", "Patient Communication", "Marketing Assets"],
-            execution: "Healthcare-focused specialists execute every stage under ADDUS coordination.",
-            outcome: "A trusted clinic with a professional presence patients feel confident choosing."
+            title: "Open a Healthcare Clinic",
+            subtitle: "Instill patient confidence prior to the initial consultation.",
+            goal: "Establish a reputable healthcare practice built on patient trust.",
+            understand: ["Medical Expertise", "Patient Journey", "Credibility Requirements", "Service Offering"],
+            strategy: "A trust-first roadmap designed to build immediate patient confidence.",
+            presence: ["Identity", "Digital Presence", "Visual Assets", "Communication", "Experiences"],
+            execution: "Verified specialists execute every component under ADDUS coordination.",
+            outcome: "A reputable healthcare practice patients trust with confidence."
         }
     };
 
