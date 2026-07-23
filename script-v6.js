@@ -252,16 +252,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menuToggle');
     const navMenu = document.getElementById('nav-menu');
     if (menuToggle && navMenu) {
-        menuToggle.addEventListener('click', () => {
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
             menuToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
+            const isActive = navMenu.classList.toggle('active');
+            document.body.style.overflow = isActive ? 'hidden' : '';
         });
 
-        document.querySelectorAll('.nav-link, .nav-links button').forEach(link => {
+        document.querySelectorAll('.nav-link, .mobile-only-signin').forEach(link => {
             link.addEventListener('click', () => {
                 menuToggle.classList.remove('active');
                 navMenu.classList.remove('active');
+                document.body.style.overflow = '';
             });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (navMenu.classList.contains('active') && !navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+            }
         });
     }
 

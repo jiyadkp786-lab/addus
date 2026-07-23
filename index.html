@@ -29,7 +29,87 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <!-- Styles -->
-    <link rel="stylesheet" href="style-v6.css?v=169.0">
+    <link rel="stylesheet" href="style-v6.css?v=171.0">
+    <style>
+        /* High priority mobile responsive overrides */
+        .intelligence-grid, .trust-grid {
+            display: grid !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 24px !important;
+            text-align: left !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+        }
+
+        @media (max-width: 992px) {
+            .intelligence-grid, .trust-grid {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+            }
+
+            .floating-action-bar-container {
+                position: fixed !important;
+                bottom: 16px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                width: calc(100% - 32px) !important;
+                max-width: 500px !important;
+                margin: 0 auto !important;
+                z-index: 999999 !important;
+            }
+
+            .floating-action-bar {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: space-between !important;
+                flex-wrap: nowrap !important;
+                height: 52px !important;
+                padding: 6px 8px 6px 14px !important;
+                gap: 10px !important;
+                border-radius: 100px !important;
+                width: 100% !important;
+                background: rgba(255, 255, 255, 0.96) !important;
+                backdrop-filter: blur(20px) !important;
+                -webkit-backdrop-filter: blur(20px) !important;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18) !important;
+                border: 1px solid rgba(0, 0, 0, 0.08) !important;
+                box-sizing: border-box !important;
+            }
+
+            .floating-action-bar-left {
+                flex: 1 1 auto !important;
+                min-width: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 8px !important;
+                height: 38px !important;
+                padding: 0 4px !important;
+                border: none !important;
+                background: transparent !important;
+                box-shadow: none !important;
+            }
+
+            .floating-action-bar-left .action-bar-text {
+                font-size: clamp(0.78rem, 3.2vw, 0.85rem) !important;
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                max-width: 100% !important;
+            }
+
+            .btn-action-bar-primary {
+                flex: 0 0 auto !important;
+                height: 38px !important;
+                font-size: 0.82rem !important;
+                border-radius: 100px !important;
+                padding: 0 16px !important;
+                background: #000000 !important;
+                color: #FFFFFF !important;
+                white-space: nowrap !important;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -418,10 +498,8 @@
                 .bg-scale { background-image: url('scale_brand.jpg') !important; }
                 @media (max-width: 900px) {
                     .bento-grid-container { grid-template-columns: 1fr !important; }
-                    .card-freelancer-new, .card-subscription-new, .card-addus-new, .card-agency-new, .card-scale-new { height: auto !important; min-height: 200px !important; }
-                }
-                @media (max-width: 600px) {
                     .bento-row-top { grid-template-columns: 1fr !important; }
+                    .card-freelancer-new, .card-subscription-new, .card-addus-new, .card-agency-new, .card-scale-new { height: auto !important; min-height: 200px !important; }
                     .bento-grid-outer-card { padding: 1rem !important; border-radius: 20px !important; }
                 }
             </style>
@@ -549,7 +627,7 @@
         <div class="container" style="max-width: 1280px !important; margin: 0 auto !important; padding: 0 32px !important; text-align: center !important;">
             <span style="font-size: 0.75rem !important; font-weight: 700 !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; color: #8b5cf6 !important; margin-bottom: 8px !important; display: inline-block !important;">PLATFORM INTELLIGENCE</span>
             <h2 style="font-size: clamp(1.5rem, 2.5vw, 2rem) !important; font-weight: 700 !important; color: #111111 !important; margin-bottom: 40px !important; letter-spacing: -0.02em !important;">Behind Every ADDUS Project</h2>
-            <div class="intelligence-grid" style="display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 24px !important; text-align: left !important;">
+            <div class="intelligence-grid">
                 <div class="intel-card" style="background: #FAFAFC !important; border: 1px solid #EAEAEA !important; border-radius: 18px !important; padding: 28px 24px !important;">
                     <h3 style="font-size: 1.1rem !important; font-weight: 700 !important; color: #111111 !important; margin-bottom: 8px !important;">Business Brain</h3>
                     <p style="font-size: 0.92rem !important; color: #5E6272 !important; line-height: 1.5 !important; margin: 0 !important;">Understands your business.</p>
@@ -1398,7 +1476,7 @@
         <div class="container" style="max-width: 1280px !important; margin: 0 auto !important; padding: 0 32px !important; text-align: center !important;">
             <span style="font-size: 0.75rem !important; font-weight: 700 !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; color: #8b5cf6 !important; margin-bottom: 8px !important; display: inline-block !important;">TRUST & RELIABILITY</span>
             <h2 style="font-size: clamp(1.5rem, 2.5vw, 2rem) !important; font-weight: 700 !important; color: #111111 !important; margin-bottom: 40px !important; letter-spacing: -0.02em !important;">Why Businesses Trust ADDUS</h2>
-            <div class="trust-grid" style="display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 24px !important; text-align: left !important;">
+            <div class="trust-grid">
                 <div class="trust-card" style="background: #FFFFFF !important; border: 1px solid #EAEAEA !important; border-radius: 16px !important; padding: 24px !important; box-shadow: 0 4px 15px rgba(0,0,0,0.02) !important;">
                     <h3 style="font-size: 1.05rem !important; font-weight: 700 !important; color: #111111 !important; margin-bottom: 8px !important;">Business first planning</h3>
                     <p style="font-size: 0.9rem !important; color: #5E6272 !important; line-height: 1.5 !important; margin: 0 !important;">Strategy aligned with your goals before anything is built.</p>
@@ -1470,10 +1548,10 @@
             <div class="footer-bottom-v7">
                 <p style="color: #6b7280 !important; font-size: 0.85rem !important; margin: 0 !important; font-weight: 500 !important;">&copy; 2026 ADDUS. All rights reserved.</p>
                 <div class="footer-socials" style="display: flex !important; gap: 10px !important; align-items: center !important;">
-                    <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" style="color: #111111 !important; background: #e5e7eb !important; width: 36px !important; height: 36px !important; border-radius: 50% !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; text-decoration: none !important; transition: background 0.2s ease, transform 0.2s ease !important;" onmouseover="this.style.background='#d1d5db'; this.style.transform='scale(1.08)';" onmouseout="this.style.background='#e5e7eb'; this.style.transform='scale(1)';">
+                    <a href="https://www.instagram.com/addus__?igsh=NXQxNjg1MGtmaGhu" target="_blank" rel="noopener" aria-label="Instagram" style="color: #111111 !important; background: #e5e7eb !important; width: 36px !important; height: 36px !important; border-radius: 50% !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; text-decoration: none !important; transition: background 0.2s ease, transform 0.2s ease !important;" onmouseover="this.style.background='#d1d5db'; this.style.transform='scale(1.08)';" onmouseout="this.style.background='#e5e7eb'; this.style.transform='scale(1)';">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                     </a>
-                    <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" style="color: #111111 !important; background: #e5e7eb !important; width: 36px !important; height: 36px !important; border-radius: 50% !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; text-decoration: none !important; transition: background 0.2s ease, transform 0.2s ease !important;" onmouseover="this.style.background='#d1d5db'; this.style.transform='scale(1.08)';" onmouseout="this.style.background='#e5e7eb'; this.style.transform='scale(1)';">
+                    <a href="https://www.linkedin.com/company/addusdynamics/" target="_blank" rel="noopener" aria-label="LinkedIn" style="color: #111111 !important; background: #e5e7eb !important; width: 36px !important; height: 36px !important; border-radius: 50% !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; text-decoration: none !important; transition: background 0.2s ease, transform 0.2s ease !important;" onmouseover="this.style.background='#d1d5db'; this.style.transform='scale(1.08)';" onmouseout="this.style.background='#e5e7eb'; this.style.transform='scale(1)';">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                     </a>
                     <a href="https://x.com" target="_blank" rel="noopener" aria-label="X" style="color: #111111 !important; background: #e5e7eb !important; width: 36px !important; height: 36px !important; border-radius: 50% !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; text-decoration: none !important; transition: background 0.2s ease, transform 0.2s ease !important;" onmouseover="this.style.background='#d1d5db'; this.style.transform='scale(1.08)';" onmouseout="this.style.background='#e5e7eb'; this.style.transform='scale(1)';">
