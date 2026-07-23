@@ -96,44 +96,44 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const journeysRoadmapDetails = {
         resort: [
-            { title: "Brand Strategy", desc: "Audits boutique resort trends and plans eco-wellness positioning approved by experts." },
+            { title: "Brand Strategy", desc: "Audits boutique resort trends and plans eco wellness positioning approved by experts." },
             { title: "Identity Design", desc: "Crafts clean typographies, resort mark, and custom signage criteria guidelines." },
             { title: "Photography", desc: "Coordinated local photo shoots of villas, plates, and pool environments." },
-            { title: "Brand Film", desc: "Produces a 60-second aesthetic lifestyle film matching target demographics." },
+            { title: "Brand Film", desc: "Produces a 60 second aesthetic lifestyle film matching target demographics." },
             { title: "Website", desc: "Codes custom reservation frontend pages optimized for booking conversions." },
             { title: "Launch Assets", desc: "Final designs for guest menus, room cards, key tags, and Instagram posts." },
             { title: "Ready to Welcome Guests", desc: "Outcome completed: online direct booking pipeline fully functional. ✅" }
         ],
         brand: [
             { title: "Brand Strategy", desc: "Defines values, competitive gaps, packaging compliance, and product positioning." },
-            { title: "Packaging Design", desc: "Creates container labels, box layouts, and print-ready vector proofs." },
+            { title: "Packaging Design", desc: "Creates container labels, box layouts, and print ready vector proofs." },
             { title: "Photography", desc: "Studio product packshots and textures captured under strict lighting guidelines." },
-            { title: "Copywriting", desc: "Engaging, high-converting checkout copy and ingredient benefits text." },
-            { title: "Web Storefront", desc: "Custom-developed storefront backend optimized for fast cart checkout paths." },
-            { title: "Product Renders", desc: "High-resolution 3D renders of containers for social campaigns." },
-            { title: "Ready for Commerce", desc: "Outcome completed: direct-to-consumer store ready to receive first customers. ✅" }
+            { title: "Copywriting", desc: "Engaging, high converting checkout copy and ingredient benefits text." },
+            { title: "Web Storefront", desc: "Custom developed storefront backend optimized for fast cart checkout paths." },
+            { title: "Product Renders", desc: "High resolution 3D renders of containers for social campaigns." },
+            { title: "Ready for Commerce", desc: "Outcome completed: direct to consumer store ready to receive first customers. ✅" }
         ],
         product: [
             { title: "Product Strategy", desc: "Audits target consumer needs, materials selection, and packaging size constraints." },
             { title: "Industrial Design", desc: "Translates parameters to clean industrial sketches and structural renders." },
-            { title: "Box Vector Files", desc: "Outlines print-ready box vectors and commercial paper specifications." },
-            { title: "Photography", desc: "Captures product use-case details and environmental studio shots." },
-            { title: "Web Pre-Order Page", desc: "Builds a landing page configured to collect customer emails and orders." },
-            { title: "Product Film", desc: "Creates a 45-second motion graphics design explainer video." },
-            { title: "Ready for Launch", desc: "Outcome completed: product vectors, photos, and pre-orders online. ✅" }
+            { title: "Box Vector Files", desc: "Outlines print ready box vectors and commercial paper specifications." },
+            { title: "Photography", desc: "Captures product use case details and environmental studio shots." },
+            { title: "Web Pre Order Page", desc: "Builds a landing page configured to collect customer emails and orders." },
+            { title: "Product Film", desc: "Creates a 45 second motion graphics design explainer video." },
+            { title: "Ready for Launch", desc: "Outcome completed: product vectors, photos, and pre orders online. ✅" }
         ],
         cafe: [
             { title: "Brand Concept", desc: "Determines typography style guides, color tones, and local neighborhood demographics." },
             { title: "Typography Menu", desc: "Designs clean layout grids for menus, coffee tags, and sandwich boards." },
             { title: "Interior Signs", desc: "Prepares signage vector templates for storefront doors and indoor lights." },
-            { title: "Food Photography", desc: "Captures plating styles, close-ups, and barista pouring scenes." },
+            { title: "Food Photography", desc: "Captures plating styles, close ups, and barista pouring scenes." },
             { title: "Cafe Landing Page", desc: "Launches local search portal displaying locations, hours, and menus." },
             { title: "Social Templates", desc: "Delivers post assets and brand frameworks for local announcement feeds." },
             { title: "Ready to Serve", desc: "Outcome completed: local maps registered, reservation tables active. ✅" }
         ],
         ecommerce: [
             { title: "Ecommerce Plan", desc: "Audits competitor activewear segments, loading speed benchmarks, and user checkouts." },
-            { title: "UI Catalog Grids", desc: "Designs mobile-first catalog layouts, filters list, and cart checkout boxes." },
+            { title: "UI Catalog Grids", desc: "Designs mobile first catalog layouts, filters list, and cart checkout boxes." },
             { title: "Apparel Shoot", desc: "Lifestyle shoots on location and clean catalog product packshots." },
             { title: "Copywriting", desc: "Product descriptions, returns policy page, and transactional email copy." },
             { title: "Store Frontend Coded", desc: "Fully custom coded frontend with page loading speeds under 1.2 seconds." },
@@ -142,10 +142,10 @@ document.addEventListener('DOMContentLoaded', () => {
         ],
         funding: [
             { title: "Deck Structure Strategy", desc: "Outlines LP slide logic, revenue hooks, and target investor requirements." },
-            { title: "Slide Deck Design", desc: "Designs presentation slides matching high-end vector branding guidelines." },
+            { title: "Slide Deck Design", desc: "Designs presentation slides matching high end vector branding guidelines." },
             { title: "Financial Sheets", desc: "Builds interactive spreadsheets with detailed round modeling graphs." },
             { title: "Investor Portal Page", desc: "Codes secure portal workspace page to display deck links and details." },
-            { title: "Motion Graphic Film", desc: "Produces 45-second explaining film detailing core proprietary technology." },
+            { title: "Motion Graphic Film", desc: "Produces 45 second explaining film detailing core proprietary technology." },
             { title: "Pitch Ready", desc: "Outcome completed: investor presentations, modeling files, and secure portal active. ✅" }
         ]
     };
@@ -429,12 +429,12 @@ document.addEventListener('DOMContentLoaded', () => {
         resort: {
             title: "Open a Luxury Resort",
             subtitle: "Establish an exclusive hospitality destination guests trust before booking.",
-            goal: "Launch a high-end resort with immediate premium credibility.",
+            goal: "Launch a high end resort with immediate premium credibility.",
             understand: ["Target Guest Expectations", "Resort Positioning", "Guest Experience Journey", "Booking Dynamics"],
             strategy: "ADDUS creates a complete professional presence roadmap tailored to your resort.",
             presence: ["Identity", "Visual Assets", "Digital Presence", "Communication", "Experiences"],
             execution: "ADDUS coordinates verified specialists across identity, digital presence, and content. You never manage vendors.",
-            outcome: "A launch-ready resort with a professional presence people trust."
+            outcome: "A launch ready resort with a professional presence people trust."
         },
         cafe: {
             title: "Open an Artisanal Café",
@@ -454,34 +454,34 @@ document.addEventListener('DOMContentLoaded', () => {
             strategy: "ADDUS defines every touchpoint required for a successful market entry.",
             presence: ["Identity", "Packaging", "Visual Assets", "Digital Presence", "Marketing Assets"],
             execution: "Verified specialists execute identity, packaging, and digital channels under single ADDUS ownership.",
-            outcome: "A retail-ready skincare brand trusted by buyers and consumers."
+            outcome: "A retail ready skincare brand trusted by buyers and consumers."
         },
         saas: {
             title: "Start a B2B SaaS",
             subtitle: "Transform complex tech into a clear, trustworthy product value proposition.",
             goal: "Launch a software company enterprise users trust.",
             understand: ["Core Product Utility", "User Pain Points", "Market Differentiators", "Growth Goals"],
-            strategy: "ADDUS maps out a comprehensive enterprise-ready presence roadmap.",
+            strategy: "ADDUS maps out a comprehensive enterprise ready presence roadmap.",
             presence: ["Identity", "Digital Presence", "Content", "Communication", "Marketing Assets"],
-            execution: "Execution is managed end-to-end through one coordinated workflow.",
-            outcome: "A venture-ready software brand positioned for rapid growth."
+            execution: "Execution is managed end to end through one coordinated workflow.",
+            outcome: "A venture ready software brand positioned for rapid growth."
         },
         retail: {
             title: "Open a Retail Store",
-            subtitle: "Connect physical store experience with an omni-channel digital presence.",
+            subtitle: "Connect physical store experience with an omni channel digital presence.",
             goal: "Build an enduring retail brand with high customer retention.",
-            understand: ["Merchandise Curation", "Customer Journey", "Omni-channel Strategy", "Brand Storytelling"],
+            understand: ["Merchandise Curation", "Customer Journey", "Omni channel Strategy", "Brand Storytelling"],
             strategy: "ADDUS creates the complete physical and digital presence strategy.",
             presence: ["Identity", "Packaging", "Visual Assets", "Digital Presence", "Communication"],
             execution: "ADDUS coordinates every specialist while maintaining seamless consistency.",
-            outcome: "A unified retail brand loved in-person and online."
+            outcome: "A unified retail brand loved in person and online."
         },
         clinic: {
             title: "Open a Healthcare Clinic",
             subtitle: "Instill patient confidence prior to the initial consultation.",
             goal: "Establish a reputable healthcare practice built on patient trust.",
             understand: ["Medical Expertise", "Patient Journey", "Credibility Requirements", "Service Offering"],
-            strategy: "A trust-first roadmap designed to build immediate patient confidence.",
+            strategy: "A trust first roadmap designed to build immediate patient confidence.",
             presence: ["Identity", "Digital Presence", "Visual Assets", "Communication", "Experiences"],
             execution: "Verified specialists execute every component under ADDUS coordination.",
             outcome: "A reputable healthcare practice patients trust with confidence."
@@ -504,13 +504,13 @@ document.addEventListener('DOMContentLoaded', () => {
             timeline.innerHTML = `
                 <div class="timeline-step">
                     <span class="timeline-dot"></span>
-                    <div class="timeline-step-label">Step 1 — Business Goal</div>
+                    <div class="timeline-step-label">Step 1 Business Goal</div>
                     <div class="timeline-step-title">${data.goal}</div>
                 </div>
 
                 <div class="timeline-step">
                     <span class="timeline-dot"></span>
-                    <div class="timeline-step-label">Step 2 — Business Understanding</div>
+                    <div class="timeline-step-label">Step 2 Business Understanding</div>
                     <div class="timeline-step-title">ADDUS understands</div>
                     <div class="timeline-tags">
                         ${data.understand.map(u => `<span class="timeline-tag-pill">${u}</span>`).join('')}
@@ -519,13 +519,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 <div class="timeline-step">
                     <span class="timeline-dot"></span>
-                    <div class="timeline-step-label">Step 3 — Strategy</div>
+                    <div class="timeline-step-label">Step 3 Strategy</div>
                     <div class="timeline-step-title">${data.strategy}</div>
                 </div>
 
                 <div class="timeline-step">
                     <span class="timeline-dot"></span>
-                    <div class="timeline-step-label">Step 4 — Professional Presence</div>
+                    <div class="timeline-step-label">Step 4 Professional Presence</div>
                     <div class="timeline-tags">
                         ${data.presence.map(p => `<span class="timeline-tag-pill" style="background: #ECFDF5; color: #065F46; border-color: #A7F3D0;">${p}</span>`).join('')}
                     </div>
@@ -533,7 +533,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 <div class="timeline-step">
                     <span class="timeline-dot"></span>
-                    <div class="timeline-step-label">Step 5 — Coordinated Execution</div>
+                    <div class="timeline-step-label">Step 5 Coordinated Execution</div>
                     <div class="timeline-step-desc">${data.execution}</div>
                 </div>
 
