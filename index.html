@@ -32,7 +32,7 @@
     <link rel="stylesheet" href="style-v6.css?v=171.0">
     <style>
         /* High priority mobile responsive overrides */
-        .intelligence-grid, .trust-grid {
+        .intelligence-grid {
             display: grid !important;
             grid-template-columns: repeat(3, 1fr) !important;
             gap: 24px !important;
@@ -41,11 +41,157 @@
             box-sizing: border-box !important;
         }
 
-        @media (max-width: 992px) {
-            .intelligence-grid, .trust-grid {
+        /* Trust Carousel (Tesla Style) */
+        .trust-carousel-wrapper {
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            margin-top: 8px;
+        }
+
+        .trust-carousel-viewport {
+            width: 100%;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            cursor: grab;
+            padding: 8px 4px 16px 4px;
+            margin: 0 -4px;
+        }
+
+        .trust-carousel-viewport::-webkit-scrollbar {
+            display: none;
+        }
+
+        .trust-carousel-viewport.is-dragging {
+            scroll-behavior: auto !important;
+            scroll-snap-type: none !important;
+            cursor: grabbing !important;
+            user-select: none !important;
+        }
+
+        .trust-carousel-track {
+            display: flex;
+            gap: 24px;
+            width: max-content;
+        }
+
+        .trust-card {
+            flex: 0 0 calc((100% - 3 * 24px) / 4);
+            width: calc((100% - 3 * 24px) / 4);
+            min-width: 280px;
+            max-width: 320px;
+            height: 180px;
+            box-sizing: border-box;
+            background: #FFFFFF !important;
+            border: 1px solid #EAEAEA !important;
+            border-radius: 16px !important;
+            padding: 22px 24px !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02) !important;
+            text-align: left !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
+            scroll-snap-align: start;
+            transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .trust-card:hover {
+            transform: translateY(-2px);
+            border-color: #D1D5DB !important;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04) !important;
+        }
+
+        .trust-card-title {
+            font-size: clamp(20px, 1.6vw, 22px) !important;
+            font-weight: 500 !important;
+            color: #111111 !important;
+            margin-bottom: 8px !important;
+            line-height: 1.3 !important;
+            letter-spacing: -0.01em !important;
+        }
+
+        .trust-card-desc {
+            font-size: 15px !important;
+            color: #5E6272 !important;
+            line-height: 1.4 !important;
+            margin: 0 !important;
+        }
+
+        .trust-carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border: 1px solid #E5E7EB;
+            color: #111111;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+            transition: all 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+            opacity: 0.9;
+        }
+
+        .trust-carousel-btn:hover {
+            background: #111111;
+            color: #FFFFFF;
+            border-color: #111111;
+            transform: translateY(-50%) scale(1.08);
+            opacity: 1;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        .trust-prev {
+            left: -22px;
+        }
+
+        .trust-next {
+            right: -22px;
+        }
+
+        @media (min-width: 1025px) {
+            .trust-card {
+                flex: 0 0 calc((1216px - 3 * 24px) / 4) !important;
+                width: calc((1216px - 3 * 24px) / 4) !important;
+                max-width: 320px !important;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 641px) {
+            .intelligence-grid {
                 grid-template-columns: 1fr !important;
                 gap: 16px !important;
             }
+            .trust-card {
+                flex: 0 0 calc((100% - 24px) / 2) !important;
+                width: calc((100% - 24px) / 2) !important;
+                min-width: calc((100% - 24px) / 2) !important;
+            }
+            .trust-prev { left: -10px; }
+            .trust-next { right: -10px; }
+        }
+
+        @media (max-width: 640px) {
+            .trust-card {
+                flex: 0 0 100% !important;
+                width: 100% !important;
+                min-width: 100% !important;
+                height: 170px !important;
+            }
+            .trust-prev { left: -6px; width: 36px; height: 36px; }
+            .trust-next { right: -6px; width: 36px; height: 36px; }
+        }
 
             .floating-action-bar-container {
                 position: fixed !important;
@@ -1472,35 +1618,49 @@
     </section>
 
     <!-- TRUST SECTION -->
-    <section class="trust-pillars-section" id="why-trust-addus" style="background: #FAFAFC !important; padding: 80px 0 !important; border-top: 1px solid #EAEAEA !important;">
-        <div class="container" style="max-width: 1280px !important; margin: 0 auto !important; padding: 0 32px !important; text-align: center !important;">
-            <span style="font-size: 0.75rem !important; font-weight: 700 !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; color: #8b5cf6 !important; margin-bottom: 8px !important; display: inline-block !important;">TRUST & RELIABILITY</span>
-            <h2 style="font-size: clamp(1.5rem, 2.5vw, 2rem) !important; font-weight: 700 !important; color: #111111 !important; margin-bottom: 40px !important; letter-spacing: -0.02em !important;">Why Businesses Trust ADDUS</h2>
-            <div class="trust-grid">
-                <div class="trust-card" style="background: #FFFFFF !important; border: 1px solid #EAEAEA !important; border-radius: 16px !important; padding: 24px !important; box-shadow: 0 4px 15px rgba(0,0,0,0.02) !important;">
-                    <h3 style="font-size: 1.05rem !important; font-weight: 700 !important; color: #111111 !important; margin-bottom: 8px !important;">Business first planning</h3>
-                    <p style="font-size: 0.9rem !important; color: #5E6272 !important; line-height: 1.5 !important; margin: 0 !important;">Strategy aligned with your goals before anything is built.</p>
+    <section class="trust-pillars-section" id="why-trust-addus" style="background: #FAFAFC !important; padding: 48px 0 !important; border-top: 1px solid #EAEAEA !important; overflow: hidden !important;">
+        <div class="container" style="max-width: 1280px !important; margin: 0 auto !important; padding: 0 32px !important; text-align: center !important; position: relative !important;">
+            <span style="font-size: 0.75rem !important; font-weight: 600 !important; letter-spacing: 0.15em !important; text-transform: uppercase !important; color: #8b5cf6 !important; margin-bottom: 6px !important; display: inline-block !important;">TRUST & RELIABILITY</span>
+            <h2 style="font-size: clamp(24px, 2.2vw, 28px) !important; font-weight: 500 !important; color: #111111 !important; margin-bottom: 20px !important; letter-spacing: -0.02em !important; line-height: 1.2 !important;">Why Businesses Trust ADDUS</h2>
+            
+            <!-- TESLA STYLE HORIZONTAL CAROUSEL -->
+            <div class="trust-carousel-wrapper" id="trustCarouselWrapper">
+                <button class="trust-carousel-btn trust-prev" id="trustPrevBtn" aria-label="Previous card">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                </button>
+
+                <div class="trust-carousel-viewport" id="trustCarouselViewport">
+                    <div class="trust-carousel-track" id="trustCarouselTrack">
+                        <div class="trust-card">
+                            <h3 class="trust-card-title">Business first planning</h3>
+                            <p class="trust-card-desc">Strategy aligned with your goals before anything is built.</p>
+                        </div>
+                        <div class="trust-card">
+                            <h3 class="trust-card-title">Verified specialists</h3>
+                            <p class="trust-card-desc">Vetted experts matched specifically to your business requirements.</p>
+                        </div>
+                        <div class="trust-card">
+                            <h3 class="trust-card-title">Quality reviewed execution</h3>
+                            <p class="trust-card-desc">Rigorous standards applied across every asset to ensure consistency.</p>
+                        </div>
+                        <div class="trust-card">
+                            <h3 class="trust-card-title">One coordinated experience</h3>
+                            <p class="trust-card-desc">Single point of execution ownership so you never manage vendors.</p>
+                        </div>
+                        <div class="trust-card">
+                            <h3 class="trust-card-title">Deep business understanding</h3>
+                            <p class="trust-card-desc">We take the time to grasp your market position before executing.</p>
+                        </div>
+                        <div class="trust-card">
+                            <h3 class="trust-card-title">Knowledge grows over time</h3>
+                            <p class="trust-card-desc">Every completed project makes future execution faster and more aligned.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="trust-card" style="background: #FFFFFF !important; border: 1px solid #EAEAEA !important; border-radius: 16px !important; padding: 24px !important; box-shadow: 0 4px 15px rgba(0,0,0,0.02) !important;">
-                    <h3 style="font-size: 1.05rem !important; font-weight: 700 !important; color: #111111 !important; margin-bottom: 8px !important;">Verified specialists</h3>
-                    <p style="font-size: 0.9rem !important; color: #5E6272 !important; line-height: 1.5 !important; margin: 0 !important;">Vetted experts matched specifically to your business requirements.</p>
-                </div>
-                <div class="trust-card" style="background: #FFFFFF !important; border: 1px solid #EAEAEA !important; border-radius: 16px !important; padding: 24px !important; box-shadow: 0 4px 15px rgba(0,0,0,0.02) !important;">
-                    <h3 style="font-size: 1.05rem !important; font-weight: 700 !important; color: #111111 !important; margin-bottom: 8px !important;">Quality reviewed execution</h3>
-                    <p style="font-size: 0.9rem !important; color: #5E6272 !important; line-height: 1.5 !important; margin: 0 !important;">Rigorous standards applied across every asset to ensure consistency.</p>
-                </div>
-                <div class="trust-card" style="background: #FFFFFF !important; border: 1px solid #EAEAEA !important; border-radius: 16px !important; padding: 24px !important; box-shadow: 0 4px 15px rgba(0,0,0,0.02) !important;">
-                    <h3 style="font-size: 1.05rem !important; font-weight: 700 !important; color: #111111 !important; margin-bottom: 8px !important;">One coordinated experience</h3>
-                    <p style="font-size: 0.9rem !important; color: #5E6272 !important; line-height: 1.5 !important; margin: 0 !important;">Single point of execution ownership so you never manage vendors.</p>
-                </div>
-                <div class="trust-card" style="background: #FFFFFF !important; border: 1px solid #EAEAEA !important; border-radius: 16px !important; padding: 24px !important; box-shadow: 0 4px 15px rgba(0,0,0,0.02) !important;">
-                    <h3 style="font-size: 1.05rem !important; font-weight: 700 !important; color: #111111 !important; margin-bottom: 8px !important;">Deep business understanding</h3>
-                    <p style="font-size: 0.9rem !important; color: #5E6272 !important; line-height: 1.5 !important; margin: 0 !important;">We take the time to grasp your market position before executing.</p>
-                </div>
-                <div class="trust-card" style="background: #FFFFFF !important; border: 1px solid #EAEAEA !important; border-radius: 16px !important; padding: 24px !important; box-shadow: 0 4px 15px rgba(0,0,0,0.02) !important;">
-                    <h3 style="font-size: 1.05rem !important; font-weight: 700 !important; color: #111111 !important; margin-bottom: 8px !important;">Knowledge grows over time</h3>
-                    <p style="font-size: 0.9rem !important; color: #5E6272 !important; line-height: 1.5 !important; margin: 0 !important;">Every completed project makes future execution faster and more aligned.</p>
-                </div>
+
+                <button class="trust-carousel-btn trust-next" id="trustNextBtn" aria-label="Next card">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                </button>
             </div>
         </div>
     </section>
@@ -1763,6 +1923,117 @@
 
     <!-- Scripts -->
     <script src="script-v6.js?v=19.0"></script>
-    <script>lucide.createIcons();</script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var viewport = document.getElementById('trustCarouselViewport');
+            var wrapper = document.getElementById('trustCarouselWrapper');
+            var prevBtn = document.getElementById('trustPrevBtn');
+            var nextBtn = document.getElementById('trustNextBtn');
+            
+            if (!viewport || !wrapper) return;
+
+            var autoScrollTimer = null;
+            var isDragging = false;
+            var startX = 0;
+            var startScrollLeft = 0;
+            var scrollInterval = 3500; // Auto-scroll every 3.5 seconds
+
+            function getCardStep() {
+                var firstCard = viewport.querySelector('.trust-card');
+                if (!firstCard) return 300;
+                var track = viewport.querySelector('.trust-carousel-track');
+                var gap = 24;
+                if (track && window.getComputedStyle) {
+                    var style = window.getComputedStyle(track);
+                    gap = parseInt(style.gap) || 24;
+                }
+                return firstCard.offsetWidth + gap;
+            }
+
+            function scrollNext() {
+                var maxScroll = viewport.scrollWidth - viewport.clientWidth;
+                var step = getCardStep();
+                if (viewport.scrollLeft >= maxScroll - 10) {
+                    viewport.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    viewport.scrollBy({ left: step, behavior: 'smooth' });
+                }
+            }
+
+            function scrollPrev() {
+                var step = getCardStep();
+                if (viewport.scrollLeft <= 10) {
+                    var maxScroll = viewport.scrollWidth - viewport.clientWidth;
+                    viewport.scrollTo({ left: maxScroll, behavior: 'smooth' });
+                } else {
+                    viewport.scrollBy({ left: -step, behavior: 'smooth' });
+                }
+            }
+
+            function startAutoScroll() {
+                stopAutoScroll();
+                autoScrollTimer = setInterval(scrollNext, scrollInterval);
+            }
+
+            function stopAutoScroll() {
+                if (autoScrollTimer) {
+                    clearInterval(autoScrollTimer);
+                    autoScrollTimer = null;
+                }
+            }
+
+            if (prevBtn) {
+                prevBtn.addEventListener('click', function() {
+                    scrollPrev();
+                    startAutoScroll();
+                });
+            }
+            if (nextBtn) {
+                nextBtn.addEventListener('click', function() {
+                    scrollNext();
+                    startAutoScroll();
+                });
+            }
+
+            wrapper.addEventListener('mouseenter', stopAutoScroll);
+            wrapper.addEventListener('mouseleave', startAutoScroll);
+
+            viewport.addEventListener('mousedown', function(e) {
+                isDragging = true;
+                startX = e.pageX - viewport.offsetLeft;
+                startScrollLeft = viewport.scrollLeft;
+                viewport.classList.add('is-dragging');
+                stopAutoScroll();
+            });
+
+            window.addEventListener('mousemove', function(e) {
+                if (!isDragging) return;
+                e.preventDefault();
+                var x = e.pageX - viewport.offsetLeft;
+                var walk = (x - startX) * 1.2;
+                viewport.scrollLeft = startScrollLeft - walk;
+            });
+
+            window.addEventListener('mouseup', function() {
+                if (isDragging) {
+                    isDragging = false;
+                    viewport.classList.remove('is-dragging');
+                    startAutoScroll();
+                }
+            });
+
+            viewport.addEventListener('touchstart', function() {
+                stopAutoScroll();
+            }, { passive: true });
+
+            viewport.addEventListener('touchend', function() {
+                startAutoScroll();
+            }, { passive: true });
+
+            startAutoScroll();
+        });
+
+        lucide.createIcons();
+    </script>
 </body>
 </html>
